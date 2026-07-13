@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madeireira Mapa — Madeira, telhas e cobertura para sua obra | Bragança Paulista e Circuito das Águas</title>
+<meta name="description" content="Madeireira Mapa: madeira bruta, assoalho, deck, roliço tratado, telhas, chapas e portas. Corte sob medida, entrega em Bragança Paulista, Região Bragantina e Circuito das Águas. Orçamento no WhatsApp em minutos. Se é MAPA, pode confiar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================
+  CHECKLIST DE EDIÇÃO ANTES DE PUBLICAR (troque os marcadores)
+  ============================================================
+  [x] ANOS_MERCADO ......... preenchido (fundada em 01/07/2002, Bragança Paulista)
+  [ ] ENDERECO ............. seção "Onde estamos" + footer
+  [ ] HORARIO .............. topbar + seção "Onde estamos"
+  [ ] LINK_MAPS ............ botão "Como chegar"
+  [x] REGIAO_ENTREGA ....... Bragança Paulista, Região Bragantina e Circuito das Águas
+  [ ] DOF/IBAMA ............ só mantenha a claim se a empresa
+                             realmente emite documento de origem florestal
+  [x] LOGO ................. PNG oficial aplicado no header e rodapé
+  [ ] COR .................. --wood e --mata seguem a paleta de serraria;
+                             ajuste para o hex exato do logo se necessário
+  ============================================================
+-->
+
+<style>
+  :root{
+    --casca:   #1E170F;   /* casca / tinta forte  */
+    --serragem:#F7F2E8;   /* fundo               */
+    --papel:   #FFFFFF;
+    --wood:    #C07C2C;   /* madeira crua        */
+    --mata:    #2F5D34;   /* eucalipto tratado   */
+    --whats:   #128C4A;
+    --whats-lt:#25D366;
+    --fechado: #C0392B;
+    --linha:   #E2D8C6;
+    --cinza:   #6B6154;
+
+    --display:"Big Shoulders Display", Impact, sans-serif;
+    --corpo:"IBM Plex Sans", system-ui, sans-serif;
+    --dado:"IBM Plex Mono", monospace;
+
+    --raio:4px;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:var(--corpo);
+    background:var(--serragem);
+    color:var(--casca);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:64px; /* espaço da barra fixa mobile */
+  }
+  @media(min-width:860px){body{padding-bottom:0}}
+
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  :focus-visible{outline:3px solid var(--wood);outline-offset:2px}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  [id]{scroll-margin-top:90px}
+
+  /* ---------- motivo da trena: divisor com marcações ---------- */
+  .trena{
+    height:14px;
+    background-image:
+      linear-gradient(to right, var(--linha) 1px, transparent 1px),
+      linear-gradient(to right, var(--linha) 1px, transparent 1px);
+    background-size:50px 14px, 10px 6px;
+    background-repeat:repeat-x;
+    background-position:bottom left, bottom left;
+    border-bottom:1px solid var(--linha);
+  }
+
+  /* ---------- topbar ---------- */
+  .topbar{background:var(--casca);color:#D9CFBE;font-size:13px}
+  .topbar .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;min-height:38px;flex-wrap:wrap}
+  .topbar strong{color:#fff;font-weight:600}
+  .topbar .tb-list{display:flex;gap:18px;flex-wrap:wrap;list-style:none}
+  .topbar .tb-list li{display:flex;align-items:center;gap:6px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--whats-lt);display:inline-block}
+  .dot.fechado{background:var(--fechado)}
+
+  /* ---------- header ---------- */
+  header.top{position:sticky;top:0;z-index:60;background:var(--papel);border-bottom:1px solid var(--linha)}
+  header.top .wrap{display:flex;align-items:center;gap:24px;min-height:74px}
+  .logo{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:.5px;text-decoration:none;line-height:1;display:flex;align-items:center;gap:10px}
+  .logo b{color:var(--wood)}
+  .logo span{font-family:var(--corpo);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--cinza)}
+  .logo-img{height:42px;width:auto;display:block}
+  .logo-fundo-claro{background:#fff;padding:8px 14px;border-radius:var(--raio)}
+  nav.principal{margin-left:auto;display:none;gap:22px}
+  @media(min-width:1000px){nav.principal{display:flex}}
+  nav.principal a{font-size:14px;font-weight:600;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+  nav.principal a:hover{border-color:var(--wood)}
+  .piscar-destino{animation:piscar .5s step-start 6}
+  .piscar-fundo{animation:piscar-fundo 1.2s ease-in-out 3}
+  @keyframes piscar-fundo{
+    0%,100%{background-color:var(--papel)}
+    50%{background-color:rgba(192,124,44,.28)}
+  }
+  @keyframes piscar{50%{opacity:0}}
+  .btn-topo{margin-left:auto}
+  @media(min-width:1000px){.btn-topo{margin-left:0}}
+
+  /* ---------- botões ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:var(--corpo);font-size:15px;font-weight:600;
+    padding:13px 22px;border-radius:var(--raio);border:2px solid transparent;
+    text-decoration:none;cursor:pointer;transition:transform .12s ease, background .12s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-whats{background:var(--whats);color:#fff}
+  .btn-whats:hover{background:#0F7A40}
+  .btn-linha{background:transparent;color:var(--casca);border-color:var(--casca)}
+  .btn-linha:hover{background:var(--casca);color:#fff}
+  .btn-wood{background:var(--wood);color:#241a0c}
+  .btn-wood:hover{background:#A96A20}
+  .btn-sm{padding:9px 14px;font-size:13px}
+  .btn-full{width:100%}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 46px;background:
+      radial-gradient(1200px 300px at 15% 0%, rgba(192,124,44,.10), transparent 70%),
+      var(--serragem)}
+  .hero .wrap{display:grid;gap:40px;grid-template-columns:1fr}
+  @media(min-width:960px){.hero .wrap{grid-template-columns:1.05fr .95fr;align-items:start;gap:56px}}
+
+  .eyebrow{
+    font-family:var(--dado);font-size:12px;font-weight:600;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--mata);display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--mata)}
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(40px,6.4vw,68px);line-height:.95;letter-spacing:-.5px;text-transform:uppercase;
+  }
+  h1 em{font-style:normal;color:var(--wood)}
+  .hero p.lead{margin-top:18px;font-size:18px;max-width:33em;color:#3B3227}
+  .hero-ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .selos{margin-top:30px;display:flex;gap:8px;flex-wrap:wrap;list-style:none}
+  .selos li{
+    font-family:var(--dado);font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;
+    background:var(--papel);border:1px solid var(--linha);padding:7px 11px;border-radius:100px;
+  }
+
+  /* ---------- calculadora (elemento assinatura) ---------- */
+  .calc{background:var(--papel);border:1px solid var(--linha);border-top:5px solid var(--casca);border-radius:var(--raio);overflow:hidden}
+  .calc-head{padding:20px 22px 16px;border-bottom:1px dashed var(--linha)}
+  .calc-head h2{font-family:var(--display);font-size:30px;font-weight:700;text-transform:uppercase;line-height:1}
+  .calc-head p{font-size:13.5px;color:var(--cinza);margin-top:6px}
+  .calc-body{padding:20px 22px 24px}
+  .campo{margin-bottom:16px}
+  .campo label{display:block;font-family:var(--dado);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cinza);margin-bottom:7px}
+  .opcoes{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  @media(min-width:420px){.opcoes{grid-template-columns:repeat(3,1fr)}}
+  .opcoes button{
+    font-family:var(--corpo);font-size:13.5px;font-weight:600;
+    padding:11px 6px;background:var(--serragem);border:1px solid var(--linha);border-radius:var(--raio);
+    cursor:pointer;transition:.12s;
+  }
+  .opcoes button:hover{border-color:var(--casca)}
+  .opcoes button[aria-pressed="true"]{background:var(--casca);color:#fff;border-color:var(--casca)}
+  .linha-medida{display:flex;gap:10px;align-items:flex-end}
+  .linha-medida .campo{flex:1;margin-bottom:0}
+  input[type="number"]{
+    width:100%;font-family:var(--dado);font-size:20px;font-weight:600;
+    padding:12px 14px;border:1px solid var(--linha);border-radius:var(--raio);background:var(--serragem);color:var(--casca);
+  }
+  input[type="number"]:focus{background:#fff;border-color:var(--casca)}
+  .unidade{font-family:var(--dado);font-size:14px;font-weight:600;color:var(--cinza);padding-bottom:14px}
+
+  #resultado{margin-top:18px;border-top:1px dashed var(--linha);padding-top:16px}
+  #resultado[hidden]{display:none}
+  .lista-mat{list-style:none;font-size:14.5px}
+  .lista-mat li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--linha)}
+  .lista-mat li span:last-child{font-family:var(--dado);font-weight:600;white-space:nowrap}
+  .nota{font-size:12.5px;color:var(--cinza);margin:12px 0 16px;line-height:1.45}
+  .vazio{font-size:14px;color:var(--cinza);text-align:center;padding:14px 0}
+
+  /* ---------- faixa de diferenciais ---------- */
+  .faixa{background:var(--mata);color:#EAF2E5;padding:22px 0}
+  .faixa ul{list-style:none;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:840px){.faixa ul{grid-template-columns:repeat(4,1fr)}}
+  .faixa li{display:flex;gap:11px;align-items:flex-start}
+  .faixa .ic{font-family:var(--dado);font-size:13px;font-weight:600;color:#A9D18B;padding-top:2px}
+  .faixa b{display:block;font-size:15px;font-weight:600;color:#fff}
+  .faixa small{font-size:13px;opacity:.85;display:block;line-height:1.35}
+
+  /* ---------- seções ---------- */
+  section.bloco{padding:64px 0}
+  .cab{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+  .cab h2{font-family:var(--display);font-size:clamp(30px,4.2vw,44px);font-weight:700;text-transform:uppercase;line-height:1}
+  .cab p{color:var(--cinza);font-size:15px;margin-top:6px;max-width:44em}
+
+  /* categorias */
+  .grid-cat{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:700px){.grid-cat{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1000px){.grid-cat{grid-template-columns:repeat(3,1fr)}}
+  .cat{
+    background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);
+    padding:20px;text-decoration:none;display:flex;flex-direction:column;gap:6px;min-height:132px;
+    transition:.14s;position:relative;overflow:hidden;
+  }
+  .cat::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--wood);transition:width .18s ease}
+  .cat:hover{border-color:var(--casca);transform:translateY(-2px)}
+  .cat:hover::after{width:100%}
+  .cat h3{font-family:var(--display);font-size:24px;font-weight:700;text-transform:uppercase;line-height:1.05}
+  .cat small{font-size:13px;color:var(--cinza);line-height:1.4}
+  .cat .link{margin-top:auto;font-family:var(--dado);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--wood)}
+
+  /* produtos */
+  .grid-prod{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.grid-prod{grid-template-columns:repeat(4,1fr)}}
+  .prod{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);display:flex;flex-direction:column;overflow:hidden}
+  .prod-img{aspect-ratio:1/1;background:var(--serragem);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--linha)}
+  .prod-img img{width:100%;height:100%;object-fit:cover}
+  .prod-txt{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .prod h3{font-size:14px;font-weight:600;line-height:1.3;min-height:2.6em}
+  .prod h3 a{text-decoration:none}
+  .prod h3 a:hover{text-decoration:underline}
+  .sku{font-family:var(--dado);font-size:11px;color:var(--cinza)}
+  .preco{font-family:var(--dado);font-size:19px;font-weight:600;color:var(--mata)}
+  .preco small{display:block;font-size:11px;font-weight:500;color:var(--cinza)}
+  .sob-consulta{font-family:var(--dado);font-size:12px;font-weight:600;color:var(--cinza);text-transform:uppercase;letter-spacing:.5px}
+  .prod .btn{margin-top:auto}
+
+  /* seções de categoria (catálogo dentro da própria página) */
+  .cat-secao{margin-bottom:56px}
+  .cat-secao:last-child{margin-bottom:0}
+  .cat-secao .cab{margin-bottom:18px}
+
+  /* carrossel (categorias com muitos produtos) */
+  .termos-busca{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .chip-termo{
+    font-family:var(--dado);font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+    background:var(--papel);border:1px solid var(--linha);padding:7px 12px;border-radius:100px;
+    cursor:pointer;transition:.12s;
+  }
+  .chip-termo:hover{background:var(--casca);color:#fff;border-color:var(--casca)}
+  .carrossel-wrap{position:relative}
+  .carrossel-trilha{
+    display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:4px;
+    scrollbar-width:thin;
+  }
+  .carrossel-trilha .prod{flex:0 0 200px}
+  .carrossel-seta{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--linha);background:var(--papel);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;font-weight:700;
+    box-shadow:0 4px 12px rgba(30,23,15,.15);color:var(--casca);
+  }
+  .carrossel-seta:hover{background:var(--casca);color:#fff;border-color:var(--casca)}
+  .carrossel-seta.esquerda{left:-8px}
+  .carrossel-seta.direita{right:-8px}
+  @media(max-width:640px){.carrossel-seta{width:34px;height:34px}}
+
+  /* aplicações */
+  .grid-apl{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:900px){.grid-apl{grid-template-columns:repeat(4,1fr)}}
+  .apl{
+    background:var(--casca);color:#EDE4D6;border-radius:var(--raio);padding:24px 20px;
+    text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:.14s;
+    border:1px solid var(--casca);
+  }
+  .apl:hover{background:#2A2015;transform:translateY(-2px)}
+  .apl h3{font-family:var(--display);font-size:26px;font-weight:700;text-transform:uppercase;color:#fff;line-height:1}
+  .apl small{font-size:13px;opacity:.8;line-height:1.4}
+  .apl .link{margin-top:10px;font-family:var(--dado);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--wood)}
+
+  /* confiança */
+  .confia{background:var(--papel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .confia-grid{display:grid;gap:34px;grid-template-columns:1fr}
+  @media(min-width:900px){.confia-grid{grid-template-columns:1fr 1fr;align-items:center;gap:56px}}
+  .confia h2{font-family:var(--display);font-size:clamp(30px,4.2vw,46px);font-weight:700;text-transform:uppercase;line-height:1}
+  .confia .slogan{font-family:var(--display);font-size:28px;font-weight:700;color:var(--wood);text-transform:uppercase;margin-top:14px}
+  .confia p{margin-top:14px;color:#3B3227;font-size:16px;max-width:36em}
+  .pontos{list-style:none;display:grid;gap:2px}
+  .pontos li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--linha);align-items:flex-start}
+  .pontos li:first-child{border-top:1px solid var(--linha)}
+  .pontos .n{font-family:var(--dado);font-size:12px;font-weight:600;color:var(--wood);padding-top:3px;min-width:28px}
+  .pontos b{display:block;font-size:15.5px;font-weight:600}
+  .pontos small{font-size:13.5px;color:var(--cinza);line-height:1.45}
+  .visao-missao{display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:700px){.visao-missao{grid-template-columns:1fr 1fr}}
+
+  /* faq */
+  details{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);margin-bottom:8px}
+  details[open]{border-color:var(--casca)}
+  summary{padding:16px 18px;font-weight:600;font-size:15.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--dado);font-size:20px;color:var(--wood);font-weight:600}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 18px 18px;font-size:14.5px;color:#3B3227;max-width:60em}
+  .lista-manuais{list-style:none;padding:0 18px 18px;display:grid;gap:10px}
+  .lista-manuais a{font-size:14.5px;color:var(--casca);text-decoration:none;border-bottom:2px solid var(--wood)}
+  .lista-manuais a:hover{color:var(--wood)}
+
+  /* onde estamos */
+  .local{display:grid;gap:28px;grid-template-columns:1fr}
+  @media(min-width:860px){.local{grid-template-columns:1fr 1fr;gap:48px;align-items:center}}
+  .local-box{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:26px}
+  .local-box dl{display:grid;gap:14px}
+  .local-box dt{font-family:var(--dado);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cinza)}
+  .local-box dd{font-size:16px;font-weight:500}
+  .local-box dd a{text-decoration:none;border-bottom:2px solid var(--wood)}
+
+  /* cta final */
+  .cta-final{background:var(--casca);color:#F0E7D8;text-align:center;padding:70px 0}
+  .cta-final h2{font-family:var(--display);font-size:clamp(34px,5.5vw,58px);font-weight:800;text-transform:uppercase;color:#fff;line-height:.98}
+  .cta-final p{margin:16px auto 26px;max-width:34em;opacity:.85;font-size:17px}
+  .cta-final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta-final .btn-linha{color:#fff;border-color:#5B5040}
+  .cta-final .btn-linha:hover{background:#fff;color:var(--casca);border-color:#fff}
+
+  /* footer */
+  footer{background:#15100A;color:#9A9084;padding:52px 0 30px;font-size:14px}
+  .foot-grid{display:grid;gap:32px;grid-template-columns:1fr}
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+  footer h4{font-family:var(--dado);font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:#fff;margin-bottom:14px}
+  footer ul{list-style:none;display:grid;gap:8px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--wood)}
+  footer .sobre{font-size:14px;line-height:1.55;max-width:32em}
+  .rodape-fim{margin-top:40px;padding-top:20px;border-top:1px solid #2B2318;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;font-family:var(--dado)}
+
+  /* whatsapp flutuante */
+  .whats-flutuante{
+    position:fixed;right:16px;bottom:80px;z-index:85;
+    width:56px;height:56px;border-radius:50%;background:var(--whats-lt);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(30,23,15,.3);text-decoration:none;transition:background .12s ease;
+  }
+  .whats-flutuante::before{
+    content:"";position:absolute;inset:0;border-radius:50%;
+    border:3px solid var(--whats-lt);
+    animation:pulso-whats 2.5s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes pulso-whats{
+    0%{transform:scale(1);opacity:1}
+    70%{transform:scale(1.45);opacity:0}
+    100%{transform:scale(1.45);opacity:0}
+  }
+  .whats-flutuante:hover{background:var(--whats)}
+  .whats-flutuante svg{width:28px;height:28px;fill:#fff}
+  @media(min-width:860px){.whats-flutuante{bottom:24px}}
+
+  /* carrinho */
+  .carrinho-icone{
+    position:fixed;right:16px;top:90px;z-index:85;
+    width:48px;height:48px;border-radius:50%;background:var(--casca);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(30,23,15,.25);
+  }
+  .carrinho-icone svg{width:23px;height:23px;fill:#fff}
+  .carrinho-badge{
+    position:absolute;top:-4px;right:-4px;
+    background:var(--whats-lt);color:#0B2F18;font-family:var(--dado);font-size:11px;font-weight:700;
+    min-width:20px;height:20px;border-radius:100px;display:flex;align-items:center;justify-content:center;padding:0 4px;
+    border:2px solid var(--serragem);
+  }
+  .carrinho-overlay{position:fixed;inset:0;background:rgba(30,23,15,.5);z-index:95}
+  .carrinho-painel{
+    position:fixed;top:0;right:0;height:100%;width:100%;max-width:400px;
+    background:var(--papel);z-index:96;display:flex;flex-direction:column;
+    box-shadow:-8px 0 24px rgba(30,23,15,.2);
+  }
+  .carrinho-painel[hidden]{display:none}
+  .carrinho-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--linha)}
+  .carrinho-head h2{font-family:var(--display);font-size:24px;font-weight:700;text-transform:uppercase}
+  .carrinho-head button{background:none;border:none;font-size:26px;line-height:1;cursor:pointer;color:var(--casca)}
+  .carrinho-corpo{flex:1;overflow-y:auto;padding:6px 20px}
+  .item-carrinho{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--linha)}
+  .item-carrinho img{width:56px;height:56px;object-fit:cover;border-radius:var(--raio);border:1px solid var(--linha);flex-shrink:0}
+  .item-carrinho .info{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+  .item-carrinho .nome{font-size:13.5px;font-weight:600;line-height:1.3}
+  .item-carrinho .preco-unit{font-family:var(--dado);font-size:12px;color:var(--cinza)}
+  .qtd-stepper{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .qtd-stepper button{width:26px;height:26px;border:1px solid var(--linha);background:var(--serragem);border-radius:var(--raio);cursor:pointer;font-weight:700;font-family:var(--corpo)}
+  .qtd-stepper span{font-family:var(--dado);font-weight:600;min-width:18px;text-align:center}
+  .remover-item{background:none;border:none;color:var(--cinza);font-size:12.5px;text-decoration:underline;cursor:pointer;align-self:flex-start;margin-top:2px;font-family:var(--corpo)}
+  .carrinho-vazio{text-align:center;color:var(--cinza);font-size:14px;padding:40px 0}
+  .carrinho-rodape{padding:18px 20px;border-top:1px solid var(--linha)}
+  .carrinho-total{display:flex;justify-content:space-between;font-family:var(--dado);font-size:16px;font-weight:700;margin-bottom:14px}
+  #carrinho-finalizar[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+  /* barra fixa mobile */
+  .barra-fixa{
+    position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:1fr 1.4fr;
+    background:var(--papel);border-top:1px solid var(--linha);box-shadow:0 -6px 20px rgba(30,23,15,.10);
+  }
+  .barra-fixa a{
+    display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 8px;
+    font-weight:600;font-size:15px;text-decoration:none;
+  }
+  .barra-fixa .lig{color:var(--casca);border-right:1px solid var(--linha)}
+  .barra-fixa .wpp{background:var(--whats);color:#fff}
+  @media(min-width:860px){.barra-fixa{display:none}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <ul class="tb-list">
+      <li><span class="dot" id="status-loja-dot"></span> <span id="status-loja-texto">Aberto agora</span> — <strong>HORARIO: seg a sex 7h–17h · sáb 7h–12h</strong></li>
+    </ul>
+    <ul class="tb-list">
+      <li>Entrega própria em <strong>Bragança Paulista e Circuito das Águas</strong></li>
+      <li><a href="tel:+551140339449" style="text-decoration:none"><strong>(11) 4033-9449</strong></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="https://cdn.awsli.com.br/400x300/2550/2550639/logo/logo-4e70f3ea7c.png" alt="Madeireira Mapa">
+      <span>desde 2002</span>
+    </a>
+    <nav class="principal">
+      <a href="#categorias">Categorias</a>
+      <a href="#aplicacoes">Por tipo de obra</a>
+      <a href="#produtos">Mais pedidos</a>
+      <a href="#confianca">Quem somos</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#institucional" id="link-institucional">Institucional</a>
+    </nav>
+    <a class="btn btn-whats btn-sm btn-topo"
+       href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento."
+       target="_blank" rel="noopener">Pedir orçamento</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Madeireira em Bragança Paulista · 24 anos de obra</p>
+      <h1>Sua obra não<br>pode esperar<br><em>por um preço.</em></h1>
+      <p class="lead">Madeira bruta, assoalho, deck, roliço tratado, telhas, chapas e portas. Mande a medida no WhatsApp e receba o orçamento com quantidade, preço e prazo de entrega — sem precisar sair da obra.</p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-whats"
+           href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20de%20madeira."
+           target="_blank" rel="noopener">Falar com um vendedor agora</a>
+        <a class="btn btn-linha" href="#categorias">Ver o que temos em estoque</a>
+      </div>
+
+      <ul class="selos">
+        <li>Corte sob medida</li>
+        <li>Entrega própria</li>
+        <li>Nota fiscal</li>
+        <li>Retirada no pátio</li>
+        <li>Parcelamos em 6x</li>
+      </ul>
+    </div>
+
+    <!-- CALCULADORA -->
+    <div class="calc">
+      <div class="calc-head">
+        <h2>Calcule sua madeira</h2>
+        <p>Diga o tipo de obra e a medida. A gente monta a lista de material e envia direto pro WhatsApp do vendedor.</p>
+      </div>
+      <div class="calc-body">
+        <div class="campo">
+          <label id="lbl-obra">Tipo de obra</label>
+          <div class="opcoes" role="group" aria-labelledby="lbl-obra" id="opcoes-obra">
+            <button type="button" data-obra="telhado"  aria-pressed="true">Telhado</button>
+            <button type="button" data-obra="deck"     aria-pressed="false">Deck</button>
+            <button type="button" data-obra="assoalho" aria-pressed="false">Assoalho</button>
+            <button type="button" data-obra="forro"    aria-pressed="false">Forro</button>
+            <button type="button" data-obra="cerca"    aria-pressed="false">Cerca / mourão</button>
+            <button type="button" data-obra="pergolado"aria-pressed="false">Pergolado</button>
+          </div>
+        </div>
+
+        <div class="linha-medida">
+          <div class="campo">
+            <label for="medida" id="lbl-medida">Área do telhado</label>
+            <input type="number" id="medida" min="1" step="0.5" value="60" inputmode="decimal">
+          </div>
+          <div class="unidade" id="unidade">m²</div>
+        </div>
+
+        <div id="resultado" hidden>
+          <ul class="lista-mat" id="lista-mat"></ul>
+          <p class="nota">Estimativa de referência com base nos vãos mais usados. O vendedor confirma bitola, comprimento e perda antes de fechar o pedido.</p>
+          <a class="btn btn-whats btn-full" id="btn-enviar" href="#" target="_blank" rel="noopener">Enviar essa lista no WhatsApp</a>
+        </div>
+        <p class="vazio" id="vazio">Escolha o tipo de obra e informe a medida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trena"></div>
+
+<!-- FAIXA DE DIFERENCIAIS -->
+<div class="faixa">
+  <div class="wrap">
+    <ul>
+      <li><span class="ic">01</span><div><b>Corte sob medida</b><small>Você leva no tamanho da obra, sem sobra e sem serra na rua.</small></div></li>
+      <li><span class="ic">02</span><div><b>Entrega própria</b><small>Caminhão nosso em Bragança Paulista e Circuito das Águas. Prazo combinado na hora.</small></div></li>
+      <li><span class="ic">03</span><div><b>Madeira que aguenta</b><small>Cumaru, garapeira, peroba, cupiúba e eucalipto tratado em autoclave.</small></div></li>
+      <li><span class="ic">04</span><div><b>Pra obra e pra empresa</b><small>Nota fiscal, cadastro de CNPJ e condição para construtora.</small></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CATEGORIAS -->
+<section class="bloco" id="categorias">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <h2>O que você precisa</h2>
+        <p>Nove linhas de produto, do vigamento ao acabamento. Se não achar, pergunta — o pátio é maior que o site.</p>
+      </div>
+    </div>
+
+    <div class="grid-cat">
+      <a class="cat" href="#cat-madeiras">
+        <h3>Madeiras</h3>
+        <small>Caibro, viga, ripa, beiral. Cumaru, garapeira, peroba, cupiúba, amescla, pinus e eucalipto.</small>
+        <span class="link">Ver madeiras →</span>
+      </a>
+      <a class="cat" href="#cat-telhas">
+        <h3>Telhas e cumeeiras</h3>
+        <small>Cerâmica, concreto, fibrocimento e PET. Com cumeeira e acessório de fixação.</small>
+        <span class="link">Ver telhas →</span>
+      </a>
+      <a class="cat" href="#cat-rolico">
+        <h3>Roliço tratado</h3>
+        <small>Eucalipto autoclavado de 4 a 10 cm, de 1,50 m a 5,00 m. Cerca, pergolado, estrutura.</small>
+        <span class="link">Ver roliço →</span>
+      </a>
+      <a class="cat" href="#cat-assoalhos">
+        <h3>Assoalhos</h3>
+        <small>Cumaru e garapeira, réguas de 8 a 15 cm. Piso maciço que dura décadas.</small>
+        <span class="link">Ver assoalhos →</span>
+      </a>
+      <a class="cat" href="#cat-deck">
+        <h3>Deck</h3>
+        <small>Garapeira para área externa, piscina e varanda. Régua lisa ou frisada.</small>
+        <span class="link">Ver deck →</span>
+      </a>
+      <a class="cat" href="#cat-forros">
+        <h3>Forros</h3>
+        <small>Amescla, cedrinho, pinus, garapeira e PVC. Com rodaforro e cantoneira.</small>
+        <span class="link">Ver forros →</span>
+      </a>
+      <a class="cat" href="#cat-chapas">
+        <h3>Chapas e ferragens</h3>
+        <small>Madeirite, OSB, prego e arame. O que segura a obra em pé.</small>
+        <span class="link">Ver chapas →</span>
+      </a>
+      <a class="cat" href="#cat-portas">
+        <h3>Portas e batentes</h3>
+        <small>Porta interna, kit de correr, batente, fechadura, dobradiça e guarnição.</small>
+        <span class="link">Ver portas →</span>
+      </a>
+      <a class="cat" href="#cat-acabamentos">
+        <h3>Acabamentos</h3>
+        <small>Verniz, solvente e cupinicida. Pra madeira nova durar como madeira boa.</small>
+        <span class="link">Ver acabamentos →</span>
+      </a>
+    </div>
+
+    <div id="categorias-detalhe" style="margin-top:48px"></div>
+  </div>
+</section>
+
+<!-- APLICAÇÕES -->
+<section class="bloco" id="aplicacoes" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <h2>Não sabe o que pedir?</h2>
+        <p>Escolhe a obra. A gente já sabe a lista.</p>
+      </div>
+    </div>
+    <div class="grid-apl">
+      <a class="apl" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vou%20fazer%20um%20TELHADO.%20Pode%20me%20passar%20a%20lista%20de%20material%20e%20o%20or%C3%A7amento%3F" target="_blank" rel="noopener">
+        <h3>Telhado novo</h3><small>Viga, caibro, ripa, telha e cumeeira — dimensionado pela área.</small><span class="link">Pedir lista →</span>
+      </a>
+      <a class="apl" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Quero%20fazer%20um%20DECK.%20Pode%20me%20passar%20a%20lista%20de%20material%20e%20o%20or%C3%A7amento%3F" target="_blank" rel="noopener">
+        <h3>Deck e varanda</h3><small>Garapeira, barroteamento e parafuso inox.</small><span class="link">Pedir lista →</span>
+      </a>
+      <a class="apl" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Quero%20instalar%20ASSOALHO.%20Pode%20me%20passar%20a%20lista%20de%20material%20e%20o%20or%C3%A7amento%3F" target="_blank" rel="noopener">
+        <h3>Piso de madeira</h3><small>Assoalho de cumaru ou garapeira, com perda calculada.</small><span class="link">Pedir lista →</span>
+      </a>
+      <a class="apl" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Preciso%20de%20material%20para%20CERCA%2FPERGOLADO%20com%20euclipto%20tratado.%20Pode%20me%20or%C3%A7ar%3F" target="_blank" rel="noopener">
+        <h3>Cerca e pergolado</h3><small>Roliço de eucalipto tratado, pronto pra chuva e sol.</small><span class="link">Pedir lista →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="bloco" id="produtos" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <h2>Mais pedidos da semana</h2>
+        <p>Preço de madeira muda com a medida e a quantidade. Clica no produto e o vendedor responde com o valor fechado.</p>
+      </div>
+    </div>
+
+    <div id="grid-prod"></div>
+  </div>
+</section>
+
+<div class="trena"></div>
+
+<!-- CONFIANÇA -->
+<section class="bloco confia" id="confianca">
+  <div class="wrap confia-grid">
+    <div>
+      <h2>Madeira é confiança.<br>Quem já comprou errado sabe.</h2>
+      <p class="slogan">“Se é MAPA, pode confiar.”</p>
+      <p>Iniciamos as atividades em 1º de julho de 2002, em Bragança Paulista. De lá pra cá, viramos referência em construção civil em toda a Região Bragantina e Circuito das Águas — hoje também com unidades em Pinhalzinho, Atibaia (duas lojas) e Jaguariúna. Do vigamento de um telhado inteiro a duas ripas na medida, o atendimento é o mesmo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-whats" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Quero%20falar%20com%20um%20vendedor." target="_blank" rel="noopener">Falar com a gente</a>
+      </div>
+    </div>
+
+    <ul class="pontos">
+      <li><span class="n">01</span><div><b>Madeira selecionada peça a peça</b><small>Cumaru, garapeira, peroba do Pará, peroba vermelha e cupiúba escolhidas antes de sair do pátio.</small></div></li>
+      <li><span class="n">02</span><div><b>Eucalipto tratado em autoclave</b><small>Tratamento que protege contra cupim e fungo — a madeira certa pra ficar exposta ao tempo.</small></div></li>
+      <li><span class="n">03</span><div><b>Corte na medida da sua obra</b><small>Você diz o comprimento, a gente corta. Menos perda, menos frete, menos retrabalho.</small></div></li>
+      <li><span class="n">04</span><div><b>Nota fiscal e CNPJ ativo</b><small>MADEIREIRA MAPA LTDA · CNPJ 08.369.940/0005-98. Compra segura, com garantia e troca.</small></div></li>
+    </ul>
+  </div>
+
+  <div class="wrap" style="margin-top:44px;display:grid;gap:20px;grid-template-columns:1fr">
+    <div class="local-box visao-missao">
+      <div>
+        <b style="font-family:var(--display);font-size:22px;text-transform:uppercase;display:block;margin-bottom:8px">Nossa visão</b>
+        <p style="font-size:14.5px;color:#3B3227;line-height:1.5">Acreditamos em um mundo melhor, buscando sempre o melhor aproveitamento dos recursos naturais empregados, sem desperdício, e priorizando parceiros com produtos que diminuam a degradação do meio ambiente.</p>
+      </div>
+      <div>
+        <b style="font-family:var(--display);font-size:22px;text-transform:uppercase;display:block;margin-bottom:8px">Nossa missão</b>
+        <p style="font-size:14.5px;color:#3B3227;line-height:1.5">Levar o melhor produto com as melhores condições, prezando sempre pela qualidade no atendimento ao nosso bem maior: nossos clientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bloco" id="faq">
+  <div class="wrap">
+    <div class="cab"><div><h2>Antes de perguntar no zap</h2><p>As dúvidas que mais chegam por aqui.</p></div></div>
+
+    <details open>
+      <summary>Por que muitos produtos estão sem preço no site?</summary>
+      <p>Madeira não é caixa fechada. O preço muda conforme a bitola, o comprimento, a quantidade e se o corte é sob medida. Em vez de mostrar um valor que não vale pra sua obra, a gente fecha o preço real no WhatsApp — normalmente em poucos minutos, no horário comercial.</p>
+    </details>
+    <details>
+      <summary>Vocês entregam? Qual a região?</summary>
+      <p>Sim, com caminhão próprio. Atendemos Bragança Paulista, Região Bragantina e Circuito das Águas. O prazo e o valor do frete são combinados junto com o orçamento, de acordo com o volume e o endereço da obra. Também é possível retirar direto no pátio.</p>
+    </details>
+    <details>
+      <summary>Dá pra cortar a madeira no tamanho que eu preciso?</summary>
+      <p>Dá. Mande as medidas junto com o pedido e o material sai pronto pra usar. Isso reduz a sobra e o serviço na obra.</p>
+    </details>
+    <details>
+      <summary>Como faço para calcular quanto de madeira preciso?</summary>
+      <p>Use a calculadora no topo desta página: escolha o tipo de obra, informe a área ou o comprimento e ela monta uma lista estimada. Depois é só enviar essa lista no WhatsApp — o vendedor confere a bitola e o vão antes de fechar.</p>
+    </details>
+    <details id="faq-pagamento">
+      <summary>Quais são as formas de pagamento?</summary>
+      <p>Pix, boleto, cartão de crédito com parcelamento em até 6x sem juros e as condições combinadas para compras maiores e clientes com CNPJ. Confirme a forma de pagamento junto com o vendedor no WhatsApp.</p>
+    </details>
+    <details>
+      <summary>Atendem construtora e marcenaria?</summary>
+      <p>Sim. Compras recorrentes e volume têm condição diferenciada e emissão de nota fiscal. Chame no WhatsApp com o CNPJ que a gente monta o cadastro.</p>
+    </details>
+    <details id="faq-trocas">
+      <summary>Como funcionam trocas e devoluções?</summary>
+      <p>Produto com defeito de fabricação ou divergência do pedido é trocado. Avise pelo WhatsApp em até 7 dias da entrega ou retirada, com foto do item e o número do pedido, e a gente combina a troca ou devolução. Corte sob medida não tem devolução, exceto por erro nosso.</p>
+    </details>
+    <details id="faq-manuais">
+      <summary>Tem manual de instalação dos produtos?</summary>
+      <p>Sim. Desenvolvemos guias exclusivos de instalação e pintura pra cada tipo de material que vendemos, pra profissional e cliente final executarem cada etapa — da preparação ao acabamento final — com segurança, durabilidade e bom resultado estético. PDFs grátis pra todo cliente:</p>
+      <ul class="lista-manuais">
+        <li><a href="https://cdn.awsli.com.br/2550/2550639/arquivos/manual-pintura-portas.pdf" target="_blank" rel="noopener">Manual de pintura de porta Curupixá lisa e frisada</a></li>
+        <li><a href="https://cdn.awsli.com.br/2550/2550639/arquivos/manual-t-cnico-instala-o-de-portas.pdf" target="_blank" rel="noopener">Manual técnico de instalação de portas</a></li>
+        <li><a href="https://cdn.awsli.com.br/2550/2550639/arquivos/manual-t-cnico-esquadrias-e-janelas.pdf" target="_blank" rel="noopener">Manual técnico de esquadrias e janelas</a></li>
+        <li><a href="https://cdn.awsli.com.br/2550/2550639/arquivos/manual-aplica-o-de-verniz.pdf" target="_blank" rel="noopener">Manual técnico de aplicação de verniz</a></li>
+      </ul>
+    </details>
+    <details id="faq-trabalhe">
+      <summary>Como envio meu currículo (trabalhe conosco)?</summary>
+      <p>Manda seu currículo com a vaga de interesse pro nosso WhatsApp ou e-mail. A gente guarda no cadastro e chama quando abrir uma posição compatível.</p>
+      <a class="btn btn-wood btn-sm" href="mailto:contato@madeireiramapa.com.br?subject=Trabalhe%20conosco" style="margin:0 18px 18px">Enviar currículo por e-mail</a>
+    </details>
+    <details id="faq-privacidade">
+      <summary>Como vocês tratam meus dados (privacidade)?</summary>
+      <p>Os dados enviados por WhatsApp, telefone ou e-mail (nome, contato, endereço da obra) são usados só para preparar orçamento, entrega e nota fiscal — não são vendidos nem repassados a terceiros fora desse atendimento. Pra qualquer dúvida ou pedido de remoção dos seus dados, fale com a gente pelos canais de contato desta página.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ONDE ESTAMOS -->
+<section class="bloco" style="padding-top:0">
+  <div class="wrap local">
+    <div>
+      <h2 style="font-family:var(--display);font-size:clamp(30px,4.2vw,44px);font-weight:700;text-transform:uppercase;line-height:1">Passe no pátio</h2>
+      <p style="margin-top:12px;color:#3B3227;font-size:16px;max-width:34em">Ver a madeira de perto ainda é o melhor jeito de escolher. Venha, pegue na peça, compare a bitola. Café por nossa conta.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-linha" href="LINK_MAPS" target="_blank" rel="noopener">Como chegar</a>
+        <a class="btn btn-whats" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Quero%20passar%20na%20loja.%20Qual%20o%20endere%C3%A7o%20e%20o%20hor%C3%A1rio%3F" target="_blank" rel="noopener">Confirmar horário</a>
+      </div>
+    </div>
+    <div class="local-box">
+      <dl>
+        <dt>Endereço</dt><dd>ENDERECO — Bragança Paulista/SP</dd>
+        <dt>Horário</dt><dd>HORARIO — seg a sex 7h–17h · sáb 7h–12h</dd>
+        <dt>Telefone</dt><dd><a href="tel:+551140339449">(11) 4033-9449</a></dd>
+        <dt>WhatsApp</dt><dd><a href="https://api.whatsapp.com/send?phone=5511954953570" target="_blank" rel="noopener">(11) 95495-3570</a></dd>
+        <dt>E-mail</dt><dd><a href="mailto:contato@madeireiramapa.com.br">contato@madeireiramapa.com.br</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Manda a medida.<br>A gente manda o preço.</h2>
+    <p>Resposta no mesmo dia, dentro do horário comercial. Sem cadastro, sem formulário, sem enrolação.</p>
+    <div class="btns">
+      <a class="btn btn-whats" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+      <a class="btn btn-linha" href="tel:+551140339449">Ligar (11) 4033-9449</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="logo logo-fundo-claro" style="margin-bottom:14px">
+          <img class="logo-img" src="https://cdn.awsli.com.br/400x300/2550/2550639/logo/logo-4e70f3ea7c.png" alt="Madeireira Mapa">
+        </a>
+        <p class="sobre">Madeira de qualidade, com compromisso, confiança e excelência no atendimento — da pequena reforma ao grande projeto.</p>
+        <p style="font-family:var(--display);font-size:22px;color:var(--wood);text-transform:uppercase;margin-top:16px">Se é MAPA, pode confiar</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#cat-madeiras">Madeiras</a></li>
+          <li><a href="#cat-assoalhos">Assoalhos</a></li>
+          <li><a href="#cat-deck">Deck</a></li>
+          <li><a href="#cat-rolico">Roliço tratado</a></li>
+          <li><a href="#cat-forros">Forros</a></li>
+          <li><a href="#cat-telhas">Telhas</a></li>
+          <li><a href="#cat-chapas">Chapas e ferragens</a></li>
+          <li><a href="#cat-portas">Portas</a></li>
+          <li><a href="#cat-acabamentos">Acabamentos</a></li>
+        </ul>
+      </div>
+      <div id="institucional">
+        <h4 id="titulo-institucional">Institucional</h4>
+        <ul>
+          <li><a href="#confianca">Quem somos</a></li>
+          <li><a href="#faq-pagamento" id="link-faq-pagamento">Formas de pagamento</a></li>
+          <li><a href="#faq-trocas" id="link-faq-trocas">Trocas e devoluções</a></li>
+          <li><a href="#faq-manuais" id="link-faq-manuais">Manuais de instalação</a></li>
+          <li><a href="#faq-trabalhe" id="link-faq-trabalhe">Trabalhe conosco</a></li>
+          <li><a href="#faq-privacidade" id="link-faq-privacidade">Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:+551140339449">(11) 4033-9449</a></li>
+          <li><a href="https://api.whatsapp.com/send?phone=5511954953570" target="_blank" rel="noopener">WhatsApp (11) 95495-3570</a></li>
+          <li><a href="mailto:contato@madeireiramapa.com.br">contato@madeireiramapa.com.br</a></li>
+          <li style="margin-top:8px">ENDERECO — Bragança Paulista/SP</li>
+          <li>Seg a sex 7h–17h · Sáb 7h–12h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-fim">
+      <span>MADEIREIRA MAPA LTDA · CNPJ 08.369.940/0005-98</span>
+      <span>Pix · Boleto · Cartão em até 6x · Site seguro SSL</span>
+      <span>© 2026 — Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BARRA FIXA MOBILE -->
+<div class="barra-fixa">
+  <a class="lig" href="tel:+551140339449">Ligar</a>
+  <a class="wpp" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+</div>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a class="whats-flutuante" href="https://api.whatsapp.com/send?phone=5511954953570&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.38 4 15c0 2.34.66 4.53 1.8 6.4L4 29l7.78-1.75A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.62 28 15S22.65 3 16.02 3zm0 21.8c-1.98 0-3.83-.55-5.4-1.5l-.39-.23-4.62 1.04 1.03-4.5-.25-.4A9.7 9.7 0 0 1 5.2 15c0-5.96 4.86-10.8 10.82-10.8S26.83 9.04 26.83 15 21.98 24.8 16.02 24.8zm5.94-8.1c-.32-.16-1.9-.94-2.2-1.04-.3-.1-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.02-.55-.08-.16-.72-1.75-.99-2.4-.26-.63-.53-.54-.72-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.63s1.13 3.05 1.28 3.26c.16.21 2.23 3.42 5.4 4.79.75.32 1.34.52 1.8.66.76.24 1.45.2 2 .12.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.6-.37z"/></svg>
+</a>
+
+<!-- CARRINHO -->
+<button type="button" class="carrinho-icone" id="btn-abrir-carrinho" aria-haspopup="dialog" aria-controls="carrinho-painel" aria-label="Abrir carrinho">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h-2l-1 2v1h2l3.6 7.59-1.35 2.44c-.16.28-.25.61-.25.97 0 1.1.9 2 2 2h12v-2h-11.58c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.51c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.21l-.94-2zm3 14c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+  <span class="carrinho-badge" id="carrinho-contador" hidden>0</span>
+</button>
+<div class="carrinho-overlay" id="carrinho-overlay" hidden></div>
+<aside class="carrinho-painel" id="carrinho-painel" role="dialog" aria-modal="true" aria-label="Carrinho de compras" hidden>
+  <div class="carrinho-head">
+    <h2>Seu carrinho</h2>
+    <button type="button" id="fechar-carrinho" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="carrinho-corpo" id="carrinho-corpo"></div>
+  <div class="carrinho-rodape">
+    <div class="carrinho-total"><span>Total</span><span id="carrinho-total">R$ 0,00</span></div>
+    <a class="btn btn-whats btn-full" id="carrinho-finalizar" href="#" target="_blank" rel="noopener" aria-disabled="true">Finalizar pedido no WhatsApp</a>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var WPP = "5511954953570";
+
+  // coeficientes de referência (vãos usuais) — ajuste com o vendedor se necessário
+  var OBRAS = {
+    telhado: {
+      label:"Área do telhado", unidade:"m²", nome:"TELHADO",
+      itens:[
+        {n:"Telha cerâmica (romana/colonial)", f:16,  u:"peças"},
+        {n:"Ripa (vão 33 cm)",                 f:3.0, u:"m lineares"},
+        {n:"Caibro (vão 50 cm)",               f:2.0, u:"m lineares"},
+        {n:"Terça / viga (vão 2 m)",           f:0.6, u:"m lineares"},
+        {n:"Cumeeira",                         f:0.35,u:"peças (aprox.)"}
+      ]
+    },
+    deck: {
+      label:"Área do deck", unidade:"m²", nome:"DECK",
+      itens:[
+        {n:"Régua de deck garapeira (+10% perda)", f:1.10, u:"m²"},
+        {n:"Barrote / caibro (vão 40 cm)",         f:2.5,  u:"m lineares"},
+        {n:"Parafuso inox",                        f:20,   u:"unidades"}
+      ]
+    },
+    assoalho: {
+      label:"Área do piso", unidade:"m²", nome:"ASSOALHO",
+      itens:[
+        {n:"Assoalho cumaru/garapeira (+10% perda)", f:1.10, u:"m²"},
+        {n:"Barrote (vão 40 cm)",                    f:2.5,  u:"m lineares"},
+        {n:"Prego / parafuso",                       f:18,   u:"unidades"}
+      ]
+    },
+    forro: {
+      label:"Área do forro", unidade:"m²", nome:"FORRO",
+      itens:[
+        {n:"Forro (+10% perda)",     f:1.10, u:"m²"},
+        {n:"Ripa de fixação",        f:2.0,  u:"m lineares"},
+        {n:"Rodaforro / cantoneira", f:0.45, u:"m lineares (aprox.)"}
+      ]
+    },
+    cerca: {
+      label:"Comprimento da cerca", unidade:"m", nome:"CERCA / MOURÃO",
+      itens:[
+        {n:"Mourão roliço tratado (a cada 2,5 m)", f:0.4, u:"peças"},
+        {n:"Travessa / ripa (3 fiadas)",           f:3.0, u:"m lineares"},
+        {n:"Grampo / prego",                       f:6,   u:"unidades"}
+      ]
+    },
+    pergolado: {
+      label:"Área do pergolado", unidade:"m²", nome:"PERGOLADO",
+      itens:[
+        {n:"Roliço tratado — pilar",     f:0.25, u:"peças"},
+        {n:"Viga / travessa",            f:1.2,  u:"m lineares"},
+        {n:"Ripado (vão 20 cm)",         f:5.0,  u:"m lineares"}
+      ]
+    }
+  };
+
+  var obra = "telhado";
+  var botoes  = document.querySelectorAll("#opcoes-obra button");
+  var medida  = document.getElementById("medida");
+  var unidade = document.getElementById("unidade");
+  var lblMed  = document.getElementById("lbl-medida");
+  var res     = document.getElementById("resultado");
+  var vazio   = document.getElementById("vazio");
+  var lista   = document.getElementById("lista-mat");
+  var enviar  = document.getElementById("btn-enviar");
+
+  function fmt(v){
+    if(v >= 100) return Math.ceil(v).toLocaleString("pt-BR");
+    return (Math.ceil(v*10)/10).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:1});
+  }
+
+  function calcular(){
+    var cfg = OBRAS[obra];
+    var q = parseFloat(medida.value);
+
+    lblMed.textContent = cfg.label;
+    unidade.textContent = cfg.unidade;
+
+    if(!q || q <= 0){
+      res.hidden = true; vazio.hidden = false; return;
+    }
+    vazio.hidden = true; res.hidden = false;
+
+    lista.innerHTML = "";
+    var linhas = [];
+    cfg.itens.forEach(function(it){
+      var v = fmt(q * it.f) + " " + it.u;
+      var li = document.createElement("li");
+      var a = document.createElement("span"); a.textContent = it.n;
+      var b = document.createElement("span"); b.textContent = v;
+      li.appendChild(a); li.appendChild(b);
+      lista.appendChild(li);
+      linhas.push("- " + it.n + ": " + v);
+    });
+
+    var msg =
+      "Olá! Calculei pelo site da Madeireira Mapa.\n\n" +
+      "Obra: " + cfg.nome + "\n" +
+      "Medida: " + medida.value + " " + cfg.unidade + "\n\n" +
+      "Lista estimada:\n" + linhas.join("\n") +
+      "\n\nPode me passar o orçamento e o prazo de entrega?";
+
+    enviar.href = "https://api.whatsapp.com/send?phone=" + WPP + "&text=" + encodeURIComponent(msg);
+  }
+
+  botoes.forEach(function(b){
+    b.addEventListener("click", function(){
+      botoes.forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      obra = b.dataset.obra;
+      calcular();
+    });
+  });
+  medida.addEventListener("input", calcular);
+
+  calcular();
+})();
+</script>
+
+<script>
+(function(){
+  // seg a sex 7h-17h, sáb 7h-12h, dom fechado — ajuste aqui se o horário mudar
+  var HORARIO_SEMANA = [
+    null,             // domingo
+    { abre:7, fecha:17 }, // segunda
+    { abre:7, fecha:17 }, // terça
+    { abre:7, fecha:17 }, // quarta
+    { abre:7, fecha:17 }, // quinta
+    { abre:7, fecha:17 }, // sexta
+    { abre:7, fecha:12 }  // sábado
+  ];
+
+  function estaAberto(){
+    var agora = new Date();
+    var dia = HORARIO_SEMANA[agora.getDay()];
+    if(!dia) return false;
+    var hora = agora.getHours() + agora.getMinutes() / 60;
+    return hora >= dia.abre && hora < dia.fecha;
+  }
+
+  function atualizarStatusLoja(){
+    var dot = document.getElementById("status-loja-dot");
+    var texto = document.getElementById("status-loja-texto");
+    if(!dot || !texto) return;
+    if(estaAberto()){
+      dot.classList.remove("fechado");
+      texto.textContent = "Aberto agora";
+    } else {
+      dot.classList.add("fechado");
+      texto.textContent = "Fechado agora";
+    }
+  }
+
+  atualizarStatusLoja();
+  setInterval(atualizarStatusLoja, 60000);
+})();
+</script>
+
+<script>
+(function(){
+  var link = document.getElementById("link-institucional");
+  var titulo = document.getElementById("titulo-institucional");
+  if(!link || !titulo) return;
+
+  link.addEventListener("click", function(){
+    titulo.classList.remove("piscar-destino");
+    void titulo.offsetWidth; // força reflow pra reiniciar a animação em cliques seguidos
+    titulo.classList.add("piscar-destino");
+  });
+
+  function ligarPiscaFundo(idLink, idPainel){
+    var l = document.getElementById(idLink);
+    var painel = document.getElementById(idPainel);
+    if(!l || !painel) return;
+    l.addEventListener("click", function(){
+      painel.open = true;
+      painel.classList.remove("piscar-fundo");
+      void painel.offsetWidth; // força reflow pra reiniciar a animação em cliques seguidos
+      painel.classList.add("piscar-fundo");
+    });
+  }
+
+  ligarPiscaFundo("link-faq-manuais", "faq-manuais");
+  ligarPiscaFundo("link-faq-pagamento", "faq-pagamento");
+  ligarPiscaFundo("link-faq-trocas", "faq-trocas");
+  ligarPiscaFundo("link-faq-trabalhe", "faq-trabalhe");
+  ligarPiscaFundo("link-faq-privacidade", "faq-privacidade");
+})();
+</script>
+
+<script>
+(function(){
+  var WPP = "5511954953570";
+
+  // ---------------------------------------------------------------
+  // Vitrine e catálogo por categoria — tudo fecha pelo WhatsApp, sem
+  // redirecionar pro site antigo. Pra adicionar um produto, incluir
+  // um objeto {nome, imagem, sku (opcional), preco (opcional)} na
+  // lista certa. preco:null = "Pedir preço"; preco:{valor,parcelas}
+  // = "Comprar agora" (mesma mensagem de WhatsApp, só muda o texto).
+  // ---------------------------------------------------------------
+  var PRODUTOS = [
+    { sku:"3917", nome:"Telha Romana Lopes sem resina",
+      imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400747276/2ba6ccae384f40ddb13b79aafa1f2c8e-qlzwlmvuwb.webp",
+      preco:null },
+    { sku:"1753", nome:"Roliço eucalipto tratado 8–10 cm · 5,00 m",
+      imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746278/be6e0f47e9e54ba4bb94deed1dcd5f45-dwceqvgbwj.png",
+      preco:null },
+    { sku:"3541", nome:"Chapa ondulada 5 mm · 2,44 × 1,10 m — Brasilit",
+      imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738638/cee6fedd2a024868aa6019990b6f9783-g0slyey80g.png",
+      preco:null },
+    { sku:"1964", nome:"Cumeeira colonial resinada Barrobello",
+      imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400732102/504b4ad16c844efdb8141140185245da-8jmup0tif3.jpg",
+      preco:{ valor:"R$ 4,60", parcelas:"até 6x de R$ 0,76 sem juros" } },
+    { sku:"1016", nome:"Polirex Sayerlack Imbuia 0,9 L",
+      imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548759/37c34a19155ef62ffbcbf1bbd39b0601-ktstlnohuh.jpg",
+      preco:null }
+  ];
+
+  var CATEGORIAS = [
+    { id:"cat-madeiras", titulo:"Madeiras", carrossel:true,
+      descricao:"Mais de 300 itens no pátio. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Caibro","Viga","Ripa","Ripão","Beiral","Tábua","Quadrado","Sarrafo","Pontalete","Assoalho","Deck","Forro","Cumaru","Garapeira","Peroba","Cupiúba","Amescla","Pinus","Eucalipto"],
+      produtos:[
+{ nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746278/be6e0f47e9e54ba4bb94deed1dcd5f45-dwceqvgbwj.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746219/63755635ebf64e53850d2b4dfbce60d6-ki572gs99l.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 3,00m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746209/6b3c445169d94206b5bf492457a7f1c9-cz5t9fdlq1.png", preco:null },
+    { nome:"ROLIÇO 8 A 10 EUCALIPTO TRATADO 4,00 M", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746015/58986ba270e840ad9ea989ff02404842-t9vwf6almv.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 1,50 m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745995/b194f6681a004dd9b67cb33f76452a37-64fttegute.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 5 m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745946/b88e36bb3c314124b94e21f4a0a35ad7-higyrxac3y.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745797/c61e534b78014527b8698c25383c40bc-fr6s5jv9sk.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745760/0c816a6b59b84318835a2300c3aab607-vi9sh1ix0a.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745662/5f43a6d3e1e34cdeb9ab7321444c0fae-4afloai56w.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745647/d3af2e4d5efe4672b4ff1a07d2814ce6-fdpash2w5e.png", preco:null },
+    { nome:"Roliço Eucalipto Tratado 4 cm a 6 cm x 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745633/0d05e79ea934487095538ff44d317f71-ntt2d3xgu2.png", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 3 CUMARU", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296553124/9f458f5e8d230f7c617f44b3ef0c30f6-rcs1281wka.jpg", preco:null },
+    { nome:"CAIBRO 5X7 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296553030/3775c664760ab118d3c69c0a6bdf5a2e-euci9b0syq.jpg", preco:null },
+    { nome:"QUADRADO 20X20 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552904/1cb8ba0606eb40db9e4af8b80ba93a78-1suotya5hd.png", preco:null },
+    { nome:"CAIBRO 5X7 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552557/c96b8ac7c8543c0deac666969b408a4e-svnj8awifr.jpg", preco:null },
+    { nome:"PONTALETE 10X10 PINUS COM 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552535/1d6baa25246e128be889b42c9931247a-7xm788v8i6.jpg", preco:null },
+    { nome:"PRANCHA ESPECIAL CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552478/c158459e8775d884943e77bcaf7a462c-nhsf75g6ir.jpg", preco:null },
+    { nome:"QUADRADO 25X25 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552438/5fdf27e34ca6404fad67ea0ac2239147-ov5p16r5jz.png", preco:null },
+    { nome:"SARRAFO 05 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552390/b7a4875b21834f5684d1cc42d2400ea5-18qovouvc1.jpg", preco:null },
+    { nome:"SARRAFO 07 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552365/fd31e9bb23c140fbaa86c791bee6ad04-eidezkmd2a.jpg", preco:null },
+    { nome:"VIGA 5X11 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552207/6380bae3e609b7b769159605691bda1a-ptvemptwwy.jpg", preco:null },
+    { nome:"VIGA 5X11 ACIMA DE 8 METROS GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552185/fa691252f9614cb18d41adbfcf50c998-mpfd7g2uiv.png", preco:null },
+    { nome:"VIGA 5X11 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552163/dd509d00610249cdb24c447614f99fee-q7bm38ps2j.png", preco:null },
+    { nome:"VIGA 5X15 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552124/32eb55cf6b6fb63c32afb0027d5a9372-6md23egw6q.jpg", preco:null },
+    { nome:"VIGA 5X15 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552107/de95133bca62f0d6d57e2fddc262cf43-k718blzew3.jpg", preco:null },
+    { nome:"VIGA 5X20 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552081/236be9505b329e333f06ad9af6618a7e-po64yxb2zw.jpg", preco:null },
+    { nome:"VIGA 5X20 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552026/5c9ca1d39a56d5d8ca0c38a23fd2850e-2w8tfbe7lv.jpg", preco:null },
+    { nome:"VIGA 5X11 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551966/1ccd71adc42c42748b66cfc016c1cdd7-ucnlhoo6ag.png", preco:null },
+    { nome:"VIGA 5X25 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551907/df443be275a8fbc7c884f930ad9b7263-gia5ux3r9m.jpg", preco:null },
+    { nome:"VIGA 5X25 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551889/fa47740d86cb953c4443d713b385781d-7np1d7chmt.jpg", preco:null },
+    { nome:"VIGA 5X15 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551749/6fff04734431484ea4fa0827a6d2a542-k1vuukmo58.png", preco:null },
+    { nome:"VIGA 5X20 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551666/914bc64d46724949947faf2da36231ba-44nqfl02f3.png", preco:null },
+    { nome:"VIGA 5X20 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551626/89dc05a1cf6b46528b09d6fade0f1a6c-cwll31esdn.png", preco:null },
+    { nome:"VIGA 5X30 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551574/ebc9c699d312193bc381280c026637d1-9p1m9sh7yj.jpg", preco:null },
+    { nome:"VIGA 5X25 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551567/13f6d929efd94b328ea339503f70cb92-l6i87cblt1.png", preco:null },
+    { nome:"VIGA 5X30 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551535/d97208416c4a4eefa07df2d4b3d6e311-uhxtaiiczm.png", preco:null },
+    { nome:"VIGA 5X30 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551512/8f35929b4c0640cdb897475ff871dadc-2o1xyavj3j.jpg", preco:null },
+    { nome:"VIGA 7X20 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551508/e10d897603ad4789a37b781b86a5fc91-wvt6yrua86.png", preco:null },
+    { nome:"VIGA 7X30 ACIMA DE 7 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551490/2abace7ffa284834836dd7d8fc139901-adb2fzc0j7.png", preco:null },
+    { nome:"VIGA 7X30 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551479/a1cae749d6bd4b1da3834c48ee8771f0-wdxnr4husk.png", preco:null },
+    { nome:"VIGA 5X30 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551409/9309681fdf9026d971c27936313737df-4wjuxwza62.jpg", preco:null },
+    { nome:"VIGA 5X30 CUMARU", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551392/de069636e54845ed574214a2a38446b3-8tcs5oghbi.jpg", preco:null },
+    { nome:"VIGA 7X20 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551362/5d975590adfd4c1873745bfa15c92fd4-axde6yegcs.jpg", preco:null },
+    { nome:"VIGA 7X20 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551315/d7312076dea9414e966b83d01fd910ef-o3up677gly.png", preco:null },
+    { nome:"VIGA 7X25 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551298/98754d12fbfee7c1aa00d40dd4493346-gnxo97fn3c.jpg", preco:null },
+    { nome:"VIGA 7X25 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551286/efc46466f8ea404f0b7ccdeaf12f666f-p7adspi8ea.jpg", preco:null },
+    { nome:"VIGA 7X25 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551270/78f09454eb7f620d45b9ccb9fed06359-dk5v6ndjba.jpg", preco:null },
+    { nome:"VIGA 7X30 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551251/72ddd3b90ac5f8929a2a91b3a13c4c37-v0xstj7z52.jpg", preco:null },
+    { nome:"VIGA 7X30 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551236/c78574c4bc8442016f4097aa7e48473d-tsqf9li08u.jpg", preco:null },
+    { nome:"VIGA 7X30 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551223/6c71e02a485e43ba69a01a2b2358d26a-2tuplejknm.jpg", preco:null },
+    { nome:"VIGA 7X40 ACIMA DE 10 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551155/06d52528bbb522570bdba3c53e38141b-joff536hfr.jpg", preco:null },
+    { nome:"VIGA 7X40 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551086/8272c643eaee0b381ab264a223b57f22-j8u7tvdaii.jpg", preco:null },
+    { nome:"VIGA 7X40 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551013/b1f3b44f5c48122c728a99364becdbb1-wfmtp0708r.jpg", preco:null },
+    { nome:"VIGA 7X40 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550944/abe55dd6a58a4788a4619b40d662e28c-wdmduk049i.png", preco:null },
+    { nome:"VIGA 7X40 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550917/61b9257054554615251ca65ee1d83cec-i3kin8ok7n.jpg", preco:null },
+    { nome:"VIGA 9X20 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550878/e7f315e4ec23ac5fd138b6017d66ddde-bfxinvjzm1.jpg", preco:null },
+    { nome:"VIGA 9X20 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550864/f87cfdcc1599134037d1be43954baf8e-l9de16qxoz.jpg", preco:null },
+    { nome:"VIGA 9X25 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550850/d235021088ad5abc6cf243efb1be63c0-m9p1fa998l.jpg", preco:null },
+    { nome:"VIGA 9X25 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550828/39978554412046c48638f5600de490b8-hs3egp35u1.jpg", preco:null },
+    { nome:"VIGA 9X25 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550798/6abb6127754c180014c48939ddb1a9f1-3ep7mfeu0w.jpg", preco:null },
+    { nome:"VIGA 9X30 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550780/59d025c7abfc4878ffae6afaa98f5d11-p64jmnifui.jpg", preco:null },
+    { nome:"VIGA 9X30 ACIMA DE 8 METROS GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550765/d34fc69ef3deec45ce46beda4fb79085-okru2jnpyv.jpg", preco:null },
+    { nome:"VIGA 9X30 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550741/adb260e377971eccdb540f7de1bb22bf-ic5yc9u6hx.jpg", preco:null },
+    { nome:"VIGA 9X30 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550723/b138f7941b642e659a5ef25444470692-64pg1rvly9.jpg", preco:null },
+    { nome:"VIGA 9X30 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550702/5204d64b51f20e69bfb7e07d94b2b247-v67b53gwd6.jpg", preco:null },
+    { nome:"VIGA 9X30 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550686/d224774dd79959a1c386f24715ba6402-qbp5b6hwow.jpg", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 10 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550662/7b2e90440fb38ffef4c7c6799ad36bc7-ovqzg60h4u.jpg", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 7 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550648/d31fbc480576b32ffa53f0bf91dc33e4-tm4bqlvu6o.jpg", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 8 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550632/96596498c5b26833417ea6371aa2e5ff-ya7v39ltk4.jpg", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550615/7a722be296a94309882e99d126027b12-a2sewswxjk.png", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 9 METROS PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550598/7335e21499abbf0b565c5773d14327cb-czik9urdhq.jpg", preco:null },
+    { nome:"VIGA 9X40 ACIMA DE 9 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550580/4ce600c1d14d4075a48671c4031e9d08-0kl5cciby7.png", preco:null },
+    { nome:"VIGA 9X40 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550561/d1f4f5cc4d794acb8d12fca9c58a4edb-q9d3rhnzwg.png", preco:null },
+    { nome:"VIGA 9X40 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550543/79bf1cc0c58a48392898e81023933292-j5zwwwh6ly.jpg", preco:null },
+    { nome:"VIGA 9X40 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550525/3bceea732d2d46cab3854b1dbb5b4be9-u3w19oe6sq.png", preco:null },
+    { nome:"VIGA 9X50 ACIMA DE 8 METROS PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550503/d7d8590d3c4b4cfcbb48ec5be30887dc-0cv8e9a8nm.png", preco:null },
+    { nome:"PONTALETE EUCALIPTO 7.00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550462/61cef656d60ae6ec46cc1b418559a8e4-b409rawhaf.jpg", preco:null },
+    { nome:"PONTALETE EUCALIPTO 8.00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550455/eadbd7545b77100e387813f8beea39e9-m1mjby641q.jpg", preco:null },
+    { nome:"VIGA 9X50 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550445/f0669bc80eb942c4820390b614137df1-65czufd4po.png", preco:null },
+    { nome:"ASSOALHO GARAPEIRA 15", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550400/bf5ee8d9a80122e09e877bc53bf75e49-u683d14e5d.jpg", preco:null },
+    { nome:"DECK GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550365/3b89a45c7a9af76336247045dbfb5920-o5jt72bwrq.jpg", preco:null },
+    { nome:"FORRO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550352/e11957cfe70b4096afd828ad53a9784a-18opo860hw.jpg", preco:null },
+    { nome:"MEIA CANA GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550316/580faf3633a245cf9b5ad0f96152130a-ryo2c4chgz.png", preco:null },
+    { nome:"BEIRAL DE 15 MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060865445c818af64d.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 1 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086534cdcefbdd7c.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086522aba1e8b9bb.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 2 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608649560488350ef.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086479e3f72d525e.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 3 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086464729281453b.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086454d1e7748c08.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD ESPECIAL PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086438f9712d64e9.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD 3 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060863006a66a6adb6.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086281d5a282d9fa.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086244657606eec0.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 1 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086214becd6b430f.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060861812f4fe76b09.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 2 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060861605d5c20dddd.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086145a1f080258f.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086085b89ed15e76.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD ESPECIAL PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060860565cebcb18df.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086034fd2da4c64f.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 1 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060859957b19fa622c.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085944c34804debd.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 2 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060859112010f0f25e.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 3 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608587211ab176658.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060858558a07996056.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 1 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085808a73cfe493c.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060857986380c90517.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 2 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085730bca3d06b2d.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085713205dbc2194.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 3 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085702fd75435b3d.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060856914b4c9437d1.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD ESPECIAL PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060856798c44c0d44c.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085667e8cedf4e95.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 1 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085651d85eba19dd.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608563772267de69e.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 2 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085617e1fcd2594d.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608560179ddc5b2ca.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 3 PEROBA VERMELHA - CUPIÚBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085583db5c6a28f3.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085575261c84f157.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD ESPECIAL PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085551a44f515c59.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085520bc0924819a.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD 1 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085502/5cbab25720ab41d59cbba5d8f1731524-fu33282k9d.png", preco:null },
+    { nome:"BEIRAL DE 30 MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085485/7002ad35f3ee46c6804d4eaf0a013c7f-d0byvo3p7j.png", preco:null },
+    { nome:"BEIRAL DE 30 MOD 2 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085448/347a8bf141934a2385c00fe56fdc4b75-uj775imeu5.png", preco:null },
+    { nome:"BEIRAL DE 30 MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085414/0d33934df7774b7a9ece74feb940be3d-6gfy03jpbw.png", preco:null },
+    { nome:"BEIRAL DE 30 MOD 3 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060853700f77edbb7f.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060853384e99c40f15.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085321052034771d.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852941dd1606140.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD ESPECIAL PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852769138eeaf8d.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852714bdb939498.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085250c2a23a2236.jpg", preco:null },
+    { nome:"BEIRAL DE 15 MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085245/6f1c396842a44f5da632593da9a5c035-7ese4l880p.png", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 1 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085216c36bde73f1.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852106f08221e5f.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085175c5c56ec306.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085149dde344c9c9.jpg", preco:null },
+    { nome:"BEIRAL DE 15 POR TAMANHO MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085112c2e06dbacd.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085095b9a6773655.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608507127e344201b.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 2 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085052719843c251.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085015c2ffe1feeb.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608499287f615aac3.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 3 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060849919965d1d80f.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084971f81d46f310.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD ESPECIAL PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608491323f5566461.jpg", preco:null },
+    { nome:"ASSOALHO GARAPEIRA 10 COMERCIAL", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084912ec4174d229.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084906bd2d0626af.jpg", preco:null },
+    { nome:"CAIBRO 5X5 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608488765febef640.jpg", preco:null },
+    { nome:"DECK PINUS DE PRIMEIRA TRATADO LISO 2X10", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084854328e39a817.jpg", preco:null },
+    { nome:"CAIBRO 5X7 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084850746ea31b42.jpg", preco:null },
+    { nome:"PONTALETE 6X6 PINUS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084829904851d09d.jpg", preco:null },
+    { nome:"BEIRAL DE 20 MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084788459f1e89f3.jpg", preco:null },
+    { nome:"PONTALETE 7X7 PINUS COM 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608477487377d0f10.jpg", preco:null },
+    { nome:"PRANCHA ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084746/9daa1275806e45cf8d1897598544fdab-y7iimxc8zi.png", preco:null },
+    { nome:"QUADRADO 15X15 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084720/1d0ce142ee8140cfaf6207f58b9edeee-6ol6nys5q4.png", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084691c5ea57f7fe.jpg", preco:null },
+    { nome:"QUADRADO 20X20 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084684/f3e2fbf385964ffbaee60f6ee3abdac4-ck7z7rwyvi.png", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846692a52c732ed.jpg", preco:null },
+    { nome:"RIPA 1,5X5 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846578f8af6b16b.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608464810fff8754e.jpg", preco:null },
+    { nome:"BEIRAL DE 20 POR TAMANHO MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846197d4a48131e.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608459271e4c601d3.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084571e7b6279424.jpg", preco:null },
+    { nome:"RIPA 1,5X5 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060845609d3a94cbb3.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084487d975bf728f.jpg", preco:null },
+    { nome:"FORRO PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060844595b287b7251.jpg", preco:null },
+    { nome:"BEIRAL DE 25 MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060844137a18313b8a.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060843897147b33efc.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 2 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060843281f2d55cb9d.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD 3 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060842919e74c966be.jpg", preco:null },
+    { nome:"BEIRAL DE 25 POR TAMANHO MOD ESPECIAL GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060842154e8e394c2e.jpg", preco:null },
+    { nome:"RIPAO 2X5 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608420655f6719871.jpg", preco:null },
+    { nome:"SARRAFO 05 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608418397a897572a.jpg", preco:null },
+    { nome:"SARRAFO 05 POR TAMANHO PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084155bdf1555b61.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD 1 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084137b823530e8d.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060841327286a75148.jpg", preco:null },
+    { nome:"SARRAFO 07 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060841203a705a5137.jpg", preco:null },
+    { nome:"SARRAFO 07 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608410176bf73bc44.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060840709f67f79a51.jpg", preco:null },
+    { nome:"BEIRAL DE 30 MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084048a0336810d4.jpg", preco:null },
+    { nome:"SARRAFO 10 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060840207c05ce5800.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 1 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083977b0d0622e3e.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 2 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083959939bd4a174.jpg", preco:null },
+    { nome:"SARRAFO 10 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060839568496bfb05f.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD 3 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083945c0b94e9585.jpg", preco:null },
+    { nome:"TABUA 15 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608394074bcbe7846.jpg", preco:null },
+    { nome:"BEIRAL DE 30 POR TAMANHO MOD ESPECIAL AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060839344b7de37497.jpg", preco:null },
+    { nome:"TABUA 15 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083931e14d507151.jpg", preco:null },
+    { nome:"CAIBRO 5X5 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608391165b3de5b5b.jpg", preco:null },
+    { nome:"CAIBRO 5X5 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083882439e379b13.jpg", preco:null },
+    { nome:"TABUA 15 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083871ea3929d9de.jpg", preco:null },
+    { nome:"TABUA 20 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608385083246eabb0.jpg", preco:null },
+    { nome:"TABUA 20 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083830fd3890f043.jpg", preco:null },
+    { nome:"TABUA 20 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083789931c4c4cbf.jpg", preco:null },
+    { nome:"TABUA 25 PEROBA VERMELHA - CUPIUBA * POR TAMANHO*", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083755fc9d2a1cdf.jpg", preco:null },
+    { nome:"CAIBRO 5X7 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837538780ed4807.jpg", preco:null },
+    { nome:"TABUA 25 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837440dae985023.jpg", preco:null },
+    { nome:"TABUA 25 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083722bf179730d4.jpg", preco:null },
+    { nome:"CAIBRO 5X7 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837038655b809ef.jpg", preco:null },
+    { nome:"TABUA 30 COM 3 METROS PINUS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083679ff14c97a98.jpg", preco:null },
+    { nome:"QUADRADO 15X15 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083669/6f250889181b4a6faaeb94fd505a2864-si2hyglomv.png", preco:null },
+    { nome:"TABUA 30 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083637e2a64fb7c4.jpg", preco:null },
+    { nome:"VIGA 5X11 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083553/26e46d7287ee4effb9592f24affc729d-svxu171s3o.png", preco:null },
+    { nome:"RIPA 1,5X5 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608352170809ceb1d.jpg", preco:null },
+    { nome:"VIGA 5X15 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083486/76a99f6c807d47d79790e7c067fd6846-r5949syqas.png", preco:null },
+    { nome:"VIGA 5X20 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083454/3e67dacd893547d78ea3cd5c45028e56-1xv8jy0br5.png", preco:null },
+    { nome:"RIPA 1,5X5 GARAPEIRA * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083414b557f67e4a.jpg", preco:null },
+    { nome:"VIGA 5X25 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083389/0e674d36a6ba4ee49544956141bc6edc-ojqt28n8ku.png", preco:null },
+    { nome:"RIPA 1,5X5 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060833860328a4658a.jpg", preco:null },
+    { nome:"RIPA 1,5X5 PEROBA DO PARA * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608336593fb746baa.jpg", preco:null },
+    { nome:"RIPAO 2X5 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083321d4b16c5127.jpg", preco:null },
+    { nome:"VIGA 5X30 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083242/9d0c5a9e482944cd802a1cf47b42e5e7-su9v5vmrt9.png", preco:null },
+    { nome:"RIPAO 2X5 GARAPEIRA * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083239a26312b546.jpg", preco:null },
+    { nome:"VIGA 7X20 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083137b593419070.jpg", preco:null },
+    { nome:"RIPAO 2X5 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060831358d3efe7ce2.jpg", preco:null },
+    { nome:"VIGA 7X25 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060830899f1f5273dc.jpg", preco:null },
+    { nome:"RIPAO 2X5 PEROBA DO PARA * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060830368e04318348.jpg", preco:null },
+    { nome:"SARRAFO 05 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082991ec719104fb.jpg", preco:null },
+    { nome:"VIGA 7X30 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082971/3e3bb1e0108d46cc96188a52c4844bf4-8r4gfibxcv.png", preco:null },
+    { nome:"SARRAFO 05 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082871c4415010f2.jpg", preco:null },
+    { nome:"SARRAFO 05 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082832f5ba3421b1.jpg", preco:null },
+    { nome:"SARRAFO 05 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082804c263a0275f.jpg", preco:null },
+    { nome:"SARRAFO 07 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060827847d008a469e.jpg", preco:null },
+    { nome:"SARRAFO 07 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608276340c75c7d93.jpg", preco:null },
+    { nome:"SARRAFO 07 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608274556947bbc24.jpg", preco:null },
+    { nome:"SARRAFO 07 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060827221ff1f1f0c0.jpg", preco:null },
+    { nome:"SARRAFO 10 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082668987965a8a7.jpg", preco:null },
+    { nome:"SARRAFO 10 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060826402f798cdefd.jpg", preco:null },
+    { nome:"SARRAFO 10 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082620ccc6b50f37.jpg", preco:null },
+    { nome:"SARRAFO 10 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060825644471027f26.jpg", preco:null },
+    { nome:"TABUA 15 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060825452f51ad804f.jpg", preco:null },
+    { nome:"TABUA 15 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608252146de88e238.jpg", preco:null },
+    { nome:"TABUA 15 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082497f1a1818db1.jpg", preco:null },
+    { nome:"TABUA 15 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608245223865813e9.jpg", preco:null },
+    { nome:"TABUA 20 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608243067681adcaf.jpg", preco:null },
+    { nome:"TABUA 20 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823948603dc70d0.jpg", preco:null },
+    { nome:"TABUA 20 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823827c0d1d8be3.jpg", preco:null },
+    { nome:"PONTALETE EUCALIPTO 3.00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082361e74c7c688b.jpg", preco:null },
+    { nome:"PONTALETE EUCALIPTO 4.00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608235530ebbf25a4.jpg", preco:null },
+    { nome:"TABUA 20 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082345478c8c3d00.jpg", preco:null },
+    { nome:"PONTALETE EUCALIPTO 6.00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823400ffc812648.jpg", preco:null },
+    { nome:"TABUA 25 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608232087162de398.jpg", preco:null },
+    { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 3,50m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608231100e45c8adc.jpg", preco:null },
+    { nome:"TABUA 25 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082296c95225af70.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082276151c5bd4fa.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082264ae3182e210.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 2,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060822483c031906b0.jpg", preco:null },
+    { nome:"TABUA 25 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082239f712298a02.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060822234899f559d5.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 3,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082200793d5c92c3.jpg", preco:null },
+    { nome:"TABUA 25 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060821934674d23b7a.jpg", preco:null },
+    { nome:"TABUA 30 AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082155627dd7d855.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060821097ca92acef7.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 10 A 12 TRATADO 6,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060821027985271494.jpg", preco:null },
+    { nome:"TABUA 30 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082087cd68f5fe19.jpg", preco:null },
+    { nome:"TABUA 30 POR TAMANHO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082068aa435cd258.jpg", preco:null },
+    { nome:"TABUA 30 POR TAMANHO GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082044a0f26ea312.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060820321dcde5f6d0.jpg", preco:null },
+    { nome:"Viga Peroba do Pará 18x25 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082025d71e0d1d91.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 2,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060820219921946eb0.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060820059fd4bc79c5.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 3,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081996e8c0391731.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081985df14fd5e68.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608196518137eff70.jpg", preco:null },
+    { nome:"VIGA 5X11 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081951/7dd05527eb1640efacf0debb17fdc898-02g8yww96z.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 6,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060819008e6fb51b47.jpg", preco:null },
+    { nome:"VIGA 5X11 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081898/34aa419eb5c74c4ebd60199d4b71d6be-w3rhzs9mii.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 12 A 14 TRATADO 7,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608189021d59b2840.jpg", preco:null },
+    { nome:"VIGA 5X15 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081858/ea815b3e5b584e83b1b1ad6e6adbf37c-mqpt1efmea.png", preco:null },
+    { nome:"VIGA 5X15 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060818383b12a73eae.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 14 A 16 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081820844fcb838d.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 14 A 16 TRATADO 2,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081803cfa14316c0.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 14 A 16 TRATADO 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608179753c3a9b91e.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 14 A 16 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081789a730af7742.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 14 A 16 TRATADO 6,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060817815bc8e86b93.jpg", preco:null },
+    { nome:"VIGA 5X20 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081773/a4bc2faa96144ee79a818556c8b7b0f9-0g88b5jfra.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 16 A 18 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081770db64bc8fbb.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 16 A 18 TRATADO 3,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060817601a2723f012.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 16 A 18 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081746ae63a1b004.jpg", preco:null },
+    { nome:"VIGA 5X20 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081740d46f97da0e.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 16 A 18 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081734a8cb33c455.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 18 A 20 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081728492dec6840.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 18 A 20 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081723bc39f083fd.jpg", preco:null },
+    { nome:"VIGA 5X25 GARAPEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081701/dd480071204e49fabcf5d821bd6d067d-9nlq61chvz.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 18 A 20 TRATADO 6,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060816841e9fd25776.jpg", preco:null },
+    { nome:"VIGA 5X25 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060816745096db0a09.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 18 A 20 TRATADO 7,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060816166ebc992094.jpg", preco:null },
+    { nome:"Viga Garapeira 5x30 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081613/70dba0130b884afbaed4a51a5574146e-1d8hkt5ctc.png", preco:null },
+    { nome:"VIGA 5X30 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608158966b720ab44.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 23 A 25 TRATADO 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081582de798db7c1.jpg", preco:null },
+    { nome:"Viga Garapeira 7x20 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081572/53cd79a0f4d34f2887d707376f471cc9-a09qjo6xhf.png", preco:null },
+    { nome:"VIGA 7X20 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081545f4e7974f95.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 23 A 25 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081511acbc64142d.jpg", preco:null },
+    { nome:"Viga Garapeira 7x25 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081505/79e478eba7ee41c0a9e6491cfdc3b3b3-w8yqswxamv.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 23 A 25 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608150268c3267979.jpg", preco:null },
+    { nome:"VIGA 7X25 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081483d56a563dc3.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 23 A 25 TRATADO 6,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081462a9bc2c61da.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 6 A 8 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060814492e246e68cf.jpg", preco:null },
+    { nome:"Viga Garapeira 7x30 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081416/fbe46910f7664d85baa9084aa350e61e-w5w5ls8ioq.png", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 6 A 8 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608140857da279868.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 8 A 10 TRATADO 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081400ccf44e2191.jpg", preco:null },
+    { nome:"ROLIÇO EUCALIPTO 8 A 10 TRATADO 2,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813920ebf5aa707.jpg", preco:null },
+    { nome:"VIGA 7X30 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081327705a5c5af8.jpg", preco:null },
+    { nome:"Viga Garapeira 7x40 cm - MT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081274/cc8ef5a1750c41b4b5625d40b36ea959-q6khbncua3.png", preco:null },
+    { nome:"VIGA 7X40 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060812474edc418e04.jpg", preco:null },
+    { nome:"VIGA 7X40 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608102937585b1ab6.jpg", preco:null },
+    { nome:"VIGA 9X20 PEROBA DO PARA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080992839800bade.jpg", preco:null },
+    { nome:"FORRO AMESCLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080031bb955462ad.jpg", preco:null },
+    { nome:"FORRO AMESCLA - POR TAMANHO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080014250c729213.jpg", preco:null },
+    { nome:"RIPAO 2X5 COMUM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084448d262534943.jpg", preco:null },
+    { nome:"RIPAO 2X5 COMUM * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084400610911c992.jpg", preco:null },
+    { nome:"RIPAO 2X5 PEROBA VERMELHA - CUPIUBA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060842829cd1ca7c81.jpg", preco:null },
+    { nome:"TABUA 30 PEROBA VERMELHA -CUPIUBA * POR TAMANHO *", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060835839eb50f1711.jpg", preco:null }
+      ]
+    },
+    { id:"cat-telhas", titulo:"Telhas e cumeeiras", carrossel:true,
+      descricao:"Cerâmica, concreto, fibrocimento e PET. Com cumeeira e acessório de fixação. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Telha Romana","Telha Americana","Telha Portuguesa","Telha Concreto","Cumeeira","Chapa ondulada","Acabamento lateral","Passarinheira"],
+      produtos:[
+        { sku:"3917", nome:"Telha Romana Lopes sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400747276/2ba6ccae384f40ddb13b79aafa1f2c8e-qlzwlmvuwb.webp", preco:null },
+        { sku:"3541", nome:"Chapa ondulada BR 5mm x 2,44 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738638/cee6fedd2a024868aa6019990b6f9783-g0slyey80g.png", preco:null },
+        { nome:"Chapa ondulada BR 5mm x 2,13 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738587/2045c53942b54447b8f6af36772481ba-vvit0l5vwq.png", preco:null },
+        { nome:"Chapa ondulada BR 5mm x 1,83 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738514/b5f9617f68dc4e6b95b720d2ee512a16-t7u7h100io.png", preco:null },
+        { nome:"Chapa ondulada BR 5mm x 1,53 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738496/cc13b49210a84d8e939fae0be57ab540-wz6meiw9zh.png", preco:null },
+        { nome:"Chapa fibrocimento 4mm x 2,44 x 0,50m — Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400737626/160aaa3dc9a3422cbe86e6da20b80b17-1rp47f1jh5.png", preco:null },
+        { sku:"1964", nome:"Cumeeira colonial resinada Barrobello", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400732102/504b4ad16c844efdb8141140185245da-8jmup0tif3.jpg", preco:{ valor:"R$ 4,60", parcelas:"até 6x de R$ 0,76 sem juros" } },
+        { nome:"Telha Eurotop PET", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550097/2edde67943bf40c5938d6ac5e198e032-39jalegtom.png", preco:null },
+        { nome:"Acabamento lateral concreto cinza — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549782/design-sem-nome-1-3s4ypvp5hm.jpg", preco:null },
+        { nome:"Acabamento lateral concreto colorida — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549777/design-sem-nome-28i0eswdaw.jpg", preco:null },
+        { nome:"Telha Americana PET", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082570063000dc0a.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Champanhe — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060824626271f2d033.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Esmeralda — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082437fb0d1d297a.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Grafite — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082423ae117c90d8.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Marfim — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082413f372b99453.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Pêssego — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608241073aa60bf5b.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Rubi — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082404482f68a27d.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Salmão — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608239710af2c254e.jpg", preco:null },
+        { nome:"Telha Concreto Clássica Tabaco — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823902868da103d.jpg", preco:null },
+        { nome:"Telha Portuguesa PET", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608162061c87f82b2.jpg", preco:null },
+        { nome:"Telha Romana — Eurotop — resinada", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608158476e85ffb57.jpg", preco:null },
+        { nome:"Telha Romana PET", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081537f8ce1fc6de.jpg", preco:null },
+        { nome:"Passarinheira universal transparente", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080959811f214dc9.jpg", preco:null },
+        { nome:"Cumeeira Concreto Esmeralda Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080584058afcc8b8.jpg", preco:null },
+        { nome:"Cumeeira Concreto Grafite Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608057376bf634188.jpg", preco:null },
+        { nome:"Cumeeira Concreto Marfim Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060805576e63cab366.jpg", preco:null },
+        { nome:"Cumeeira Concreto Pêssego Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080547c0fcaa0c75.jpg", preco:null },
+        { nome:"Cumeeira Concreto Rubi Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080542ea8fbe87f7.jpg", preco:null },
+        { nome:"Cumeeira Concreto Salmão Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060805364ac52e5990.jpg", preco:null },
+        { nome:"Cumeeira Concreto Tabaco Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080521a94f114ab7.jpg", preco:null },
+        { nome:"Cumeeira Concreto Colorida Eurotop — sem resina", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080507056bd84dd6.jpg", preco:null }
+      ]
+    },
+    { id:"cat-rolico", titulo:"Roliço tratado", carrossel:true,
+      descricao:"Eucalipto autoclavado, do 4–6 cm ao 8–10 cm de diâmetro, de 1,50 m a 5,00 m. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["4 a 6","6 a 8","8 a 10"],
+      produtos:[
+        { nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746278/be6e0f47e9e54ba4bb94deed1dcd5f45-dwceqvgbwj.png", preco:null },
+        { nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746219/63755635ebf64e53850d2b4dfbce60d6-ki572gs99l.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 3,00m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746209/6b3c445169d94206b5bf492457a7f1c9-cz5t9fdlq1.png", preco:null },
+        { nome:"ROLIÇO 8 A 10 EUCALIPTO TRATADO 4,00 M", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746015/58986ba270e840ad9ea989ff02404842-t9vwf6almv.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 1,50 m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745995/b194f6681a004dd9b67cb33f76452a37-64fttegute.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 5 m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745946/b88e36bb3c314124b94e21f4a0a35ad7-higyrxac3y.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745797/c61e534b78014527b8698c25383c40bc-fr6s5jv9sk.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 3,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745760/0c816a6b59b84318835a2300c3aab607-vi9sh1ix0a.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745662/5f43a6d3e1e34cdeb9ab7321444c0fae-4afloai56w.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 6 cm a 8 cm x 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745647/d3af2e4d5efe4672b4ff1a07d2814ce6-fdpash2w5e.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 4 cm a 6 cm x 2,20 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745633/0d05e79ea934487095538ff44d317f71-ntt2d3xgu2.png", preco:null },
+        { nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 3,50m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608231100e45c8adc.jpg", preco:null },
+        { nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082276151c5bd4fa.jpg", preco:null }
+      ]
+    },
+    { id:"cat-assoalhos", titulo:"Assoalhos", carrossel:true,
+      descricao:"Cumaru e garapeira, réguas de 8 a 15 cm. Piso maciço que dura décadas. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Assoalho Garapeira","Assoalho Cumaru","Beiral de 15","Beiral de 20","Beiral de 25"],
+      produtos:[
+        { sku:"1118", nome:"Assoalho Garapeira 15", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550400/bf5ee8d9a80122e09e877bc53bf75e49-u683d14e5d.jpg", preco:null },
+        { sku:"1120", nome:"Assoalho Cumaru 15", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206086596d963b33cf1.jpg", preco:null },
+        { sku:"475", nome:"Beiral de 15 mod. 1 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085321052034771d.jpg", preco:null },
+        { sku:"477", nome:"Beiral de 15 mod. 2 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852941dd1606140.jpg", preco:null },
+        { sku:"479", nome:"Beiral de 15 mod. 3 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852714bdb939498.jpg", preco:null },
+        { sku:"481", nome:"Beiral de 15 mod. especial — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085245/6f1c396842a44f5da632593da9a5c035-7ese4l880p.png", preco:null },
+        { sku:"476", nome:"Beiral de 15 por tamanho mod. 1 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060852106f08221e5f.jpg", preco:null },
+        { sku:"478", nome:"Beiral de 15 por tamanho mod. 2 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085175c5c56ec306.jpg", preco:null },
+        { sku:"480", nome:"Beiral de 15 por tamanho mod. 3 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085149dde344c9c9.jpg", preco:null },
+        { sku:"482", nome:"Beiral de 15 por tamanho mod. especial — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085112c2e06dbacd.jpg", preco:null },
+        { sku:"483", nome:"Beiral de 20 mod. 1 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608507127e344201b.jpg", preco:null },
+        { sku:"485", nome:"Beiral de 20 mod. 2 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608499287f615aac3.jpg", preco:null },
+        { sku:"1497", nome:"Assoalho Garapeira 10 comercial", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084912ec4174d229.jpg", preco:null },
+        { sku:"487", nome:"Beiral de 20 mod. 3 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084906bd2d0626af.jpg", preco:null },
+        { sku:"489", nome:"Beiral de 20 mod. especial — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084788459f1e89f3.jpg", preco:null },
+        { sku:"484", nome:"Beiral de 20 por tamanho mod. 1 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084691c5ea57f7fe.jpg", preco:null },
+        { sku:"486", nome:"Beiral de 20 por tamanho mod. 2 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846692a52c732ed.jpg", preco:null },
+        { sku:"488", nome:"Beiral de 20 por tamanho mod. 3 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608464810fff8754e.jpg", preco:null },
+        { sku:"490", nome:"Beiral de 20 por tamanho mod. especial — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846197d4a48131e.jpg", preco:null },
+        { sku:"491", nome:"Beiral de 25 mod. 1 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608459271e4c601d3.jpg", preco:null },
+        { sku:"493", nome:"Beiral de 25 mod. 2 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084571e7b6279424.jpg", preco:null },
+        { sku:"495", nome:"Beiral de 25 mod. 3 — Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084487d975bf728f.jpg", preco:null },
+        { sku:"1125", nome:"Assoalho 4L Cumaru 127", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080956e59dbc1207.jpg", preco:null },
+        { sku:"1124", nome:"Assoalho 4L Cumaru 83", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608092213392cf75b.jpg", preco:null },
+        { sku:"1119", nome:"Assoalho Cumaru 10", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608089117dc5dfc50.jpg", preco:null }
+      ]
+    },
+    { id:"cat-deck", titulo:"Deck", carrossel:true,
+      descricao:"Garapeira para área externa, piscina e varanda. Régua lisa ou frisada.",
+      produtos:[
+        { sku:"1110", nome:"Deck Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550365/3b89a45c7a9af76336247045dbfb5920-o5jt72bwrq.jpg", preco:{ valor:"R$ 295,99" } },
+        { sku:"1490", nome:"Deck Cumaru comercial 10 mesclado — curto", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608656516398569f6.jpg", preco:{ valor:"R$ 182,06" } }
+      ]
+    },
+    { id:"cat-forros", titulo:"Forros", carrossel:true,
+      descricao:"Amescla, cedrinho, pinus, garapeira e PVC. Com rodaforro e cantoneira. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Forro Garapeira","Forro PVC","Forro Cedrinho","Forro Pinus","Forro Amescla","Meia cana"],
+      produtos:[
+        { sku:"1106", nome:"Forro Garapeira", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550352/e11957cfe70b4096afd828ad53a9784a-18opo860hw.jpg", preco:null },
+        { sku:"980", nome:"Forro PVC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084749f3120d991c.jpg", preco:null },
+        { sku:"966", nome:"Forro Cedrinho mesclado", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084730fc5ea128ae.jpg", preco:null },
+        { sku:"965", nome:"Forro Cedrinho mesclado — curto", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060846420b36d03618.jpg", preco:null },
+        { sku:"964", nome:"Forro Cedrinho mesclado — sob medida", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060845827bdc7815a4.jpg", preco:null },
+        { sku:"961", nome:"Forro Cedrinho vermelho", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084557774ef7dacd.jpg", preco:null },
+        { sku:"959", nome:"Forro Cedrinho vermelho — curto", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084538f46875e45f.jpg", preco:null },
+        { sku:"958", nome:"Forro Cedrinho vermelho — sob medida", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060844883ec8a6c6ac.jpg", preco:null },
+        { sku:"978", nome:"Forro Pinus", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060844595b287b7251.jpg", preco:null },
+        { sku:"967", nome:"Meia cana Cedrinho mesclado", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084394a392f72f73.jpg", preco:null },
+        { sku:"1682", nome:"Forro Amescla", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080031bb955462ad.jpg", preco:null },
+        { sku:"1683", nome:"Forro Amescla — por tamanho", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080014250c729213.jpg", preco:null }
+      ]
+    },
+    { id:"cat-chapas", titulo:"Chapas e ferragens", carrossel:true,
+      descricao:"Madeirite, OSB, prego e arame. O que segura a obra em pé. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Chapa OSB","Madeirit","Arame","Prego"],
+      produtos:[
+        { sku:"993", nome:"Chapa OSB 08 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551438/6f25eff1befc2dfc4f71198d5e954308-488j4yzvom.jpg", preco:null },
+        { sku:"994", nome:"Chapa OSB 10 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551432/fc512236c6e9b1ec2f67bd5d509d22fe-u1xe98p01g.jpg", preco:null },
+        { sku:"995", nome:"Chapa OSB 12 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060831132168dc985f.jpg", preco:null },
+        { sku:"996", nome:"Chapa OSB 14 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083079a2efe94bb2.jpg", preco:null },
+        { sku:"984", nome:"Madeirit 06 mm cola branca", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608299226594ccf8f.jpg", preco:null },
+        { sku:"985", nome:"Madeirit 10 mm cola branca", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082958e85b3ac09e.jpg", preco:null },
+        { sku:"987", nome:"Madeirit 15 mm cola branca", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060829287a413e865a.jpg", preco:null },
+        { sku:"988", nome:"Madeirit plastificado 10 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082895eb8a2717e9.jpg", preco:null },
+        { sku:"989", nome:"Madeirit plastificado 12 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082815541aa2f9a0.jpg", preco:null },
+        { sku:"990", nome:"Madeirit plastificado 14 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608279553b6c9c1b0.jpg", preco:null },
+        { sku:"991", nome:"Madeirit plastificado 17 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060827774003bdbd22.jpg", preco:null },
+        { sku:"992", nome:"Madeirit plastificado 20 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082767bf1d80a832.jpg", preco:null },
+        { sku:"1545", nome:"Madeirit plastificado 25 mm", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082754f077370946.jpg", preco:null },
+        { sku:"1057", nome:"Arame recozido 12 (rolo 1 kg)", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082743a898ca57e2.jpg", preco:null },
+        { sku:"1056", nome:"Arame recozido torcido 18 (rolo 1 kg)", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082699051184a2a9.jpg", preco:null },
+        { sku:"1144", nome:"Prego 12x12 c/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082690c63f8fdce5.jpg", preco:null },
+        { sku:"1143", nome:"Prego 12x12 s/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060826807d9e1bae4a.jpg", preco:null },
+        { sku:"1138", nome:"Prego 15x15", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082670ca7bddb6a1.jpg", preco:null },
+        { sku:"1137", nome:"Prego 15x21", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082662439c3f1b33.jpg", preco:null },
+        { sku:"1136", nome:"Prego 17x21", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608264928b6188d2e.jpg", preco:null },
+        { sku:"1133", nome:"Prego 17x21 s/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060826004b6bb5d02b.jpg", preco:null },
+        { sku:"1135", nome:"Prego 17x21 Ardox", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060825925ed327888d.jpg", preco:null },
+        { sku:"1288", nome:"Prego 17x21 de aço com 100 und", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608258344bff1e17f.jpg", preco:null },
+        { sku:"1134", nome:"Prego 17x21 galvanizado s/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608256970b8b62a24.jpg", preco:null },
+        { sku:"1132", nome:"Prego 18x27 c/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082563ee7b7499a1.jpg", preco:null },
+        { sku:"1131", nome:"Prego 18x27 Ardox c/c", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082522947db1cc45.jpg", preco:null },
+        { sku:"1130", nome:"Prego 18x27 cabeça dupla", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082484d75b9c4eb8.jpg", preco:null },
+        { sku:"1495", nome:"Prego 18x27 de aço com 100 und", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082473f618fff325.jpg", preco:null },
+        { sku:"1129", nome:"Prego 18x27 telheiro 500 gramas", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060824662b89c5be54.jpg", preco:null },
+        { sku:"1128", nome:"Prego 19x36 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082458665f073361.jpg", preco:null },
+        { sku:"1127", nome:"Prego 20x42 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082447188ce9e8a8.jpg", preco:null },
+        { sku:"1126", nome:"Prego 20x48 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206082435e52bf3cd53.jpg", preco:null },
+        { sku:"1088", nome:"Prego 22x42 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060824058d0a699377.jpg", preco:null },
+        { sku:"1087", nome:"Prego 22x48 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823982c5f67419d.jpg", preco:null },
+        { sku:"1086", nome:"Prego 24x60 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823754abaabe16c.jpg", preco:null }
+      ]
+    },
+    { id:"cat-portas", titulo:"Portas e batentes", carrossel:true,
+      descricao:"Porta interna, kit de correr, batente, fechadura, dobradiça e guarnição. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Fechadura Aliança","Fechadura Stam","Porta Lisa","Porta Friso","Porta BBB Maciça","Porta Camarão","Batente","Dobradiça","Puxador","Maçaneta","Guarnição","Kit correr"],
+      produtos:[
+    { sku:"1266", nome:"FECHADURA ALIANÇA 4192 CR GALAXY INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552283/b707bca30e7d5190f6786c24de763c27-megg1dp7vo.jpg", preco:null },
+    { sku:"1265", nome:"FECHADURA ALIANÇA 4193 BL GALAXY WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552057/2e891b454ff07e9a50894abf0db15bfc-v43g98vj0g.jpg", preco:null },
+    { sku:"1264", nome:"FECHADURA ALIANÇA 4193 CR GALAXY WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552053/9f06fb3f0a4065768a03234d4594e224-cudu18izlx.jpg", preco:null },
+    { sku:"899", nome:"FECHADURA ALIANÇA 55011 AV HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552048/62e6f04d12b3dcae9536b7aef8490b5d-gif3rx8fr6.jpg", preco:null },
+    { sku:"898", nome:"FECHADURA ALIANÇA 55011 BL HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552041/1d0a8fd59df4f936ff372c187ab80ec6-tng2screoe.jpg", preco:null },
+    { sku:"897", nome:"FECHADURA ALIANÇA 55011 CR HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552036/80bd10c7baf0286c1095710a92823415-hrh6ydm673.jpg", preco:null },
+    { sku:"895", nome:"FECHADURA ALIANÇA 55012 AV HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552031/ed952af8e954699b2c4724f6965b-8v88gtpfg2.jpg", preco:null },
+    { sku:"894", nome:"FECHADURA ALIANÇA 55012 BL HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552023/9f9bf6963d01e0b74d86a95243b790a8-shu9buomjv.jpg", preco:null },
+    { sku:"893", nome:"FECHADURA ALIANÇA 55012 CR HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552016/3617b8ce77b6a35c1a78324b5cd84078-l987mlhdyv.jpg", preco:null },
+    { sku:"892", nome:"FECHADURA ALIANÇA 55013 AV HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552011/1f78a956667119b51a0119526a13cbea-i3lc6qcbvn.jpg", preco:null },
+    { sku:"891", nome:"FECHADURA ALIANÇA 55013 BL HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552006/75e964c10f1e3d508b8fe0351f74368d-5gi6621pgz.jpg", preco:null },
+    { sku:"890", nome:"FECHADURA ALIANÇA 55013 CR HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296552002/6815c449eff686a85457e8c699a135d7-m8qbk631e2.jpg", preco:null },
+    { sku:"883", nome:"FECHADURA ALIANÇA BICO DE PAPAGAIO", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"889", nome:"FECHADURA ALIANÇA F-1300 CR PORTA CORRER", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"888", nome:"FECHADURA ALIANÇA F-1300 PF PORTA CORRER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551992/da70ecdc9020910245e12b4a0ef380d1-fsnxslr5qe.jpg", preco:null },
+    { sku:"887", nome:"FECHADURA ALIANÇA F-1340 CR PORTA CORRER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551984/ccabfb677599393e642b659a3439df38-rgqdi7jcm6.jpg", preco:null },
+    { sku:"886", nome:"FECHADURA ALIANÇA F-1340 PF PORTA CORRER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551982/7a873adc3a76bb3cdd922c2ba4616e10-gsx26ps46v.jpg", preco:null },
+    { sku:"885", nome:"FECHADURA ALIANÇA F-1500 PF SOBR/ PORT/ PARAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551976/5d65f9c1df42c09c36d9890685ac3f93-d14n67ol77.jpg", preco:null },
+    { sku:"949", nome:"FECHADURA ALIANÇA F-2000 BL TRAVA SEG DUPLA BLISTER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551970/b438db31aba10264ca64aa9659f6fe02-7bvhc1x2zg.jpg", preco:null },
+    { sku:"948", nome:"FECHADURA ALIANÇA F-2000 BL TRAVA SEG SIMPLES BLISTER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551962/0d656994b7de262ef59ba8f54bef0383-n3lwj3dn7j.jpg", preco:null },
+    { sku:"950", nome:"FECHADURA ALIANÇA F-5600/20 BLISTER ROSETA QUADR. C", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"1360", nome:"FECHADURA ALIANÇA ONDA 4131 CR EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551952/ea4402b8955f8bb3d5280aa2274b361b-80f4qdu4lq.jpg", preco:null },
+    { sku:"1486", nome:"FECHADURA ALIANÇA ONDA 4131 CRE EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551945/a4bcc73400e17d4ca1277b1a81d4635f-yv2ydrr1sv.jpg", preco:null },
+    { sku:"1361", nome:"FECHADURA ALIANÇA ONDA 4132 CR INT", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"1487", nome:"FECHADURA ALIANÇA ONDA 4132 CRE INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551934/c4dbfe8c47aca19755565d7c7944579f-xp42phdcy5.jpg", preco:null },
+    { sku:"1362", nome:"FECHADURA ALIANÇA ONDA 4133 CR WC", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"1488", nome:"FECHADURA ALIANÇA ONDA 4133 CRE WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551921/2059a2770938506dc8d7847a161df9e8-cxmfmp4mu6.jpg", preco:null },
+    { sku:"1543", nome:"FECHADURA ALIANÇA ROLETE F-5600/10 BL BLISTER", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"882", nome:"FECHADURA ALIANÇA ROLETE F-5600/10 CR BLISTER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551844/b1e76443d300e73d5ca52b5b9d5408f2-onygl906v9.jpg", preco:null },
+    { sku:"881", nome:"FECHADURA ALIANÇA ROLETE F-5600/10 CRE BLISTER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551598/3fc89bce474af7e184253834d07d677d-14zhylnaar.jpg", preco:null },
+    { sku:"884", nome:"FECHADURA ALIANÇA ROLETE F-5600/10 ROSETA QUADRADA", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"879", nome:"FECHADURA ALIANÇA ROLETE F-5600/20 CR BLISTER", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551509/c89166077ace914ef0e42fba241e84e6-zpsgoqcud8.jpg", preco:null },
+    { sku:"1075", nome:"PORTA BB MAPAF FRISO ARCO 1.10", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551330/b6981a3e9f134735ade252b2c6c7ab01-fq56ts1icr.png", preco:null },
+    { sku:"1073", nome:"PORTA BB MAPAF TAUARI 0,82 FRISADA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551326/88c6cb3ded614e3696d210a852c80652-nfj6r4g1ck.png", preco:null },
+    { sku:"1079", nome:"PORTA BB MAPAF TAUARI 0.82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551325/13861cc73bf1419b9aaf6d6a59e4c0cf-8xs7f8hgvh.png", preco:null },
+    { sku:"1074", nome:"PORTA BB MAPAF TAUARI 1.10 FRISADA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551321/ac28ed78ccbb47708eb9adcd33febbbf-1lh1spp66w.png", preco:null },
+    { sku:"1525", nome:"PORTA BBB MACICA 1,02 MT TAUARI COM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551318/e78d31e0279b4fa58311d05526dc46af-ied0r16sr1.png", preco:null },
+    { sku:"1526", nome:"PORTA BBB MACICA 1,02 MT TAUARI SEM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296551314/2f659ea4a6b64dfc938766608acfc9ad-nu5gm5e66n.png", preco:null },
+    { sku:"1372", nome:"PORTA BBB MACICA 1,10 MT TAUARI COM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550921/789cdb38fce744ec87115edd7fa05da1-okgdeoru7b.png", preco:null },
+    { sku:"1370", nome:"PORTA BBB MACICA 1,10 MT TAUARI SEM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550916/752e95f57a7e489c895add8050be22b2-ctee7m44fs.png", preco:null },
+    { sku:"1514", nome:"PORTA BBB MACICA 1,20 MT CEDRO ARANA COM VITRO VERTICAL - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550911/1bf296c86103420e964e89dc3fb7ce30-up8zxj1f7t.jpg", preco:null },
+    { sku:"1373", nome:"PORTA BBB MACICA 1,20 MT TAUARI COM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550908/5d770297edaf4e2ca8a4778929d4b52f-5vr7z5hzxv.png", preco:null },
+    { sku:"1513", nome:"PORTA BBB MACICA 1,20 MT TAUARI COM VITRO VERTICAL - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550865/8a0b69ec94b6443aa5c458792b8e0811-mr3ffac8uu.jpg", preco:null },
+    { sku:"1254", nome:"PORTA BBB MACICA 1,20 MT TAUARI SEM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550824/d2d2c2c921d44825a98e2c3c0f261451-cd7sp0evet.png", preco:null },
+    { sku:"1535", nome:"PORTA BBB MACICA 82CM TAUARI", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550820/d987c69f21074720854f69cedd599268-qvuy2vp13q.png", preco:null },
+    { sku:"1536", nome:"PORTA BBB MACICA 82CM TAUARI COM FRISO ARCO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550813/881f1b5b00734607b3ad102d4dc63934-voe2ivk6qa.png", preco:null },
+    { sku:"1369", nome:"PORTA BBB MACICA 82CM TAUARI COM FRISO ARCO - MAPAF -", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550809/d40844f3757d41a48510fdb741a50d03-ea1fvdy03q.png", preco:null },
+    { sku:"1258", nome:"PORTA BBB MACICA 82CM TAUARI SEM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550758/ffc3b5ebef094affb45657598f1cb7c6-y7e2b2er51.png", preco:null },
+    { sku:"1537", nome:"PORTA BBB MACICA 92CM TAUARI", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550752/86ab2ef5041a4cd99e382fad791a728c-wjl3pvv1tz.png", preco:null },
+    { sku:"1371", nome:"PORTA BBB MACICA 92CM TAUARI COM FRISO ARCO - MAPAF", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550748/d45b06f2ed68483cab57c3fe667508f7-9skdaavdiw.png", preco:null },
+    { sku:"975", nome:"BATENTE CEDRO PADRÃO 14 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549624/f745597302844839af412a0356a9d462-cn4c4rm0x3.jpg", preco:null },
+    { sku:"976", nome:"BATENTE CEDRO PADRÃO 15 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549618/83f560ff8ed3480799f768cf01a583dd-08ndq5irba.jpg", preco:null },
+    { sku:"977", nome:"BATENTE CEDRO PADRÃO 20 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549609/3a6ffbcaa7524a83b7ce2914e55bf3e6-pvc72cqoc9.jpg", preco:null },
+    { sku:"970", nome:"BATENTE TAUARI 14 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549605/5fc4f7558c014b5d852fbad012903f0f-clivdh1eh2.jpg", preco:null },
+    { sku:"971", nome:"BATENTE TAUARI 16 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549600/507a7884217240e18783e0fead16a7bf-rzlcgaqlpp.jpg", preco:null },
+    { sku:"972", nome:"BATENTE TAUARI 18 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549594/1c452534a0184b53aa0c432b65ac3c08-zkfdju6hip.jpg", preco:null },
+    { sku:"973", nome:"BATENTE TAUARI 20 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549585/d09928ea79744c3bbc1014e3f798f829-ugj588b8a8.jpg", preco:null },
+    { sku:"974", nome:"BATENTE TAUARI 24 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549579/6d5f840aa82f481e8ce31552211f0818-bzinvtq84b.jpg", preco:null },
+    { sku:"1396", nome:"BATENTE TAUARI 25 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549572/c8c7f965071c40df80591a9534499e78-qxinzok0kt.jpg", preco:null },
+    { sku:"1397", nome:"BATENTE TAUARI 30 CM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549570/7268c30a2cc54e22bcb2ec25f3896eca-16kv3vjj44.jpg", preco:null },
+    { sku:"947", nome:"FECHADURA ALIANÇA 1061 IP MILLENIO EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549443/52d762ccaa3a89743396ac1f2cacb9ec-k9f83rh0nu.jpg", preco:null },
+    { sku:"946", nome:"FECHADURA ALIANÇA 1062 AV MILLENIO INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549428/2fae94a0d687df7093369e0913c9616a-banbffr0uy.jpg", preco:null },
+    { sku:"945", nome:"FECHADURA ALIANÇA 1063 AV MILLENIO WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549421/b6bfe33a11075e701b263524a47e9708-e6se6m0umz.jpg", preco:null },
+    { sku:"944", nome:"FECHADURA ALIANÇA 1063 IP MILLENIO WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549258/8cdd883c8ae0fe6dca6f6e8e1385efac-u7enzxmlv8.jpg", preco:null },
+    { sku:"940", nome:"FECHADURA ALIANÇA 2600/70 (4600/70) BL POP EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549253/ffe0a68891230199271aad0071560329-ujd3eot034.jpg", preco:null },
+    { sku:"939", nome:"FECHADURA ALIANÇA 2600/71 IP INOX PREMIUM EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549247/a5c48255adbc5146de3d8d8d0acde69f-htuwngo9s2.jpg", preco:null },
+    { sku:"937", nome:"FECHADURA ALIANÇA 2700/70 (4700/70) BL POP INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549238/0785b6e5c178f420b57d1b3ec0227a76-u0ijhf1i23.jpg", preco:null },
+    { sku:"936", nome:"FECHADURA ALIANÇA 2700/71 IP INOX INT", imagem:"https://cdn.awsli.com.br/production/static/img/produto-sem-imagem.gif", preco:null },
+    { sku:"935", nome:"FECHADURA ALIANÇA 2800/70 (4800/70) BL POP WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549227/108e5b860a2424be51bc7f25a74b5a51-11bgg6tmos.jpg", preco:null },
+    { sku:"933", nome:"FECHADURA ALIANÇA 2800/70 IP WC INOX", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549220/43c177ab3674707f848ecb3c81cb6bff-hb8msf7fdx.jpg", preco:null },
+    { sku:"932", nome:"FECHADURA ALIANÇA 2800/71 IP WC INOX PREMIUM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549211/9eabf26ada7b58181d944e5e4ba488a1-t01459qj6e.jpg", preco:null },
+    { sku:"925", nome:"FECHADURA ALIANÇA 4151 AV HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549198/cb495f3f539aa944233be4523d086348-w2frbf6rkq.jpg", preco:null },
+    { sku:"924", nome:"FECHADURA ALIANÇA 4151 BL HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549186/edb3bb187d31001e53723c2c1ffabb5c-x49423jiyk.jpg", preco:null },
+    { sku:"922", nome:"FECHADURA ALIANÇA 4152 AV HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549179/daa79c98f26272e5c02c5730dcf52577-klzlkixd9w.jpg", preco:null },
+    { sku:"921", nome:"FECHADURA ALIANÇA 4152 BL HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549171/92850adbe7f45d1632811787abd991b9-o27q8js11m.jpg", preco:null },
+    { sku:"919", nome:"FECHADURA ALIANÇA 4153 AV HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549158/150b15bbb5be576b381ee4a0cedef602-dyhywfjrc1.jpg", preco:null },
+    { sku:"918", nome:"FECHADURA ALIANÇA 4153 BL HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549155/771e3dffc0f2d44e8494e28d6a59631e-m7f3pa72of.jpg", preco:null },
+    { sku:"917", nome:"FECHADURA ALIANÇA 4170 Z AV TETRA FORT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549149/43fe5c7fe6219eecee26affcf0d3dab0-glapxw3sxx.jpg", preco:null },
+    { sku:"916", nome:"FECHADURA ALIANÇA 4170 Z BL TETRA FORT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549143/8acddd03846911eae34318747725eb40-hi6ns4bhw8.jpg", preco:null },
+    { sku:"915", nome:"FECHADURA ALIANÇA 4170 Z CR TETRA FORT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549135/128b66ec03b47dd76dd7a0511fb29203-q06bn54r38.jpg", preco:null },
+    { sku:"914", nome:"FECHADURA ALIANÇA 4171 AV HOME EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549131/7636000fb8d8b1e1398528e082db3370-wds10n5asz.jpg", preco:null },
+    { sku:"913", nome:"FECHADURA ALIANÇA 4172 AV HOME INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549127/e15285680c3a8770ccc52cd12a913d5a-v9458jnl4f.jpg", preco:null },
+    { sku:"912", nome:"FECHADURA ALIANÇA 4173 AV HOME WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549124/8a8b2806b5c953793371510f8b2c2d2d-zzd4j3sdie.jpg", preco:null },
+    { sku:"910", nome:"FECHADURA ALIANÇA 4181 BL GALAXY EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549116/ebc7abe4b402cc5f6672bae2937caa29-gfhu43yhxl.jpg", preco:null },
+    { sku:"909", nome:"FECHADURA ALIANÇA 4181 CR GALAXY EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549110/31ab640ed0bf2de8176ac4f55ae63385-fipz0yw0u5.jpg", preco:null },
+    { sku:"908", nome:"FECHADURA ALIANÇA 4181 CRE GALAXY EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549106/bca1ab95149a2bc4c86f4f5f6180eb4e-59seuqpc4k.jpg", preco:null },
+    { sku:"907", nome:"FECHADURA ALIANÇA 4182 BL GALAXY INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549101/dab20d3b9557271e64521946908b5120-3nle23hqtc.jpg", preco:null },
+    { sku:"904", nome:"FECHADURA ALIANÇA 4182 CR GALAXY INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549094/3480f4cbb2c1649a2ced00d3ba59d396-2pie4ztw4g.jpg", preco:null },
+    { sku:"903", nome:"FECHADURA ALIANÇA 4182 CRE GALAXY INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549086/943cfb84d365de54aea6473fa54f2858-tfcls6bush.jpg", preco:null },
+    { sku:"902", nome:"FECHADURA ALIANÇA 4183 BL GALAXY BANHO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549069/c289bbba7630dd4673a0a9c14511a333-9qfgu7m4j7.jpg", preco:null },
+    { sku:"901", nome:"FECHADURA ALIANÇA 4183 CR GALAXY BANHO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549049/c2c34d8c20bca09d9df476685f072954-ws61txmgx9.jpg", preco:null },
+    { sku:"900", nome:"FECHADURA ALIANÇA 4183 CRE GALAXY WC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549033/d29ee551aa8ff15e7ba1f507576bd497-yek9t8z82d.jpg", preco:null },
+    { sku:"1269", nome:"FECHADURA ALIANÇA 4191 BL GALAXY EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549020/882fc60ce2d270df1230a4a56d1f3a96-3zpcg8ksma.jpg", preco:null },
+    { sku:"1268", nome:"FECHADURA ALIANÇA 4191 CR GALAXY EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549006/0fa793188f49c559b05117b679e5db85-48nzllxvl5.jpg", preco:null },
+    { sku:"1267", nome:"FECHADURA ALIANÇA 4192 BL GALAXY INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548988/63f4649aa5ce257ed67d6150e0b1e7e4-pblwdz3yyi.jpg", preco:null },
+    { nome:"Maçaneta Simples Black", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060854384da020a8ac.jpg", preco:null },
+    { sku:"macaneta2", nome:"Maçaneta Simples Gold", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608542257f3a8a7c1.jpg", preco:null },
+    { sku:"macaneta3", nome:"Maçaneta Simples Silver", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085406e65ddb4e29.jpg", preco:null },
+    { sku:"732", nome:"PORTA LISA ENCABEÇADA 1.00", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206085057c24b727e4e.jpg", preco:null },
+    { sku:"731", nome:"PORTA LISA ENCABEÇADA 1.02", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608499969fb120274.jpg", preco:null },
+    { sku:"728", nome:"PORTA SOLIDA 0.62", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608498930efb9d628.jpg", preco:null },
+    { sku:"724", nome:"PORTA SOLIDA 0.72", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060849807c96b54bbd.jpg", preco:null },
+    { sku:"726", nome:"PORTA SOLIDA 0.80", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084969df8ad2a9c1.jpg", preco:null },
+    { sku:"721", nome:"PORTA SOLIDA 0.82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084954907abc4ba3.jpg", preco:null },
+    { sku:"714", nome:"PORTA SOLIDA 0.92", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060849447455d74b5e.jpg", preco:null },
+    { sku:"712", nome:"PORTA SOLIDA 1.02", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084932111a246be3.jpg", preco:null },
+    { sku:"1314", nome:"KIT TRILHO CORRER PARA PORTA CAMARAO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060844423401e5e87d.jpg", preco:null },
+    { sku:"1306", nome:"PUXADOR ALUM BARRA DUPLO CURVO FRONTAL 600MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060836512bb5b1bcf2.jpg", preco:null },
+    { sku:"1305", nome:"PUXADOR ALUM BARRA DUPLO CURVO FRONTAL 600MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060836410c3a8c574e.jpg", preco:null },
+    { sku:"1307", nome:"PUXADOR ALUM BARRA DUPLO CURVO FRONTAL 800MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060836319454b801c9.jpg", preco:null },
+    { sku:"1304", nome:"PUXADOR ALUM BARRA DUPLO CURVO FRONTAL 800MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083620ab7774f843.jpg", preco:null },
+    { sku:"1296", nome:"PUXADOR ALUM BARRA DUPLO RETO 600MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083612e7b0b6cfa6.jpg", preco:null },
+    { sku:"1294", nome:"PUXADOR ALUM BARRA DUPLO RETO 600MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608359880b101d4a8.jpg", preco:null },
+    { sku:"1297", nome:"PUXADOR ALUM BARRA DUPLO RETO 800MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060835239fec225f22.jpg", preco:null },
+    { sku:"1295", nome:"PUXADOR ALUM BARRA DUPLO RETO 800MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060835115b63a453cf.jpg", preco:null },
+    { sku:"1309", nome:"PUXADOR ALUM TUBO DUPLO CURVO LATERAL 600MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060834986934ecbc60.jpg", preco:null },
+    { sku:"1302", nome:"PUXADOR ALUM TUBO DUPLO CURVO LATERAL 600MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083481f93fcf5100.jpg", preco:null },
+    { sku:"1308", nome:"PUXADOR ALUM TUBO DUPLO CURVO LATERAL 800MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083469349188235d.jpg", preco:null },
+    { sku:"1303", nome:"PUXADOR ALUM TUBO DUPLO CURVO LATERAL 800MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083420cd0f4f5d20.jpg", preco:null },
+    { sku:"1298", nome:"PUXADOR ALUM TUBO DUPLO RETO 600MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060833813544cf4ca7.jpg", preco:null },
+    { sku:"1301", nome:"PUXADOR ALUM TUBO DUPLO RETO 600MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608334484373647bb.jpg", preco:null },
+    { sku:"1299", nome:"PUXADOR ALUM TUBO DUPLO RETO 800MM CROMADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083322aaf5ec0942.jpg", preco:null },
+    { sku:"1300", nome:"PUXADOR ALUM TUBO DUPLO RETO 800MM ESCOVADO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608321888cf0efe19.jpg", preco:null },
+    { sku:"1181", nome:"DOBRADIÇAS PARA PORTA ROCHA FC 3", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081491cc246fa3c5.jpg", preco:null },
+    { sku:"1182", nome:"DOBRADIÇAS PARA PORTA ROCHA FC 3.1/2 C/ 3 PCS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081480a6867178db.jpg", preco:null },
+    { sku:"1176", nome:"DOBRADIÇAS PARA PORTA ROCHA FOV 3 C/ 3 PC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081472abed11b48f.jpg", preco:null },
+    { sku:"1185", nome:"DOBRADIÇAS PARA PORTA ROCHA FOV 3.1/2 COM BOLA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608145628f357bd5b.jpg", preco:null },
+    { sku:"1364", nome:"PORTA CAMARÃO 0.62", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813935c73d27370.jpg", preco:null },
+    { sku:"1100", nome:"PORTA CAMARÃO 0.70", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813832f199f3f4a.jpg", preco:null },
+    { sku:"1101", nome:"PORTA CAMARÃO 0.72", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608137781fba5bd56.jpg", preco:null },
+    { sku:"1399", nome:"PORTA CAMARÃO 0.82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608135788cff47ac3.jpg", preco:null },
+    { sku:"1410", nome:"KIT CORRER PERFIL 35X35 COM ACABAMENTO EM MADEIRA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813371c43134f21.jpg", preco:null },
+    { sku:"1411", nome:"KIT CORRER PERFIL 35X35 DE SOBREPOR ACABAMENTO BRANCO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813206ff3f1b73b.jpg", preco:null },
+    { sku:"942", nome:"PORTA FRISO ENCABEÇADA 0,60", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813169f129f90e3.jpg", preco:null },
+    { sku:"941", nome:"PORTA FRISO ENCABEÇADA 0,62", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081309ffa459c41a.jpg", preco:null },
+    { sku:"938", nome:"PORTA FRISO ENCABEÇADA 0,70", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813025c5e01e366.jpg", preco:null },
+    { sku:"934", nome:"PORTA FRISO ENCABEÇADA 0,72", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081293bb52532537.jpg", preco:null },
+    { sku:"923", nome:"PORTA FRISO ENCABEÇADA 0,80", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081283d8f1ef5c43.jpg", preco:null },
+    { sku:"911", nome:"PORTA FRISO ENCABEÇADA 0,82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081266bcf640e187.jpg", preco:null },
+    { sku:"906", nome:"PORTA FRISO ENCABEÇADA 0,90", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081257016ee755c5.jpg", preco:null },
+    { sku:"1412", nome:"KIT CORRER PERFIL 35X35 DE SOBREPOR ACABAMENTO MARROM", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608125219db03ee2c.jpg", preco:null },
+    { sku:"905", nome:"PORTA FRISO ENCABEÇADA 0,92", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081250a502a57af4.jpg", preco:null },
+    { sku:"896", nome:"PORTA FRISO ENCABEÇADA 1,00", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608124250ecd51a25.jpg", preco:null },
+    { sku:"880", nome:"PORTA FRISO ENCABEÇADA 1,02", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081232ace5b13612.jpg", preco:null },
+    { sku:"878", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,60", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060811415e339cd69b.jpg", preco:null },
+    { sku:"877", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,62", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608105567cd91683a.jpg", preco:null },
+    { sku:"758", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,70", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060810460d121e49a4.jpg", preco:null },
+    { sku:"757", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,72", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060810300fab239a2c.jpg", preco:null },
+    { sku:"756", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,80", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081012b12f752cec.jpg", preco:null },
+    { sku:"755", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081000718cd02680.jpg", preco:null },
+    { sku:"754", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,90", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608098892375f636e.jpg", preco:null },
+    { sku:"752", nome:"PORTA FRISO/ARCO ENCABEÇADA 0,92", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608094012e2939e68.jpg", preco:null },
+    { sku:"750", nome:"PORTA FRISO/ARCO ENCABEÇADA 1.00", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080924e76cf79073.jpg", preco:null },
+    { sku:"749", nome:"PORTA FRISO/ARCO ENCABEÇADA 1.02", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060808715d0c5d2d74.jpg", preco:null },
+    { sku:"748", nome:"PORTA LISA ENCABEÇADA 0.60", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080853a411dfec25.jpg", preco:null },
+    { sku:"745", nome:"PORTA LISA ENCABEÇADA 0.62", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080838d808080491.jpg", preco:null },
+    { sku:"744", nome:"PORTA LISA ENCABEÇADA 0.70", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060808243b31b28d5f.jpg", preco:null },
+    { sku:"742", nome:"PORTA LISA ENCABEÇADA 0.72", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080813f18686692e.jpg", preco:null },
+    { sku:"739", nome:"PORTA LISA ENCABEÇADA 0.80", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608080357ce7fe095.jpg", preco:null },
+    { sku:"738", nome:"PORTA LISA ENCABECADA 0.82", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080787ea47cc9353.jpg", preco:null },
+    { sku:"736", nome:"PORTA LISA ENCABECADA 0.90", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080778aec8161c11.jpg", preco:null },
+    { sku:"733", nome:"PORTA LISA ENCABECADA 0.92", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080768552183ff43.jpg", preco:null },
+    { sku:"1316", nome:"PORTA LISA ENCABECADA 1,02", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080757837174d8fe.jpg", preco:null },
+    { sku:"1713", nome:"DOBRADIÇAS PARA PORTA STAM C/ BOLA CR 3.1/2 C/ 3 PCS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080500cec458c3a4.jpg", preco:null },
+    { sku:"1715", nome:"DOBRADIÇAS PARA PORTA STAM C/ BOLA LO 3.1/2 C/ 3 PCS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080489096a4c0703.jpg", preco:null },
+    { sku:"1712", nome:"DOBRADIÇAS PARA PORTA STAM C/ BOLA E ANEL CR 3.1/2 C/ 3 PCS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060804823f94303972.jpg", preco:null },
+    { sku:"1714", nome:"DOBRADIÇAS PARA PORTA STAM C/ BOLA E ANEL LO 3.1/2 C/ 3 PCS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080474ad1c0eaa03.jpg", preco:null },
+    { sku:"1735", nome:"FECHADURA STAM 1005 T.ROLETE ROSETA QUADRADA CROMADA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060804523f7ff73f28.jpg", preco:null },
+    { sku:"1727", nome:"FECHADURA STAM 1005 T.ROLETE ROSETA QUADRADA CROMO ESC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080428047eafd0ab.jpg", preco:null },
+    { sku:"1736", nome:"FECHADURA STAM 1005 T.ROLETE ROSETA REDONDA INOX", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060804006197e2b60d.jpg", preco:null },
+    { sku:"1728", nome:"FECHADURA STAM 1005 T.ROLETE ROSETA REDONDA INOX ESC", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080384e56055af9b.jpg", preco:null },
+    { sku:"1732", nome:"FECHADURA STAM 1601/09 ROSETA REDONDA CLASSIC INOX - EXTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060803630866a1a9df.jpg", preco:null },
+    { sku:"1733", nome:"FECHADURA STAM 1610/09 ROSETA REDONDA CLASSIC INOX - INTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080341627f049ff9.jpg", preco:null },
+    { sku:"1729", nome:"FECHADURA STAM 803/11 - ROSETA ACETINADA - EXTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060803282bc72df39e.jpg", preco:null },
+    { sku:"1708", nome:"FECHADURA STAM 803/11 - ROSETA INOX - EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080314269f35770a.jpg", preco:null },
+    { sku:"1737", nome:"FECHADURA STAM 803/11 ROSETA OXIDADO E-COAT - EXTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060802950193b3921d.jpg", preco:null },
+    { sku:"1701", nome:"FECHADURA STAM 804/33 - ESPELHO INOX - EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080285681ced677b.jpg", preco:null },
+    { sku:"1704", nome:"FECHADURA STAM 804/33 - ESPELHO OXI - EXT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060802698b369f11c8.jpg", preco:null },
+    { sku:"1730", nome:"FECHADURA STAM 813/11 - ROSETA ACETINADA - INTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080251823a7da126.jpg", preco:null },
+    { sku:"1734", nome:"FECHADURA STAM 1620/09 ROSETA REDONDA CLASSIC INOX - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060802344e8c082b99.jpg", preco:null },
+    { sku:"1709", nome:"FECHADURA STAM 813/11 - ROSETA INOX - INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060802086f9b726fe6.jpg", preco:null },
+    { sku:"1738", nome:"FECHADURA STAM 813/11 ROSETA OXIDADO E-COAT - INTERNA", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080186302993d682.jpg", preco:null },
+    { sku:"1702", nome:"FECHADURA STAM 814/33 - ESPELHO INOX - INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080157bac35170bf.jpg", preco:null },
+    { sku:"1705", nome:"FECHADURA STAM 814/33 - ESPELHO OXI - INT", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080138cca2f7c9d4.jpg", preco:null },
+    { sku:"1731", nome:"FECHADURA STAM 823/11 - ROSETA ACETINADA - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060801273274bd8d0f.jpg", preco:null },
+    { sku:"1710", nome:"FECHADURA STAM 823/11 - ROSETA INOX - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080108d9005c4921.jpg", preco:null },
+    { sku:"1739", nome:"FECHADURA STAM 823/11 ROSETA OXIDADO E-COAT - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060800921f577d694c.jpg", preco:null },
+    { sku:"1703", nome:"FECHADURA STAM 824/33 - ESPELHO INOX - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608007677e1c2a1d3.jpg", preco:null },
+    { sku:"1707", nome:"FECHADURA STAM 824/33 - ESPELHO OXI - BANHEIRO", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060800520f2272bd7b.jpg", preco:null },
+    { sku:"952", nome:"GUARNIÇÃO TAUARI LISA 5", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081440a0f4fd2593.jpg", preco:null },
+    { sku:"951", nome:"GUARNIÇÃO TAUARI LISA 7", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608140299f664b148.jpg", preco:null }
+      ]
+    },
+    { id:"cat-acabamentos", titulo:"Acabamentos", carrossel:true,
+      descricao:"Verniz, solvente e cupinicida. Pra madeira nova durar como madeira boa. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
+      termos:["Polirex","Polideck","Polisten","Poliulack","Verniz","Thiner","Exterminador de cupim","Espuma"],
+      produtos:[
+        { sku:"1016", nome:"Polirex Sayerlack Imbuia 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548759/37c34a19155ef62ffbcbf1bbd39b0601-ktstlnohuh.jpg", preco:null },
+        { sku:"1017", nome:"Polirex Sayerlack Imbuia 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548753/8134343d8f9d917ff1729b7f3e2464e5-cm3sm9mjc6.jpg", preco:null },
+        { sku:"1045", nome:"Exterminador de cupim Sayerlack 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084839bc72814b8b.jpg", preco:null },
+        { sku:"1046", nome:"Exterminador de cupim Sayerlack 5 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084817cb3344dbe3.jpg", preco:null },
+        { sku:"1044", nome:"Exterminador de cupim Sayerlack spray 0,4 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060848030455fa0b77.jpg", preco:null },
+        { sku:"1022", nome:"Polideck Sayerlack brilhante 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084378e267982bab.jpg", preco:null },
+        { sku:"1023", nome:"Polideck Sayerlack brilhante 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084366c758de7fda.jpg", preco:null },
+        { sku:"1024", nome:"Polideck Sayerlack brilhante canela 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060843580c2bad2578.jpg", preco:null },
+        { sku:"1025", nome:"Polideck Sayerlack brilhante canela 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060842954294afc8bf.jpg", preco:null },
+        { sku:"1020", nome:"Polideck Sayerlack canela 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084240b9af6e8e48.jpg", preco:null },
+        { sku:"1021", nome:"Polideck Sayerlack canela 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060841562484fec542.jpg", preco:null },
+        { sku:"1018", nome:"Polideck Sayerlack Ipê 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060841475bac2bec29.jpg", preco:null },
+        { sku:"1019", nome:"Polideck Sayerlack Ipê 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060841210a05353f62.jpg", preco:null },
+        { sku:"1013", nome:"Polirex Sayerlack Mogno 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608411081f73bdad8.jpg", preco:null },
+        { sku:"1015", nome:"Polirex Sayerlack Mogno 225 ml", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608405254622b4f88.jpg", preco:null },
+        { sku:"1014", nome:"Polirex Sayerlack Mogno 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608403513cbe2ce85.jpg", preco:null },
+        { sku:"1011", nome:"Polirex Sayerlack Mogno filtro solar 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060840172089b3b71e.jpg", preco:null },
+        { sku:"1012", nome:"Polirex Sayerlack Mogno filtro solar 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083997208450c069.jpg", preco:null },
+        { sku:"1009", nome:"Polisten Sayerlack Imbuia 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083983ce3fb8a300.jpg", preco:null },
+        { sku:"1010", nome:"Polisten Sayerlack Imbuia 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083946c5fbe2772f.jpg", preco:null },
+        { sku:"1007", nome:"Polisten Sayerlack Mogno 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608391270adf51daa.jpg", preco:null },
+        { sku:"1008", nome:"Polisten Sayerlack Mogno 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083900bd18572abe.jpg", preco:null },
+        { sku:"1004", nome:"Polisten Sayerlack transparente 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083853d62ed4f9e8.jpg", preco:null },
+        { sku:"1006", nome:"Polisten Sayerlack transparente 18,00 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083835534a7d8d6a.jpg", preco:null },
+        { sku:"1005", nome:"Polisten Sayerlack transparente 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837622d59d3f2ca.jpg", preco:null },
+        { sku:"1085", nome:"Prego 25x72 c/cabeça", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060823699a534a6b2f.jpg", preco:null },
+        { sku:"1503", nome:"Espuma de poliuretano expansiva 500 ml 340gr", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206081379046ed80a71.jpg", preco:{ valor:"R$ 26,67" } },
+        { sku:"1020-pc", nome:"Polideck 0,9 L Sayerlack", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080883d55faa8b28.jpg", preco:null },
+        { sku:"1021-pc", nome:"Polideck 3,6 L Sayerlack", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206080866befd5d0802.jpg", preco:null },
+        { sku:"1002", nome:"Poliulack Sayerlack acetinado marítimo 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837498e1a9deb5c.jpg", preco:null },
+        { sku:"1003", nome:"Poliulack Sayerlack acetinado marítimo 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060837135ffc17119d.jpg", preco:null },
+        { sku:"1000", nome:"Poliulack Sayerlack brilhante marítimo 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083665469fca639d.jpg", preco:null },
+        { sku:"1001", nome:"Poliulack Sayerlack brilhante marítimo 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608365657eda62133.jpg", preco:null },
+        { sku:"1047", nome:"Thiner Sayerlack profissional 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083200a9c58952f0.jpg", preco:null },
+        { sku:"1512", nome:"Thiner Sayerlack profissional 5 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083179962529c4c4.jpg", preco:null },
+        { sku:"1048", nome:"Verniz Sayerlack marítimo base água 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/20608316178943a93b5.jpg", preco:null },
+        { sku:"1049", nome:"Verniz Sayerlack marítimo base água 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206083140a80b3137a2.jpg", preco:null },
+        { sku:"1508", nome:"Fita aluminizada 45x45 — FTR", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/2060813493dc9435851.jpg", preco:null }
+      ]
+    }
+  ];
+
+  function whatsLink(msg){
+    return "https://api.whatsapp.com/send?phone=" + WPP + "&text=" + encodeURIComponent(msg);
+  }
+
+  function tirarAcento(txt){
+    var de   = "áàâãäéèêëíìîïóòôõöúùûüçÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ";
+    var para = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
+    var resultado = "";
+    for(var i = 0; i < txt.length; i++){
+      var pos = de.indexOf(txt.charAt(i));
+      resultado += pos === -1 ? txt.charAt(i) : para.charAt(pos);
+    }
+    return resultado;
+  }
+
+  function normalizarBusca(txt){
+    return tirarAcento(txt).toLowerCase().split("cm").join(" ").replace(/\s+/g, " ");
+  }
+
+  function linkPedirPreco(nome, sku){
+    var cod = sku ? " (cód. " + sku + ")" : "";
+    return whatsLink("Quero preço de " + nome.toUpperCase() + cod + ". Preciso de ___ peças.");
+  }
+
+  function el(tag, cls, txt){
+    var e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(txt !== undefined) e.textContent = txt;
+    return e;
+  }
+
+  function criarCard(p){
+    var art = el("article", "prod");
+
+    var imgBox = el("div", "prod-img");
+    var img = document.createElement("img");
+    img.src = p.imagem; img.alt = p.nome; img.loading = "lazy";
+    imgBox.appendChild(img);
+    art.appendChild(imgBox);
+
+    var txt = el("div", "prod-txt");
+    txt.appendChild(el("h3", null, p.nome));
+    if(p.sku) txt.appendChild(el("span", "sku", "Cód. " + p.sku));
+
+    var btn;
+
+    if(p.preco){
+      var preco = el("span", "preco", p.preco.valor + " ");
+      if(p.preco.parcelas) preco.appendChild(el("small", null, p.preco.parcelas));
+      txt.appendChild(preco);
+
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-whats btn-sm btn-full";
+      btn.textContent = "Adicionar ao carrinho";
+      btn.addEventListener("click", function(){ adicionarAoCarrinho(p); });
+    } else {
+      txt.appendChild(el("span", "sob-consulta", "Preço por quantidade"));
+
+      btn = document.createElement("a");
+      btn.target = "_blank"; btn.rel = "noopener";
+      btn.className = "btn btn-wood btn-sm btn-full";
+      btn.textContent = "Pedir preço";
+      btn.href = linkPedirPreco(p.nome, p.sku);
+    }
+
+    txt.appendChild(btn);
+    art.appendChild(txt);
+    return art;
+  }
+
+  function criarCarrossel(produtos){
+    var wrap = el("div", "carrossel-wrap");
+
+    var trilha = el("div", "carrossel-trilha");
+    produtos.forEach(function(p){ trilha.appendChild(criarCard(p)); });
+    wrap.appendChild(trilha);
+
+    var setaEsq = document.createElement("button");
+    setaEsq.type = "button"; setaEsq.className = "carrossel-seta esquerda";
+    setaEsq.setAttribute("aria-label", "Rolar para a esquerda");
+    setaEsq.textContent = "‹";
+    setaEsq.addEventListener("click", function(){ trilha.scrollBy({ left:-660, behavior:"smooth" }); });
+
+    var setaDir = document.createElement("button");
+    setaDir.type = "button"; setaDir.className = "carrossel-seta direita";
+    setaDir.setAttribute("aria-label", "Rolar para a direita");
+    setaDir.textContent = "›";
+    setaDir.addEventListener("click", function(){ trilha.scrollBy({ left:660, behavior:"smooth" }); });
+
+    wrap.appendChild(setaEsq);
+    wrap.appendChild(setaDir);
+
+    // adiar a checagem até o carrossel estar de fato no documento (senão clientWidth sempre vem 0)
+    setTimeout(function(){
+      if(trilha.scrollWidth <= trilha.clientWidth){
+        setaEsq.hidden = true;
+        setaDir.hidden = true;
+      }
+    }, 0);
+
+    return { wrap: wrap, trilha: trilha };
+  }
+
+  function criarSecaoCategoria(cat){
+    var sec = el("div", "cat-secao");
+    sec.id = cat.id;
+
+    var cab = el("div", "cab");
+    var esquerda = el("div");
+    esquerda.appendChild(el("h2", null, cat.titulo));
+    esquerda.appendChild(el("p", null, cat.descricao));
+    cab.appendChild(esquerda);
+
+    var btnFalar = document.createElement("a");
+    btnFalar.className = "btn btn-whats btn-sm";
+    btnFalar.target = "_blank"; btnFalar.rel = "noopener";
+    btnFalar.textContent = "Falar sobre " + cat.titulo;
+    btnFalar.href = whatsLink("Olá! Quero ver as opções de " + cat.titulo.toUpperCase() + ". Pode me ajudar?");
+    cab.appendChild(btnFalar);
+
+    sec.appendChild(cab);
+
+    if(cat.carrossel){
+      var carrossel = criarCarrossel(cat.produtos);
+      var trilha = carrossel.trilha;
+
+      if(cat.termos){
+        var chips = el("div", "termos-busca");
+        cat.termos.forEach(function(termo){
+          var chip = document.createElement("button");
+          chip.type = "button"; chip.className = "chip-termo"; chip.textContent = termo;
+          chip.addEventListener("click", function(){
+            var alvo = normalizarBusca(termo);
+            var idx = -1;
+            for(var i = 0; i < cat.produtos.length; i++){
+              if(normalizarBusca(cat.produtos[i].nome).indexOf(alvo) !== -1){ idx = i; break; }
+            }
+            if(idx === -1) return;
+            var cartao = trilha.children[idx];
+            if(cartao) cartao.scrollIntoView({ behavior:"smooth", inline:"start", block:"nearest" });
+          });
+          chips.appendChild(chip);
+        });
+        sec.appendChild(chips);
+      }
+
+      sec.appendChild(carrossel.wrap);
+    } else {
+      var grid = el("div", "grid-prod");
+      cat.produtos.forEach(function(p){ grid.appendChild(criarCard(p)); });
+      sec.appendChild(grid);
+    }
+
+    return sec;
+  }
+
+  var gridProdutos = document.getElementById("grid-prod");
+  gridProdutos.appendChild(criarCarrossel(PRODUTOS).wrap);
+
+  var contDetalhe = document.getElementById("categorias-detalhe");
+  CATEGORIAS.forEach(function(c){ contDetalhe.appendChild(criarSecaoCategoria(c)); });
+
+  // ---------------------------------------------------------------
+  // Carrinho de compras. Sem pagamento online: o "Finalizar pedido"
+  // monta a lista com quantidade e total e abre o WhatsApp pra
+  // combinar forma de pagamento e entrega com o vendedor.
+  // ---------------------------------------------------------------
+  var CARRINHO_KEY = "mapa-carrinho";
+  var carrinho = [];
+  try { carrinho = JSON.parse(localStorage.getItem(CARRINHO_KEY)) || []; } catch(e){ carrinho = []; }
+
+  function slugify(txt){
+    return txt.toLowerCase()
+      .replace(/[^a-z0-9à-ÿ]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  }
+
+  function parsePreco(txt){
+    var n = txt.replace(/[^\d,]/g, "").replace(",", ".");
+    return parseFloat(n) || 0;
+  }
+
+  function formatarMoeda(v){
+    return v.toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
+  }
+
+  function atualizarBadge(){
+    var total = carrinho.reduce(function(s, i){ return s + i.qtd; }, 0);
+    var badge = document.getElementById("carrinho-contador");
+    badge.textContent = total;
+    badge.hidden = total === 0;
+  }
+
+  function salvarCarrinho(){
+    localStorage.setItem(CARRINHO_KEY, JSON.stringify(carrinho));
+    atualizarBadge();
+    renderCarrinho();
+  }
+
+  function adicionarAoCarrinho(p){
+    var id = slugify(p.nome);
+    var item = carrinho.filter(function(i){ return i.id === id; })[0];
+    if(item){
+      item.qtd += 1;
+    } else {
+      carrinho.push({
+        id:id, nome:p.nome, sku:p.sku || null, imagem:p.imagem,
+        precoTexto:p.preco.valor, precoNum:parsePreco(p.preco.valor), qtd:1
+      });
+    }
+    salvarCarrinho();
+    abrirCarrinho();
+  }
+
+  function alterarQtd(id, delta){
+    var item = carrinho.filter(function(i){ return i.id === id; })[0];
+    if(!item) return;
+    item.qtd += delta;
+    if(item.qtd <= 0) carrinho = carrinho.filter(function(i){ return i.id !== id; });
+    salvarCarrinho();
+  }
+
+  function removerItem(id){
+    carrinho = carrinho.filter(function(i){ return i.id !== id; });
+    salvarCarrinho();
+  }
+
+  function calcularTotal(){
+    return carrinho.reduce(function(s, i){ return s + i.precoNum * i.qtd; }, 0);
+  }
+
+  function montarMensagemPedido(){
+    var linhas = carrinho.map(function(i){
+      var cod = i.sku ? " (cód. " + i.sku + ")" : "";
+      return "- " + i.qtd + "x " + i.nome.toUpperCase() + cod + " — " + formatarMoeda(i.precoNum * i.qtd);
+    });
+    return "Olá! Quero fechar este pedido do carrinho do site:\n\n" +
+      linhas.join("\n") +
+      "\n\nTotal: " + formatarMoeda(calcularTotal()) +
+      "\n\nPode confirmar disponibilidade, forma de pagamento e entrega?";
+  }
+
+  function renderCarrinho(){
+    var corpo = document.getElementById("carrinho-corpo");
+    corpo.innerHTML = "";
+
+    if(carrinho.length === 0){
+      corpo.appendChild(el("p", "carrinho-vazio", "Seu carrinho está vazio."));
+    } else {
+      carrinho.forEach(function(item){
+        var row = el("div", "item-carrinho");
+
+        var img = document.createElement("img");
+        img.src = item.imagem; img.alt = item.nome;
+        row.appendChild(img);
+
+        var info = el("div", "info");
+        info.appendChild(el("span", "nome", item.nome));
+        info.appendChild(el("span", "preco-unit", item.precoTexto + " / un."));
+
+        var stepper = el("div", "qtd-stepper");
+        var btnMenos = document.createElement("button");
+        btnMenos.type = "button"; btnMenos.textContent = "–";
+        btnMenos.setAttribute("aria-label", "Diminuir quantidade");
+        btnMenos.addEventListener("click", function(){ alterarQtd(item.id, -1); });
+        var qtdSpan = el("span", null, String(item.qtd));
+        var btnMais = document.createElement("button");
+        btnMais.type = "button"; btnMais.textContent = "+";
+        btnMais.setAttribute("aria-label", "Aumentar quantidade");
+        btnMais.addEventListener("click", function(){ alterarQtd(item.id, 1); });
+        stepper.appendChild(btnMenos); stepper.appendChild(qtdSpan); stepper.appendChild(btnMais);
+        info.appendChild(stepper);
+
+        var remover = document.createElement("button");
+        remover.type = "button"; remover.className = "remover-item"; remover.textContent = "Remover";
+        remover.addEventListener("click", function(){ removerItem(item.id); });
+        info.appendChild(remover);
+
+        row.appendChild(info);
+        corpo.appendChild(row);
+      });
+    }
+
+    document.getElementById("carrinho-total").textContent = formatarMoeda(calcularTotal());
+
+    var finalizar = document.getElementById("carrinho-finalizar");
+    if(carrinho.length === 0){
+      finalizar.setAttribute("aria-disabled", "true");
+      finalizar.href = "#";
+    } else {
+      finalizar.removeAttribute("aria-disabled");
+      finalizar.href = whatsLink(montarMensagemPedido());
+    }
+  }
+
+  function abrirCarrinho(){
+    document.getElementById("carrinho-overlay").hidden = false;
+    document.getElementById("carrinho-painel").hidden = false;
+  }
+  function fecharCarrinho(){
+    document.getElementById("carrinho-overlay").hidden = true;
+    document.getElementById("carrinho-painel").hidden = true;
+  }
+
+  document.getElementById("btn-abrir-carrinho").addEventListener("click", abrirCarrinho);
+  document.getElementById("fechar-carrinho").addEventListener("click", fecharCarrinho);
+  document.getElementById("carrinho-overlay").addEventListener("click", fecharCarrinho);
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") fecharCarrinho(); });
+  document.getElementById("carrinho-finalizar").addEventListener("click", function(e){
+    if(carrinho.length === 0) e.preventDefault();
+  });
+
+  atualizarBadge();
+  renderCarrinho();
+})();
+</script>
+</body>
+</html>

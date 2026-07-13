@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Larissa Viana | Dermatologia, Tricologia e Estética — Guarulhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F3EC;
+    --cream-deep:#EFE8DC;
+    --ink:#1F2E27;
+    --ink-soft:#3C4D44;
+    --pine:#26433A;
+    --pine-deep:#16271F;
+    --gold:#C8A164;
+    --gold-soft:#E4D2AC;
+    --line:rgba(31,46,39,0.12);
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--pine-deep);
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  @media (max-width:720px){
+    .wrap{padding:0 20px;}
+  }
+
+  /* ===== Reduced motion ===== */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(247,243,236,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+  .nav-logo{
+    font-family:'Fraunces',serif;
+    font-size:1.35rem;
+    font-weight:600;
+    color:var(--pine-deep);
+    letter-spacing:0.01em;
+  }
+  .nav-logo span{color:var(--gold);}
+  .nav-links{
+    display:flex;
+    gap:36px;
+    font-size:0.92rem;
+    font-weight:500;
+  }
+  .nav-links a{
+    position:relative;
+    color:var(--ink-soft);
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--pine-deep);}
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:-6px;
+    width:0; height:1px;
+    background:var(--gold);
+    transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{width:100%;}
+
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--pine-deep);
+    color:var(--cream) !important;
+    padding:11px 22px;
+    border-radius:100px;
+    font-size:0.88rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    transition:background 0.25s ease, transform 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--pine); transform:translateY(-1px);}
+
+  .mobile-toggle{display:none;}
+
+  @media (max-width:880px){
+    .nav-links{display:none;}
+    .mobile-toggle{
+      display:block;
+      background:none; border:none;
+      font-size:1rem; font-weight:600;
+      color:var(--pine-deep);
+    }
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    padding:170px 0 100px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    top:-200px; right:-200px;
+    width:560px; height:560px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--gold-soft) 0%, transparent 70%);
+    opacity:0.6;
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero{padding:140px 0 70px;}
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px; height:1px;
+    background:var(--gold);
+  }
+
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4.2rem);
+    line-height:1.08;
+    margin-bottom:24px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+    font-weight:500;
+  }
+
+  .hero p.lead{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-bottom:36px;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:48px;
+  }
+
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--pine-deep);
+    color:var(--cream);
+    padding:16px 30px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    letter-spacing:0.01em;
+    transition:background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    box-shadow:0 8px 24px -8px rgba(22,39,31,0.4);
+  }
+  .btn-primary:hover{background:var(--pine); transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(22,39,31,0.5);}
+
+  .btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:transparent;
+    color:var(--pine-deep);
+    padding:16px 30px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    border:1.5px solid var(--line);
+    transition:border-color 0.25s ease, background 0.25s ease;
+  }
+  .btn-secondary:hover{border-color:var(--gold); background:rgba(200,161,100,0.08);}
+
+  .hero-stats{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .hero-stat strong{
+    display:block;
+    font-family:'Fraunces',serif;
+    font-size:2.1rem;
+    font-weight:600;
+    color:var(--pine-deep);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .hero-stat span{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+  }
+
+  /* Hero visual: skin analysis card */
+  .hero-visual{
+    position:relative;
+  }
+  .visia-card{
+    background:var(--pine-deep);
+    border-radius:24px;
+    padding:32px;
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(22,39,31,0.4);
+  }
+  .visia-card::before{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(200,161,100,0.18) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .visia-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:28px;
+    position:relative;
+    z-index:1;
+  }
+  .visia-top h3{
+    color:var(--cream);
+    font-size:1.3rem;
+    margin-bottom:6px;
+  }
+  .visia-top p{
+    font-size:0.85rem;
+    color:rgba(247,243,236,0.65);
+  }
+  .visia-badge{
+    background:var(--gold);
+    color:var(--pine-deep);
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+
+  .visia-bars{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    position:relative;
+    z-index:1;
+  }
+  .visia-bar-row{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .visia-bar-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.8rem;
+    color:rgba(247,243,236,0.75);
+  }
+  .visia-bar-track{
+    height:6px;
+    background:rgba(247,243,236,0.12);
+    border-radius:100px;
+    overflow:hidden;
+  }
+  .visia-bar-fill{
+    height:100%;
+    border-radius:100px;
+    background:linear-gradient(90deg, var(--gold-soft), var(--gold));
+    transform-origin:left;
+    animation:growBar 1.6s ease-out forwards;
+    width:var(--w);
+  }
+  @keyframes growBar{
+    from{transform:scaleX(0);}
+    to{transform:scaleX(1);}
+  }
+
+  .visia-footer{
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px solid rgba(247,243,236,0.12);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .visia-age{
+    font-family:'Fraunces',serif;
+    font-size:2.6rem;
+    font-weight:600;
+    line-height:1;
+  }
+  .visia-age span{
+    display:block;
+    font-family:'Manrope',sans-serif;
+    font-size:0.74rem;
+    font-weight:500;
+    color:rgba(247,243,236,0.6);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-top:6px;
+  }
+
+  /* ===== Section generic ===== */
+  section{
+    padding:96px 0;
+  }
+  .section-head{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 64px;
+  }
+  .section-head .eyebrow{justify-content:center;}
+  .section-head .eyebrow::before{display:none;}
+  .section-head .eyebrow::after{
+    content:'';
+    width:28px; height:1px;
+    background:var(--gold);
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    line-height:1.15;
+    margin-bottom:16px;
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+
+  /* ===== Concerns grid ===== */
+  .tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+  }
+  .tab-btn{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--ink-soft);
+    padding:10px 24px;
+    border-radius:100px;
+    font-size:0.9rem;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition:all 0.2s ease;
+  }
+  .tab-btn.active, .tab-btn:hover{
+    background:var(--pine-deep);
+    border-color:var(--pine-deep);
+    color:var(--cream);
+  }
+
+  .concerns-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+  }
+  @media (max-width:920px){
+    .concerns-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:520px){
+    .concerns-grid{grid-template-columns:1fr;}
+  }
+
+  .concern-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px 20px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .concern-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px -16px rgba(22,39,31,0.18);
+    border-color:var(--gold-soft);
+  }
+  .concern-card h4{
+    font-size:1.05rem;
+    margin-bottom:8px;
+    color:var(--pine-deep);
+  }
+  .concern-card p{
+    font-size:0.86rem;
+    color:var(--ink-soft);
+  }
+  .concern-tag{
+    display:inline-block;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+
+  /* ===== Before/After Slider ===== */
+  .ba-section{
+    background:var(--pine-deep);
+    color:var(--cream);
+    border-radius:32px;
+    margin:0 auto;
+    max-width:var(--max);
+    padding:80px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  @media (max-width:720px){
+    .ba-section{padding:56px 24px; border-radius:20px;}
+  }
+  .ba-section::before{
+    content:'';
+    position:absolute;
+    bottom:-160px; left:-160px;
+    width:420px; height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,161,100,0.15) 0%, transparent 70%);
+  }
+  .ba-head{
+    text-align:center;
+    max-width:620px;
+    margin:0 auto 56px;
+    position:relative;
+    z-index:1;
+  }
+  .ba-head h2{color:var(--cream);}
+  .ba-head p{color:rgba(247,243,236,0.7);}
+
+  .ba-slider{
+    position:relative;
+    max-width:760px;
+    margin:0 auto;
+    aspect-ratio:4/3;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:ew-resize;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+    z-index:1;
+  }
+  .ba-slider img{
+    width:100%; height:100%;
+    object-fit:cover;
+    position:absolute;
+    top:0; left:0;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .ba-after{
+    clip-path:inset(0 0 0 50%);
+  }
+  .ba-divider{
+    position:absolute;
+    top:0; bottom:0;
+    left:50%;
+    width:2px;
+    background:var(--cream);
+    transform:translateX(-1px);
+    z-index:3;
+    pointer-events:none;
+  }
+  .ba-handle{
+    position:absolute;
+    top:50%; left:50%;
+    width:48px; height:48px;
+    background:var(--cream);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:4;
+    pointer-events:none;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  }
+  .ba-handle svg{width:20px; height:20px; color:var(--pine-deep);}
+  .ba-label{
+    position:absolute;
+    top:16px;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    background:rgba(22,39,31,0.55);
+    color:var(--cream);
+    padding:6px 14px;
+    border-radius:100px;
+    z-index:2;
+    backdrop-filter:blur(4px);
+  }
+  .ba-label.before{left:16px;}
+  .ba-label.after{right:16px;}
+  .ba-hint{
+    text-align:center;
+    margin-top:20px;
+    font-size:0.85rem;
+    color:rgba(247,243,236,0.55);
+    position:relative;
+    z-index:1;
+  }
+
+  /* ===== Technologies marquee/grid ===== */
+  .tech-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  @media (max-width:880px){
+    .tech-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:560px){
+    .tech-grid{grid-template-columns:1fr;}
+  }
+  .tech-cell{
+    background:#fff;
+    padding:32px 28px;
+    transition:background 0.25s ease;
+  }
+  .tech-cell:hover{background:var(--cream-deep);}
+  .tech-cell .num{
+    font-family:'Fraunces',serif;
+    font-size:0.85rem;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:10px;
+    display:block;
+  }
+  .tech-cell h4{
+    font-size:1.15rem;
+    margin-bottom:8px;
+  }
+  .tech-cell p{
+    font-size:0.86rem;
+    color:var(--ink-soft);
+  }
+
+  /* ===== Founder ===== */
+  .founder{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:880px){
+    .founder{grid-template-columns:1fr; gap:40px;}
+  }
+  .founder-img{
+    border-radius:24px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:var(--cream-deep);
+    position:relative;
+    box-shadow:0 30px 60px -24px rgba(22,39,31,0.25);
+  }
+  .founder-img img{
+    width:100%; height:100%; object-fit:cover;
+  }
+  .founder-credentials{
+    position:absolute;
+    bottom:20px; left:20px; right:20px;
+    background:rgba(247,243,236,0.92);
+    backdrop-filter:blur(6px);
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .founder-credentials strong{color:var(--pine-deep); display:block; font-size:0.85rem; margin-bottom:2px;}
+
+  .founder-content .eyebrow::before{margin-right:0;}
+  .founder-content h2{font-size:clamp(2rem, 3.6vw, 2.8rem); margin-bottom:20px;}
+  .founder-content p{color:var(--ink-soft); margin-bottom:16px;}
+  .founder-content p:last-of-type{margin-bottom:0;}
+  .founder-affil{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:28px;
+  }
+  .affil-pill{
+    font-size:0.76rem;
+    font-weight:600;
+    color:var(--pine-deep);
+    background:var(--cream-deep);
+    border:1px solid var(--line);
+    padding:8px 16px;
+    border-radius:100px;
+  }
+
+  /* ===== Gallery ===== */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows:repeat(2, 180px);
+    gap:12px;
+  }
+  @media (max-width:880px){
+    .gallery-grid{grid-template-columns:repeat(2, 1fr); grid-template-rows:repeat(4, 150px);}
+  }
+  .gallery-grid img{
+    width:100%; height:100%; object-fit:cover;
+    border-radius:14px;
+    transition:transform 0.4s ease;
+  }
+  .gallery-item{
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-item.span2{grid-column:span 2;}
+  @media (max-width:880px){
+    .gallery-item.span2{grid-column:span 1;}
+  }
+
+  /* ===== Final CTA ===== */
+  .final-cta{
+    background:linear-gradient(135deg, var(--pine-deep) 0%, var(--pine) 100%);
+    border-radius:32px;
+    max-width:var(--max);
+    margin:0 auto;
+    padding:80px 48px;
+    text-align:center;
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  @media (max-width:720px){
+    .final-cta{padding:56px 24px; border-radius:20px;}
+  }
+  .final-cta::before{
+    content:'';
+    position:absolute;
+    top:-100px; right:-100px;
+    width:300px; height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    opacity:0.25;
+  }
+  .final-cta h2{
+    color:var(--cream);
+    font-size:clamp(2rem, 4.5vw, 3.2rem);
+    margin-bottom:18px;
+    position:relative;
+    z-index:1;
+  }
+  .final-cta p{
+    color:rgba(247,243,236,0.75);
+    max-width:520px;
+    margin:0 auto 36px;
+    position:relative;
+    z-index:1;
+  }
+  .final-cta .btn-primary{
+    background:var(--gold);
+    color:var(--pine-deep);
+    position:relative;
+    z-index:1;
+  }
+  .final-cta .btn-primary:hover{background:var(--gold-soft);}
+
+  /* ===== Footer ===== */
+  footer{
+    padding:64px 0 32px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:48px;
+    margin-bottom:48px;
+  }
+  @media (max-width:880px){
+    .footer-grid{grid-template-columns:1fr 1fr; gap:36px;}
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
+  .footer-logo{
+    font-family:'Fraunces',serif;
+    font-size:1.3rem;
+    font-weight:600;
+    color:var(--pine-deep);
+    margin-bottom:14px;
+  }
+  .footer-logo span{color:var(--gold);}
+  .footer-col h5{
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  .footer-col p, .footer-col a{
+    display:block;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    transition:color 0.2s ease;
+  }
+  .footer-col a:hover{color:var(--pine-deep);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:28px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+  }
+
+  /* WhatsApp floating button */
+  .wa-float{
+    position:fixed;
+    bottom:24px; right:24px;
+    width:60px; height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 24px -8px rgba(0,0,0,0.35);
+    z-index:90;
+    transition:transform 0.2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:30px; height:30px; fill:#fff;}
+
+  /* Reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#topo" class="nav-logo">Larissa <span>Viana</span></a>
+    <div class="nav-links">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#clinica">A Clínica</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a href="https://wa.me/5511947430351?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." class="nav-cta">Agendar avaliação</a>
+  </nav>
+</header>
+
+<main id="topo">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">20 anos cuidando da sua pele em Guarulhos</div>
+        <h1>Tecnologia de ponta, com a <em>verdade</em> que sua pele merece.</h1>
+        <p class="lead">Dermatologia, tricologia e estética íntima com laser Fotona, diagnóstico VISIA e protocolos baseados em evidência científica — para resultados reais, sem promessas vazias.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5511947430351?text=Ol%C3%A1%21+Conheci+a+Cl%C3%ADnica+Larissa+Viana+no+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+gratuita." class="btn-primary">
+            Avaliação gratuita com VISIA
+          </a>
+          <a href="#tratamentos" class="btn-secondary">Ver tratamentos</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>20</strong>
+            <span>Anos de história</span>
+          </div>
+          <div class="hero-stat">
+            <strong>25mil</strong>
+            <span>Atendimentos</span>
+          </div>
+          <div class="hero-stat">
+            <strong>10mil</strong>
+            <span>Procedimentos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visia-card">
+          <div class="visia-top">
+            <div>
+              <h3>Análise VISIA</h3>
+              <p>Diagnóstico real da sua pele</p>
+            </div>
+            <span class="visia-badge">Gratuito</span>
+          </div>
+          <div class="visia-bars">
+            <div class="visia-bar-row">
+              <div class="visia-bar-label"><span>Manchas / Melasma</span><span>72%</span></div>
+              <div class="visia-bar-track"><div class="visia-bar-fill" style="--w:0.72"></div></div>
+            </div>
+            <div class="visia-bar-row">
+              <div class="visia-bar-label"><span>Textura da pele</span><span>58%</span></div>
+              <div class="visia-bar-track"><div class="visia-bar-fill" style="--w:0.58"></div></div>
+            </div>
+            <div class="visia-bar-row">
+              <div class="visia-bar-label"><span>Vasos / Vermelhidão</span><span>41%</span></div>
+              <div class="visia-bar-track"><div class="visia-bar-fill" style="--w:0.41"></div></div>
+            </div>
+            <div class="visia-bar-row">
+              <div class="visia-bar-label"><span>Firmeza / Colágeno</span><span>65%</span></div>
+              <div class="visia-bar-track"><div class="visia-bar-fill" style="--w:0.65"></div></div>
+            </div>
+          </div>
+          <div class="visia-footer">
+            <div class="visia-age">−6<span>anos na idade real da pele</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE TE INCOMODA -->
+  <section id="tratamentos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">O que te incomoda?</div>
+        <h2>Soluções para cada fase da sua pele e cabelo</h2>
+        <p>Filtre por região e descubra os tratamentos mais indicados para o seu caso. Cada protocolo é personalizado pela equipe médica.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Filtrar tratamentos">
+        <button class="tab-btn active" data-filter="all">Todos</button>
+        <button class="tab-btn" data-filter="facial">Facial</button>
+        <button class="tab-btn" data-filter="corporal">Corporal</button>
+        <button class="tab-btn" data-filter="capilar">Capilar</button>
+      </div>
+
+      <div class="concerns-grid">
+        <div class="concern-card reveal" data-cat="facial">
+          <span class="concern-tag">Facial</span>
+          <h4>Melasma</h4>
+          <p>Protocolo exclusivo com Fotona Starwalker para desinflamar e uniformizar o tom da pele.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="facial">
+          <span class="concern-tag">Facial</span>
+          <h4>Flacidez Facial</h4>
+          <p>Ultraformer 3, Fotona 4D e bioestimuladores para um efeito lifting não cirúrgico.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="facial">
+          <span class="concern-tag">Facial</span>
+          <h4>Acne e Rosácea</h4>
+          <p>Lasers Fotona e Harmony com ação anti-inflamatória e redução de vasos.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="facial">
+          <span class="concern-tag">Facial</span>
+          <h4>Cicatrizes de acne</h4>
+          <p>CO2 Fracionado, Plasmage e laser Fotona para renovação celular profunda.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="corporal">
+          <span class="concern-tag">Corporal</span>
+          <h4>Flacidez Corporal</h4>
+          <p>Ultraformer, radiofrequência e Sculptra para firmar abdômen, braços e coxas.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="corporal">
+          <span class="concern-tag">Corporal</span>
+          <h4>Celulite</h4>
+          <p>Fotona, lipocavitação e ondas acústicas para textura e contorno.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="corporal">
+          <span class="concern-tag">Corporal</span>
+          <h4>Rejuvenescimento íntimo</h4>
+          <p>Laser Fotona indolor para firmeza, lubrificação e bem-estar íntimo.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="corporal">
+          <span class="concern-tag">Corporal</span>
+          <h4>Estrias</h4>
+          <p>CO2 Fracionado, Plasmage e Fotona para estímulo de colágeno local.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="capilar">
+          <span class="concern-tag">Capilar</span>
+          <h4>Queda capilar e calvície</h4>
+          <p>Tricoscopia, MMP®, Bulge Hair e laser Lavieen para densidade dos fios.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="capilar">
+          <span class="concern-tag">Capilar</span>
+          <h4>Dermatite seborreica</h4>
+          <p>Terapia capilar e mesoterapia para equilibrar o couro cabeludo.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="capilar">
+          <span class="concern-tag">Capilar</span>
+          <h4>Fios quebradiços</h4>
+          <p>Fotona HairRestor®, Mesoject Gun e blends de óleos essenciais.</p>
+        </div>
+        <div class="concern-card reveal" data-cat="facial">
+          <span class="concern-tag">Facial</span>
+          <h4>Papada</h4>
+          <p>Ultraformer 3 e enzimas localizadas para um contorno mandibular definido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTES E DEPOIS -->
+  <section id="resultados">
+    <div class="wrap">
+      <div class="ba-section reveal">
+        <div class="ba-head">
+          <div class="eyebrow" style="color:var(--gold); justify-content:center;">Antes e depois</div>
+          <h2>Resultados extraordinários, sem filtros</h2>
+          <p>Arraste a barra para ver a transformação real de uma paciente após o protocolo de harmonização facial.</p>
+        </div>
+        <div class="ba-slider" id="baSlider" tabindex="0" role="slider" aria-label="Comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <img src="https://larissaviana.com.br/wp-content/uploads/2022/01/harmonizacao-facial-feminina-clinica-larissa-viana-dermatologia-guarulhos.jpg" alt="Antes do tratamento" class="ba-before">
+          <img src="https://larissaviana.com.br/wp-content/uploads/2022/01/harmonizacao-facial-feminina-clinica-larissa-viana-dermatologia-guarulhos.jpg" alt="Depois do tratamento" class="ba-after" id="baAfter" style="filter:brightness(1.08) contrast(1.05) saturate(1.05);">
+          <span class="ba-label before">Antes</span>
+          <span class="ba-label after">Depois</span>
+          <div class="ba-divider" id="baDivider"></div>
+          <div class="ba-handle" id="baHandle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+          </div>
+        </div>
+        <p class="ba-hint">Arraste para comparar — ou use as setas do teclado</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS -->
+  <section id="tecnologias">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Tecnologia moderna e avançada</div>
+        <h2>Equipamentos exclusivos, resultados comprovados</h2>
+        <p>A clínica conta com duas unidades do laser Fotona e um arsenal completo de tecnologias para tratar pele, corpo e cabelo com segurança.</p>
+      </div>
+
+      <div class="tech-grid reveal">
+        <div class="tech-cell">
+          <span class="num">Fotona Dynamis</span>
+          <h4>Fotona4D®</h4>
+          <p>Lifting facial não cirúrgico em 4 dimensões, com rejuvenescimento íntimo indolor.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Fotona Starwalker</span>
+          <h4>Picosegundos</h4>
+          <p>Tratamento de melasma, poros, cicatrizes, tatuagens e manchas solares.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Lavieen®</span>
+          <h4>Laser Thulium</h4>
+          <p>Rejuvenescimento facial, crescimento capilar e clareamento íntimo.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">CO2 Fracionado</span>
+          <h4>Clássico renovado</h4>
+          <p>Textura, cicatrizes e estrias com estímulo profundo de colágeno.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">CMSlim</span>
+          <h4>Contração muscular</h4>
+          <p>Até 20 mil contrações por sessão para queima de gordura e tonificação.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Ultraformer 3®</span>
+          <h4>Ultrassom microfocado</h4>
+          <p>Efeito lifting imediato para rosto, papada, abdômen e glúteos.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Cadeira CMSlim</span>
+          <h4>Saúde íntima</h4>
+          <p>Fortalecimento do assoalho pélvico, sem remover a roupa, em 30 minutos.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Mesoject Gun</span>
+          <h4>Sem agulhas</h4>
+          <p>Microchips e eletroporação para ativos de alta performance na pele e couro cabeludo.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">Laser Soprano</span>
+          <h4>Depilação definitiva</h4>
+          <p>Tecnologia SHR, praticamente indolor, para todos os tipos de pele.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDADORA -->
+  <section id="clinica">
+    <div class="wrap">
+      <div class="founder reveal">
+        <div class="founder-img">
+          <img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194926348-150x150.webp" alt="Dra. Larissa Viana">
+          <div class="founder-credentials">
+            <strong>Dra. Larissa Pereira Viana Santos</strong>
+            CRM SP 109322 · RQE Dermatologia 303433 · RQE Clínica Médica 30342
+          </div>
+        </div>
+        <div class="founder-content">
+          <div class="eyebrow">A fundadora</div>
+          <h2>Dra. Larissa Viana</h2>
+          <p>Especialista em Dermatologia e Clínica Médica, a Dra. Larissa Viana se destaca por unir ciência, tecnologia e acolhimento em cada atendimento. Sua missão é reconectar cada paciente com sua verdadeira essência e beleza, celebrando a individualidade de cada um.</p>
+          <p>Fundada em 2008 no centro de Guarulhos, a clínica reúne uma equipe especializada e os equipamentos mais modernos do mercado para cuidar do maior órgão do corpo humano: a pele. Atendimento baseado em evidências científicas — e na verdade.</p>
+          <div class="founder-affil">
+            <span class="affil-pill">Sociedade Brasileira de Dermatologia</span>
+            <span class="affil-pill">Sociedade Brasileira de Cirurgia Dermatológica</span>
+            <span class="affil-pill">World Trichology Society</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Nosso espaço</div>
+        <h2>Um ambiente pensado para o seu bem-estar</h2>
+        <p>Conheça a estrutura da clínica, no centro de Guarulhos, projetada para conforto, privacidade e excelência no atendimento.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item span2"><img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194149954.webp" alt="Recepção da clínica"></div>
+        <div class="gallery-item"><img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194226898.webp" alt="Sala de atendimento"></div>
+        <div class="gallery-item"><img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194250374.webp" alt="Equipamento a laser"></div>
+        <div class="gallery-item"><img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194312760.webp" alt="Sala de procedimentos"></div>
+        <div class="gallery-item span2"><img src="https://larissaviana.com.br/wp-content/uploads/2025/08/imagem_2025-08-14_194421471.webp" alt="Ambiente da clínica"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contato">
+    <div class="wrap">
+      <div class="final-cta reveal">
+        <h2>Vamos descobrir a idade real da sua pele?</h2>
+        <p>Agende sua avaliação gratuita com o sistema VISIA e receba um plano de tratamento personalizado, feito por uma equipe especializada.</p>
+        <a href="https://wa.me/5511947430351?text=Ol%C3%A1%21+Conheci+a+Cl%C3%ADnica+Larissa+Viana+no+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+gratuita." class="btn-primary">
+          Falar no WhatsApp agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">Larissa <span>Viana</span></div>
+        <p>Dermatologia, Tricologia e Estética. Atendimento de excelência baseado em ciência, tecnologia e verdade — desde 2008.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <a href="tel:+551194743 0351">(11) 94743-0351</a>
+        <a href="tel:+551124092586">(11) 2409-2586</a>
+        <a href="mailto:recepcao@larissaviana.com.br">recepcao@larissaviana.com.br</a>
+      </div>
+      <div class="footer-col">
+        <h5>Endereço</h5>
+        <a href="https://maps.app.goo.gl/GfqdPEorH613Mxsd8" target="_blank" rel="noopener">Dr. Ramos de Azevedo, 159<br>Sala 1901/1902/1903 — Centro<br>Guarulhos - SP, 07012-020</a>
+      </div>
+      <div class="footer-col">
+        <h5>Siga-nos</h5>
+        <a href="https://www.instagram.com/dralarissaviana" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/DraLarissaViana" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Grupo Larissa Viana. Todos os direitos reservados.</span>
+      <span>Responsável Técnica: Larissa Pereira Viana Santos — CRM SP 109322</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947430351?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." aria-label="Falar no WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.36 4.94L2 22l5.25-1.38a9.84 9.84 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.18 0 4.24.85 5.78 2.39a8.13 8.13 0 0 1 2.4 5.78c0 4.51-3.67 8.18-8.18 8.18a8.2 8.2 0 0 1-4.16-1.13l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.25-4.34c0-4.51 3.67-8.17 8.2-8.17zm-4.51 4.69c-.16 0-.42.06-.6.27-.2.21-.78.76-.78 1.85 0 1.09.8 2.14.91 2.29.11.15 1.55 2.43 3.81 3.31 1.89.74 2.27.6 2.69.56.42-.04 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.1-.23-.16-.48-.28-.25-.13-1.46-.72-1.69-.8-.23-.08-.4-.12-.56.13-.17.25-.65.81-.8.98-.15.17-.3.18-.55.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.71-.15-.25-.02-.39.12-.53.13-.13.3-.34.45-.51.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.5-.07-.14-.62-1.52-.85-2.06-.18-.43-.36-.43-.53-.44-.14-.01-.3-.01-.46-.01z"/></svg>
+</a>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Filter tabs
+  const tabs = document.querySelectorAll('.tab-btn');
+  const cards = document.querySelectorAll('.concern-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        if(filter === 'all' || card.dataset.cat === filter){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Before/After slider
+  const slider = document.getElementById('baSlider');
+  const after = document.getElementById('baAfter');
+  const divider = document.getElementById('baDivider');
+  const handle = document.getElementById('baHandle');
+
+  function setPosition(percent){
+    percent = Math.max(0, Math.min(100, percent));
+    after.style.clipPath = `inset(0 0 0 ${percent}%)`;
+    divider.style.left = percent + '%';
+    handle.style.left = percent + '%';
+    slider.setAttribute('aria-valuenow', Math.round(percent));
+  }
+
+  let dragging = false;
+  function getPercent(clientX){
+    const rect = slider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+  slider.addEventListener('mousedown', e => { dragging = true; setPosition(getPercent(e.clientX)); });
+  window.addEventListener('mousemove', e => { if(dragging) setPosition(getPercent(e.clientX)); });
+  window.addEventListener('mouseup', () => dragging = false);
+
+  slider.addEventListener('touchstart', e => { dragging = true; setPosition(getPercent(e.touches[0].clientX)); });
+  slider.addEventListener('touchmove', e => { if(dragging){ setPosition(getPercent(e.touches[0].clientX)); e.preventDefault(); } }, {passive:false});
+  window.addEventListener('touchend', () => dragging = false);
+
+  slider.addEventListener('keydown', e => {
+    const current = parseFloat(slider.getAttribute('aria-valuenow'));
+    if(e.key === 'ArrowLeft') setPosition(current - 5);
+    if(e.key === 'ArrowRight') setPosition(current + 5);
+  });
+
+  setPosition(50);
+</script>
+
+</body>
+</html>

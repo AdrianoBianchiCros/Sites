@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adriano | Sites & Landing Pages para Empresas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F7F5F0;
+      --white:   #FFFFFF;
+      --dark:    #111111;
+      --dark2:   #1E1E1E;
+      --ink:     #333333;
+      --muted:   #888888;
+      --lime:    #C8F04D;
+      --lime2:   #B3DA3A;
+      --border:  #E2E0DB;
+      --card:    #FFFFFF;
+      --display: 'Syne', sans-serif;
+      --sans:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--dark); font-family: var(--sans); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--display); font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; }
+    .nav-logo span { color: var(--lime2); background: var(--dark); padding: 0 4px; border-radius: 3px; }
+    nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    nav ul a { text-decoration: none; color: var(--ink); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--dark); color: var(--lime) !important;
+      padding: 0.55rem 1.25rem; border-radius: 100px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #333 !important; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      gap: 4rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--dark); color: var(--lime);
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: normal; color: var(--muted); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--ink); line-height: 1.75;
+      max-width: 420px; margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--dark); color: var(--lime);
+      font-weight: 700; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.15s, background 0.2s;
+    }
+    .btn-dark:hover { background: #222; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--dark);
+      font-weight: 500; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      border: 1.5px solid var(--border);
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--dark); transform: translateY(-2px); }
+
+    .hero-right {
+      background: var(--dark2);
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/4.5;
+      position: relative;
+      display: flex; flex-direction: column;
+    }
+    .mockup-bar {
+      background: #2A2A2A;
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-url {
+      flex: 1; background: #1A1A1A; border-radius: 6px;
+      padding: 0.3rem 0.75rem; margin-left: 0.5rem;
+      font-size: 0.7rem; color: #666; font-family: monospace;
+    }
+    .mockup-body { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .mock-hero-bg {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+      border-radius: 12px; padding: 1.5rem;
+      flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .mock-tag { background: var(--lime); color: #111; font-size: 0.6rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; display: inline-block; margin-bottom: 0.6rem; width: fit-content; }
+    .mock-h1 { height: 10px; background: #fff; border-radius: 4px; width: 80%; margin-bottom: 5px; }
+    .mock-h2 { height: 10px; background: #fff; border-radius: 4px; width: 55%; margin-bottom: 12px; opacity: 0.6; }
+    .mock-btn { background: var(--lime); height: 28px; width: 100px; border-radius: 100px; }
+    .mock-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+    .mock-card { background: #2A2A2A; border-radius: 8px; padding: 0.75rem; }
+    .mock-card-icon { width: 18px; height: 18px; background: var(--lime); border-radius: 4px; margin-bottom: 6px; opacity: 0.7; }
+    .mock-line { height: 6px; background: #444; border-radius: 3px; margin-bottom: 4px; }
+    .mock-line.s { width: 60%; }
+
+    /* LOGOS / SOCIAL PROOF */
+    .logos-strip {
+      background: var(--dark);
+      padding: 1.75rem 3rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      overflow: hidden;
+    }
+    .logos-label { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0; }
+    .logos-divider { width: 1px; height: 24px; background: #333; flex-shrink: 0; }
+    .logos-track { display: flex; gap: 3rem; align-items: center; flex: 1; }
+    .logos-track span { color: #555; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; }
+
+    /* SECTIONS */
+    section { padding: 6rem 3rem; }
+    .inner { max-width: 1200px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--muted); margin-bottom: 0.75rem; font-weight: 600;
+    }
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 800; letter-spacing: -0.035em;
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .sub { color: var(--ink); font-size: 1rem; line-height: 1.75; max-width: 480px; }
+
+    /* SERVICES */
+    #servicos { background: var(--white); }
+    .services-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media(max-width:900px){ .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:600px){ .services-grid { grid-template-columns: 1fr; } }
+
+    .svc-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      background: var(--bg);
+    }
+    .svc-card:hover { border-color: var(--dark); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .svc-card.featured {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+    .svc-card.featured .svc-desc { color: #aaa; }
+    .svc-icon { font-size: 2rem; margin-bottom: 1.25rem; }
+    .svc-card h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .svc-desc { font-size: 0.875rem; color: var(--ink); line-height: 1.65; margin-bottom: 1.25rem; }
+    .svc-price {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .svc-card.featured .svc-price { color: var(--lime); }
+    .svc-price span { font-family: var(--sans); font-size: 0.75rem; font-weight: 400; color: var(--muted); }
+    .svc-card.featured .svc-price span { color: #777; }
+
+    /* PROJECTS */
+    #projetos { background: var(--bg); }
+    .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media(max-width:700px){ .projects-grid { grid-template-columns: 1fr; } }
+
+    .proj-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .proj-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+
+    .proj-thumb {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .proj-thumb.c1 { background: linear-gradient(135deg, #1A1E2A, #2D3548); }
+    .proj-thumb.c2 { background: linear-gradient(135deg, #1E1A0A, #3D3010); }
+    .proj-thumb.c3 { background: linear-gradient(135deg, #0A1E1A, #103028); }
+    .proj-thumb.c4 { background: linear-gradient(135deg, #1E0A1E, #301030); }
+
+    .proj-body { padding: 1.5rem; }
+    .proj-type { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 600; margin-bottom: 0.5rem; }
+    .proj-body h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .proj-body p { color: var(--ink); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; }
+    .proj-footer { display: flex; align-items: center; justify-content: space-between; }
+    .proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .proj-tag { font-size: 0.7rem; background: var(--bg); border: 1px solid var(--border); border-radius: 100px; padding: 0.2rem 0.6rem; color: var(--ink); }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--dark); text-decoration: none;
+      border-bottom: 1.5px solid var(--dark);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .proj-link:hover { color: var(--lime2); border-color: var(--lime2); }
+
+    /* COMO FUNCIONA */
+    #processo { background: var(--dark); color: #fff; }
+    #processo h2 { color: #fff; }
+    #processo .eyebrow { color: #666; }
+    #processo .sub { color: #aaa; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4rem; }
+    @media(max-width:800px){ .steps { grid-template-columns: 1fr 1fr; } }
+    .step {
+      padding: 2rem;
+      border-left: 1px solid #2A2A2A;
+      position: relative;
+    }
+    .step:first-child { border-left: none; }
+    .step-num {
+      font-family: var(--display);
+      font-size: 3rem; font-weight: 800;
+      color: #2A2A2A; line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+    .step h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.85rem; color: #777; line-height: 1.65; }
+    .step-lime { color: var(--lime) !important; }
+
+    /* DEPOIMENTOS */
+    #depoimentos { background: var(--white); }
+    .dep-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    @media(max-width:800px){ .dep-grid { grid-template-columns: 1fr; } }
+    .dep-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .dep-stars { color: var(--lime2); font-size: 0.9rem; margin-bottom: 1rem; }
+    .dep-text { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.25rem; font-style: italic; }
+    .dep-author { display: flex; align-items: center; gap: 0.75rem; }
+    .dep-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--dark); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .dep-name { font-weight: 600; font-size: 0.875rem; }
+    .dep-role { font-size: 0.75rem; color: var(--muted); }
+
+    /* CONTACT */
+    #contato { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    @media(max-width:800px){ .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .contact-info h3 { font-family: var(--display); font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+    .contact-info p { color: var(--ink); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
+    .clinks { display: flex; flex-direction: column; gap: 0.75rem; }
+    .clink { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--ink); font-size: 0.9rem; transition: color 0.2s; }
+    .clink:hover { color: var(--dark); font-weight: 500; }
+    .clink-icon { width: 36px; height: 36px; background: var(--white); border: 1.5px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    label { font-size: 0.8rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 0.35rem; letter-spacing: 0.02em; }
+    input, textarea, select {
+      width: 100%; background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px; color: var(--dark);
+      font-family: var(--sans); font-size: 0.9rem;
+      padding: 0.8rem 1rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--dark); }
+    textarea { min-height: 120px; resize: vertical; }
+    select option { background: white; }
+    .btn-submit {
+      background: var(--dark); color: var(--lime);
+      border: none; border-radius: 100px;
+      font-weight: 700; font-size: 0.95rem;
+      padding: 0.9rem; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.25rem;
+    }
+    .btn-submit:hover { background: #222; transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark2); color: #555;
+      text-align: center; padding: 2rem 3rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--lime); text-decoration: none; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:900px){
+      #hero { grid-template-columns: 1fr; min-height: auto; padding-top: 7rem; }
+      .hero-right { display: none; }
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1rem; }
+      section { padding: 4rem 1.5rem; }
+      .logos-strip { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">adriano<span>.web</span></div>
+  <ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#processo">Como funciona</a></li>
+    <li><a href="#contato" class="nav-cta">Solicitar orçamento</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1200px;margin:0 auto;">
+  <section id="hero" style="padding:8rem 3rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin:0;">
+    <div class="hero-left">
+      <div class="hero-badge">Disponível para novos projetos</div>
+      <h1>Sites que vendem<br/><em>de verdade</em></h1>
+      <p class="hero-sub">
+        Crio landing pages e sites profissionais para empresas que querem atrair clientes, gerar leads e fechar mais negócios — com prazo real e preço justo.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn-dark">Quero meu site →</a>
+        <a href="#projetos" class="btn-ghost">Ver projetos</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#FF5F57;"></div>
+        <div class="mockup-dot" style="background:#FFBD2E;"></div>
+        <div class="mockup-dot" style="background:#28CA42;"></div>
+        <div class="mockup-url">seusite.com.br</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-hero-bg">
+          <div class="mock-tag">✦ Novo</div>
+          <div class="mock-h1"></div>
+          <div class="mock-h2"></div>
+          <div class="mock-btn"></div>
+        </div>
+        <div class="mock-cards">
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line s"></div>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line s"></div>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line s"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- LOGOS STRIP -->
+<div class="logos-strip">
+  <span class="logos-label">Segmentos atendidos</span>
+  <div class="logos-divider"></div>
+  <div class="logos-track">
+    <span>Clínicas & Saúde</span>
+    <span>Advocacia</span>
+    <span>Imobiliárias</span>
+    <span>Restaurantes</span>
+    <span>Consultórios</span>
+    <span>E-commerce</span>
+    <span>Academia & Fitness</span>
+    <span>Tecnologia</span>
+    <span>Educação</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="servicos">
+  <div class="inner">
+    <div class="services-top reveal">
+      <div>
+        <div class="eyebrow">// serviços</div>
+        <h2>O que você<br/>pode contratar</h2>
+      </div>
+      <p class="sub">Cada entrega é pensada para converter visitantes em clientes — não é só um site bonito.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🎯</div>
+        <h3>Landing Page</h3>
+        <p class="svc-desc">Página de alta conversão focada em um único objetivo: capturar leads ou vender seu produto/serviço. Inclui copy, design e integração com WhatsApp.</p>
+        <div class="svc-price">A partir de R$ 1.500 <span>/ entrega única</span></div>
+      </div>
+      <div class="svc-card featured reveal">
+        <div class="svc-icon">🚀</div>
+        <h3>Site Institucional</h3>
+        <p class="svc-desc">Site completo com até 5 páginas, responsivo, otimizado para Google (SEO básico) e com formulário de contato ativo. Ideal para empresas que querem credibilidade.</p>
+        <div class="svc-price">A partir de R$ 2.800 <span>/ entrega única</span></div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔄</div>
+        <h3>Manutenção Mensal</h3>
+        <p class="svc-desc">Suporte contínuo com atualizações de conteúdo, correções, backup, monitoramento e pequenas melhorias. Seu site sempre no ar e atualizado.</p>
+        <div class="svc-price">A partir de R$ 300 <span>/ mês</span></div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🛒</div>
+        <h3>Loja Virtual</h3>
+        <p class="svc-desc">E-commerce completo com catálogo de produtos, carrinho, checkout e integração com meios de pagamento (Pix, cartão). Venda 24h por dia.</p>
+        <div class="svc-price">A partir de R$ 4.500 <span>/ entrega única</span></div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">⚡</div>
+        <h3>Redesign de Site</h3>
+        <p class="svc-desc">Modernização do seu site atual. Mantemos o conteúdo que funciona e renovamos o visual, velocidade e experiência do usuário.</p>
+        <div class="svc-price">A partir de R$ 1.800 <span>/ entrega única</span></div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">📦</div>
+        <h3>Pacote Landing + Manutenção</h3>
+        <p class="svc-desc">Landing page profissional + 3 meses de manutenção inclusa. Melhor custo-benefício para quem quer resultado desde o primeiro mês.</p>
+        <div class="svc-price">A partir de R$ 2.100 <span>/ pacote</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projetos">
+  <div class="inner">
+    <div class="projects-header reveal">
+      <div>
+        <div class="eyebrow">// portfólio</div>
+        <h2>Projetos em destaque</h2>
+      </div>
+      <a href="#contato" class="btn-ghost">Quero um igual →</a>
+    </div>
+    <div class="projects-grid">
+
+      <!-- ══════════════════════════════════════════
+           COMO ADICIONAR SEUS PROJETOS:
+           1. Substitua o emoji no .proj-thumb
+           2. Edite .proj-type, h3, p com seus dados
+           3. Troque href="SEU_LINK_AQUI" pelo link real
+           4. Altere as tags em .proj-tag
+           Para MAIS projetos, copie um bloco .proj-card
+      ══════════════════════════════════════════ -->
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb c1">🏥</div>
+        <div class="proj-body">
+          <div class="proj-type">Landing Page · Clínica</div>
+          <h3>Clínica Exemplo</h3>
+          <p>Landing page focada em captação de consultas para clínica odontológica. Botão de WhatsApp integrado e formulário de agendamento.</p>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="proj-tag">Landing Page</span>
+              <span class="proj-tag">Saúde</span>
+            </div>
+            <a href="SEU_LINK_AQUI" class="proj-link" target="_blank">Ver projeto ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb c2">⚖️</div>
+        <div class="proj-body">
+          <div class="proj-type">Site Institucional · Advocacia</div>
+          <h3>Escritório Exemplo</h3>
+          <p>Site institucional com 5 páginas para escritório de advocacia. Foco em autoridade, áreas de atuação e geração de leads qualificados.</p>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="proj-tag">Site Completo</span>
+              <span class="proj-tag">Advocacia</span>
+            </div>
+            <a href="SEU_LINK_AQUI" class="proj-link" target="_blank">Ver projeto ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb c3">🏠</div>
+        <div class="proj-body">
+          <div class="proj-type">Landing Page · Imobiliária</div>
+          <h3>Imobiliária Exemplo</h3>
+          <p>Landing page para lançamento de empreendimento imobiliário. Galeria de imagens, formulário de interesse e contador de unidades.</p>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="proj-tag">Landing Page</span>
+              <span class="proj-tag">Imóveis</span>
+            </div>
+            <a href="SEU_LINK_AQUI" class="proj-link" target="_blank">Ver projeto ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb c4">💪</div>
+        <div class="proj-body">
+          <div class="proj-type">Site Institucional · Fitness</div>
+          <h3>Academia Exemplo</h3>
+          <p>Site completo para academia com planos e preços, galeria de estrutura, depoimentos de alunos e integração com agendamento de aula experimental.</p>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="proj-tag">Site Completo</span>
+              <span class="proj-tag">Fitness</span>
+            </div>
+            <a href="SEU_LINK_AQUI" class="proj-link" target="_blank">Ver projeto ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">// como funciona</div>
+      <h2>Do briefing à entrega<br/><span class="step-lime">sem enrolação</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Briefing</h3>
+        <p>Conversa rápida pelo WhatsApp para entender seu negócio, público e objetivo da página.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Proposta</h3>
+        <p>Envio proposta com escopo, prazo e valor em até 24h. Sem surpresas no meio do caminho.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Desenvolvimento</h3>
+        <p>Criação do site com atualizações de progresso. Você aprova antes da publicação.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h3>Entrega & Suporte</h3>
+        <p>Site publicado, domínio configurado e 30 dias de suporte incluso após a entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">// depoimentos</div>
+      <h2>O que clientes dizem</h2>
+      <p class="sub" style="margin-top:0.5rem;">Adicione aqui os depoimentos reais dos seus clientes.</p>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Profissional sério, entregou dentro do prazo e o resultado superou as expectativas. Nossa landing page triplicou os contatos em 30 dias."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <div class="dep-name">Nome do Cliente</div>
+            <div class="dep-role">Empresa · Segmento</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Finalmente um site que parece profissional de verdade. Rápido, bonito e que funciona no celular. Recomendo sem hesitar."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👨</div>
+          <div>
+            <div class="dep-name">Nome do Cliente</div>
+            <div class="dep-role">Empresa · Segmento</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Atendimento ágil e transparente. Explicou cada etapa do processo e entregou exatamente o que foi combinado. Já contratei mais dois projetos."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <div class="dep-name">Nome do Cliente</div>
+            <div class="dep-role">Empresa · Segmento</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow">// fale comigo</div>
+      <h2>Vamos criar seu site?</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Respondo em até 24h</h3>
+        <p>Me conta sobre o seu negócio e o que você precisa. Sem compromisso — envio uma proposta detalhada gratuitamente.</p>
+        <div class="clinks">
+          <a href="https://wa.me/55SEUNUMERO" class="clink" target="_blank">
+            <div class="clink-icon">💬</div>
+            WhatsApp — resposta mais rápida
+          </a>
+          <a href="mailto:SEU@EMAIL.COM" class="clink">
+            <div class="clink-icon">✉️</div>
+            SEU@EMAIL.COM
+          </a>
+          <a href="https://instagram.com/SEU_PERFIL" class="clink" target="_blank">
+            <div class="clink-icon">📸</div>
+            @SEU_PERFIL no Instagram
+          </a>
+          <a href="https://linkedin.com/in/SEU_PERFIL" class="clink" target="_blank">
+            <div class="clink-icon">💼</div>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleForm(event)">
+        <div>
+          <label>Seu nome</label>
+          <input type="text" placeholder="Como posso te chamar?" required/>
+        </div>
+        <div>
+          <label>WhatsApp ou E-mail</label>
+          <input type="text" placeholder="Para eu entrar em contato" required/>
+        </div>
+        <div>
+          <label>Tipo de projeto</label>
+          <select>
+            <option value="">Selecione o que precisa...</option>
+            <option>Landing Page</option>
+            <option>Site Institucional (até 5 páginas)</option>
+            <option>Loja Virtual</option>
+            <option>Redesign de site existente</option>
+            <option>Manutenção mensal</option>
+            <option>Não sei ainda — quero orientação</option>
+          </select>
+        </div>
+        <div>
+          <label>Me conta mais sobre seu negócio</label>
+          <textarea placeholder="Qual é seu negócio? O que você quer alcançar com o site?"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Quero receber uma proposta →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Adriano · Sites & Landing Pages para Empresas · Guarulhos, SP</p>
+</footer>
+
+<script>
+  // SCROLL REVEAL
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // FORM
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✅ Mensagem enviada! Retorno em breve.';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Quero receber uma proposta →';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>

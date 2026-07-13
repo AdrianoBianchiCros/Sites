@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pra Você Dublar Bem — Marco Antonio Abreu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16100f;
+    --panel:#1f1614;
+    --cream:#f4ead9;
+    --paper:#fbf4e8;
+    --gold:#d6a24a;
+    --gold-soft:#e9c98a;
+    --rec:#c0392b;
+    --line: rgba(244,234,217,0.14);
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Source Serif 4', serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', 'Bebas Neue', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:0.98;
+    font-weight:400;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(22,16,15,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Anton', sans-serif; font-size:1.15rem; letter-spacing:0.08em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .tag{
+    color:var(--rec); font-family:'Bebas Neue', sans-serif; font-size:0.7rem;
+    border:1px solid var(--rec); border-radius:2px; padding:2px 6px; letter-spacing:0.18em;
+  }
+  .nav-cta{
+    background:var(--gold); color:var(--ink); font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.12em; font-size:0.82rem; padding:10px 18px; border-radius:3px;
+    text-decoration:none; white-space:nowrap; transition:transform .15s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:var(--gold-soft); transform:translateY(-1px);}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:84px 0 60px;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 900px 500px at 80% -10%, rgba(214,162,74,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 10% 110%, rgba(192,57,43,0.14), transparent 60%);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
+  }
+  .onair{
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--rec); color:var(--rec);
+    font-family:'Bebas Neue',sans-serif; letter-spacing:0.25em; font-size:0.78rem;
+    padding:6px 14px; border-radius:3px; margin-bottom:22px;
+  }
+  .onair .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--rec);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(192,57,43,0.5);}
+    50%{opacity:.45; box-shadow:0 0 0 6px rgba(192,57,43,0);}
+  }
+  .hero h1{
+    font-size:clamp(2.8rem, 7vw, 5.2rem);
+    color:var(--paper);
+  }
+  .hero h1 .accent{color:var(--gold);}
+  .hero p.lead{
+    margin-top:22px; font-size:1.15rem; color:rgba(244,234,217,0.82); max-width:520px;
+  }
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;}
+  .btn-primary{
+    background:var(--gold); color:var(--ink); font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.14em; font-size:0.95rem; padding:16px 30px; border-radius:4px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 8px 24px -8px rgba(214,162,74,0.55);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(214,162,74,0.7);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--cream); font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.14em; font-size:0.95rem; padding:16px 28px; border-radius:4px;
+    text-decoration:none; transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--gold); background:rgba(214,162,74,0.06);}
+
+  /* hero visual: mic + waveform */
+  .hero-visual{
+    position:relative; aspect-ratio:1/1.05; border-radius:8px;
+    background:linear-gradient(160deg, #2a1d1a 0%, #18100f 70%);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 35%, rgba(214,162,74,0.22), transparent 55%);
+  }
+  .hero-photo{
+    position:relative; width:78%; aspect-ratio:1/1; border-radius:6px; overflow:hidden;
+    border:1px solid rgba(214,162,74,0.35);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.05);}
+  .hero-photo::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 55%, rgba(22,16,15,0.92) 100%);
+  }
+  .hero-photo .cap{
+    position:absolute; bottom:14px; left:14px; right:14px; z-index:2;
+    font-family:'Bebas Neue',sans-serif; letter-spacing:0.18em; font-size:0.78rem;
+    color:var(--gold-soft);
+  }
+
+  /* waveform bar */
+  .wave{
+    display:flex; align-items:flex-end; gap:4px; height:48px; margin-top:28px;
+  }
+  .wave i{
+    display:block; width:5px; border-radius:2px; background:var(--gold);
+    animation: bar 1.1s ease-in-out infinite;
+  }
+  .wave i:nth-child(odd){animation-delay:-0.3s; background:var(--rec);}
+  .wave i:nth-child(3n){animation-delay:-0.6s;}
+  @keyframes bar{
+    0%,100%{height:14%;}
+    50%{height:100%;}
+  }
+
+  /* ============ SECTION HELPERS ============ */
+  section{padding:78px 0;}
+  .eyebrow{
+    font-family:'Bebas Neue',sans-serif; letter-spacing:0.32em; font-size:0.78rem;
+    color:var(--gold); margin-bottom:14px;
+  }
+  .sec-title{
+    font-size:clamp(2rem,4.6vw,3.2rem); color:var(--paper); max-width:760px;
+  }
+  .sec-sub{
+    margin-top:16px; color:rgba(244,234,217,0.78); max-width:640px; font-size:1.05rem;
+  }
+
+  /* ============ WHAT'S INCLUDED ============ */
+  .included{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .feat-grid{
+    margin-top:46px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  .feat{
+    background:var(--panel); padding:32px 28px; min-height:200px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .feat .mk{
+    font-family:'Bebas Neue',sans-serif; color:var(--rec); letter-spacing:0.2em; font-size:0.78rem;
+  }
+  .feat h3{font-size:1.5rem; color:var(--paper); letter-spacing:0.01em;}
+  .feat p{font-size:0.96rem; color:rgba(244,234,217,0.74);}
+
+  /* ============ FOR WHOM ============ */
+  .forwhom .wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .forwhom ul{list-style:none; margin-top:30px; display:flex; flex-direction:column; gap:18px;}
+  .forwhom li{
+    display:flex; gap:16px; align-items:flex-start; font-size:1.04rem; color:rgba(244,234,217,0.88);
+    padding-bottom:18px; border-bottom:1px solid var(--line);
+  }
+  .forwhom li:last-child{border-bottom:none; padding-bottom:0;}
+  .forwhom li .ic{
+    flex:none; width:28px; height:28px; border-radius:50%;
+    border:1px solid var(--gold); color:var(--gold);
+    display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:0.85rem;
+    margin-top:2px;
+  }
+  .note-box{
+    background:var(--panel); border:1px solid var(--line); border-radius:6px;
+    padding:26px; margin-top:36px; font-size:0.92rem; color:rgba(244,234,217,0.7);
+    border-left:3px solid var(--rec);
+  }
+  .forwhom .side{
+    position:relative; border-radius:6px; overflow:hidden; border:1px solid var(--line);
+    aspect-ratio:4/5;
+  }
+  .forwhom .side img{width:100%; height:100%; object-fit:cover;}
+  .forwhom .side::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(22,16,15,0.85), transparent 60%);
+  }
+  .forwhom .side .tagline{
+    position:absolute; bottom:22px; left:22px; right:22px; z-index:2;
+    font-family:'Anton',sans-serif; font-size:1.6rem; color:var(--paper); text-transform:uppercase; line-height:1.1;
+  }
+  .forwhom .side .tagline span{color:var(--gold);}
+
+  /* ============ INSTRUCTOR ============ */
+  .instructor{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .instructor .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;}
+  .instructor .photo{
+    position:relative; border-radius:6px; overflow:hidden; border:1px solid var(--line);
+    aspect-ratio:3/4;
+  }
+  .instructor .photo img{width:100%; height:100%; object-fit:cover;}
+  .instructor .credit-strip{
+    position:absolute; bottom:0; left:0; right:0;
+    background:rgba(22,16,15,0.88); backdrop-filter:blur(4px);
+    padding:14px 18px; font-family:'Bebas Neue',sans-serif; letter-spacing:0.16em; font-size:0.74rem;
+    color:var(--gold-soft); border-top:1px solid var(--line);
+  }
+  .instructor .bio h2{font-size:clamp(2rem,4.2vw,2.8rem); color:var(--paper);}
+  .instructor .bio p{margin-top:16px; color:rgba(244,234,217,0.82); font-size:1.02rem;}
+  .roles{
+    margin-top:28px; display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .roles span{
+    border:1px solid var(--line); border-radius:999px; padding:8px 16px;
+    font-size:0.86rem; color:var(--cream); font-family:'Source Serif 4',serif;
+  }
+  .roles span b{color:var(--gold); font-weight:600;}
+
+  /* ============ GALLERY ============ */
+  .gallery .wrap > .head{display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:18px;}
+  .gallery-strip{
+    margin-top:40px; display:grid; grid-template-columns:repeat(7,1fr); gap:10px;
+  }
+  .gallery-strip .cell{
+    aspect-ratio:4/5; border-radius:5px; overflow:hidden; border:1px solid var(--line);
+    background:var(--panel); position:relative;
+  }
+  .gallery-strip .cell img{width:100%; height:100%; object-fit:cover; filter:grayscale(15%);
+    transition:filter .25s ease, transform .35s ease;}
+  .gallery-strip .cell:hover img{filter:grayscale(0%); transform:scale(1.05);}
+
+  /* ============ FINAL CTA ============ */
+  .final{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 0%, rgba(214,162,74,0.18), transparent 60%);
+    text-align:center;
+  }
+  .final .eyebrow{justify-content:center; display:flex;}
+  .final h2{font-size:clamp(2.4rem,7vw,4.4rem); color:var(--paper);}
+  .final p{max-width:560px; margin:18px auto 0; color:rgba(244,234,217,0.8); font-size:1.08rem;}
+  .final .btn-primary{margin-top:34px; font-size:1.05rem; padding:18px 36px;}
+  .final .wave{justify-content:center; margin:36px auto 0;}
+
+  /* ============ FOOTER ============ */
+  footer{border-top:1px solid var(--line); padding:30px 0; }
+  footer .wrap{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:'Bebas Neue',sans-serif; letter-spacing:0.14em; font-size:0.78rem; color:rgba(244,234,217,0.55);
+  }
+
+  /* ============ WHATSAPP FLOAT ============ */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    background:#25D366; color:#0c1f14; width:58px; height:58px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 26px -6px rgba(0,0,0,0.5);
+    text-decoration:none;
+    animation: floatbob 3s ease-in-out infinite;
+  }
+  @keyframes floatbob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-visual{order:-1; max-width:420px; margin:0 auto;}
+    .feat-grid{grid-template-columns:1fr 1fr;}
+    .forwhom .wrap{grid-template-columns:1fr;}
+    .forwhom .side{order:-1; aspect-ratio:16/9;}
+    .instructor .wrap{grid-template-columns:1fr; gap:36px;}
+    .instructor .photo{max-width:420px; margin:0 auto; aspect-ratio:4/5;}
+    .gallery-strip{grid-template-columns:repeat(4,1fr);}
+  }
+  @media (max-width: 620px){
+    .feat-grid{grid-template-columns:1fr;}
+    .gallery-strip{grid-template-columns:repeat(3,1fr);}
+    .nav-cta{font-size:0.72rem; padding:9px 14px;}
+    section{padding:56px 0;}
+    .hero{padding:50px 0 40px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        PRA VOCÊ DUBLAR BEM <span class="tag">REC ●</span>
+      </div>
+      <a class="nav-cta" href="https://wa.me/5511933781303" target="_blank" rel="noopener">GARANTIR VAGA</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="onair"><span class="dot"></span> IMERSÃO PRÁTICA DE DUBLAGEM</div>
+        <h1>Sua voz<br>tem um <span class="accent">personagem</span><br>esperando por ela</h1>
+        <p class="lead">
+          Aprenda dublagem profissional em estúdio real, sob direção do dublador
+          Marco Antonio Abreu — quase 30 anos de carreira dando voz a heróis,
+          vilões e ícones dos games, do cinema e da TV.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://wa.me/5511933781303" target="_blank" rel="noopener">
+            QUERO MINHA VAGA →
+          </a>
+          <a class="btn-ghost" href="#metodo">CONHECER O MÉTODO</a>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <i style="height:40%"></i><i style="height:70%"></i><i style="height:30%"></i>
+          <i style="height:90%"></i><i style="height:50%"></i><i style="height:75%"></i>
+          <i style="height:35%"></i><i style="height:60%"></i><i style="height:25%"></i>
+          <i style="height:85%"></i><i style="height:45%"></i><i style="height:65%"></i>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo">
+          <img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Design-sem-nome-21.png" alt="Marco Antonio Abreu, dublador">
+          <div class="cap">MARCO ANTONIO ABREU · ATOR &amp; DUBLADOR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ VAI TER -->
+  <section class="included" id="metodo">
+    <div class="wrap">
+      <div class="eyebrow">O QUE ESTÁ INCLUSO</div>
+      <h2 class="sec-title">Tudo que você precisa para gravar sua primeira cena de dublagem</h2>
+      <p class="sec-sub">
+        Da técnica vocal à câmera fechada no estúdio: um método completo, testado
+        há mais de 20 anos, agora também em turmas presenciais e online.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat">
+          <span class="mk">TÉCNICA</span>
+          <h3>Sincronismo labial &amp; impostação vocal</h3>
+          <p>Domine o ritmo da fala, a dicção e a leitura fluente exigidas em qualquer estúdio profissional.</p>
+        </div>
+        <div class="feat">
+          <span class="mk">INTERPRETAÇÃO</span>
+          <h3>Interpretação dramática de personagens</h3>
+          <p>Trabalhe cenas reais de filmes, séries, animes, desenhos e realitys com direção de cena.</p>
+        </div>
+        <div class="feat">
+          <span class="mk">PRÁTICA</span>
+          <h3>Gravação em estúdio profissional</h3>
+          <p>As aulas acontecem em um dos estúdios mais icônicos de São Paulo, no ritmo de uma gravação real.</p>
+        </div>
+        <div class="feat">
+          <span class="mk">DIREÇÃO</span>
+          <h3>Avaliação individual do professor</h3>
+          <p>Cada cena é dirigida e avaliada por Marco Antonio Abreu, profissional com quase 30 anos de carreira.</p>
+        </div>
+        <div class="feat">
+          <span class="mk">MATERIAL</span>
+          <h3>Arquivos das suas dublagens</h3>
+          <p>Você leva para casa os áudios e vídeos de todas as cenas que dublou durante o curso.</p>
+        </div>
+        <div class="feat">
+          <span class="mk">CERTIFICADO</span>
+          <h3>Certificado de conclusão</h3>
+          <p>Comprovação da sua participação na imersão "Pra Você Dublar Bem".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="forwhom">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">PARA QUEM É</div>
+        <h2 class="sec-title">Não importa se você nunca dublou nada — é por aqui que tudo começa</h2>
+        <ul>
+          <li><span class="ic">✓</span> Qualquer pessoa que goste de dublagem e queira experimentar na prática</li>
+          <li><span class="ic">✓</span> Interessados a partir de 10 anos</li>
+          <li><span class="ic">✓</span> Profissionais que querem técnicas para dublar e interpretar um texto</li>
+          <li><span class="ic">✓</span> Atores e atrizes que querem dar o primeiro passo nessa arte</li>
+          <li><span class="ic">✓</span> Quem pretende seguir carreira como profissional da voz</li>
+        </ul>
+        <div class="note-box">
+          Esta é uma oficina livre de interpretação de dublagem, voltada para
+          iniciantes e curiosos do universo da dublagem. O curso não emite DRT
+          (registro profissional), necessário para atuar profissionalmente como dublador.
+        </div>
+      </div>
+      <div class="side">
+        <img src="./img/Duclador.png" alt="Personagem dublado">
+        <div class="tagline">Sua voz pode <span>virar personagem</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSOR -->
+  <section class="instructor">
+    <div class="wrap">
+      <div class="photo">
+        <img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Design-sem-nome-21.png" alt="Marco Antonio Abreu">
+        <div class="credit-strip">DESDE 1999 NOS ESTÚDIOS DE DUBLAGEM DE SÃO PAULO</div>
+      </div>
+      <div class="bio">
+        <div class="eyebrow">CONHEÇA SEU PROFESSOR</div>
+        <h2>Marco Antonio Abreu</h2>
+        <p>
+          Você provavelmente já ouviu a voz de Marco Antonio sem saber.
+          Como dublador desde 1999, ele já interpretou heróis, vilões e
+          personagens icônicos da TV, do cinema e dos games — incluindo
+          Patrick (Bob Esponja), Rick Grimes (The Walking Dead), Mike Wolf
+          (Caçadores de Relíquias) e Yasuo (League of Legends).
+        </p>
+        <p>
+          Também dá voz em português a atores como Ralph Fiennes, Javier
+          Bardem, Idris Elba, George Clooney e Christian Bale, além de
+          personagens de games como Capitão Price (Call of Duty), Lucian
+          (League of Legends), Thalion (Sombras de Mordor), Adam Warlock
+          (Guardiões da Galáxia) e Boozer (Days Gone).
+        </p>
+        <p>
+          Criou o método "Pra Você Dublar Bem", que acontece em São Paulo
+          desde 2004, hoje com turmas presenciais e online.
+        </p>
+        <div class="roles">
+          <span><b>26+ anos</b> de carreira</span>
+          <span><b>Cinema</b>, séries e animes</span>
+          <span><b>Games</b> nacionais e internacionais</span>
+          <span>Turmas <b>presenciais</b> e <b>online</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="gallery">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">ALGUNS PERSONAGENS DUBLADOS</div>
+          <h2 class="sec-title" style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Vozes que você já conhece — agora você pode aprender a fazer o mesmo</h2>
+        </div>
+      </div>
+      <div class="gallery-strip">
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-17-240x300.png" alt="Personagem dublado 17"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-16-240x300.png" alt="Personagem dublado 16"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-15-240x300.png" alt="Personagem dublado 15"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-13-240x300.png" alt="Personagem dublado 13"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-12-240x300.png" alt="Personagem dublado 12"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-11-240x300.png" alt="Personagem dublado 11"></div>
+        <div class="cell"><img src="https://titiomarcoantonio.com.br/wp-content/uploads/2024/09/Persionagens-9-240x300.png" alt="Personagem dublado 9"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final">
+    <div class="wrap">
+      <div class="eyebrow">VAGAS LIMITADAS POR TURMA</div>
+      <h2>Bora gravar sua primeira cena?</h2>
+      <p>
+        Fale agora pelo WhatsApp e garanta sua vaga na próxima turma do
+        "Pra Você Dublar Bem", com Marco Antonio Abreu.
+      </p>
+      <a class="btn-primary" href="https://wa.me/5511933781303" target="_blank" rel="noopener">
+        FALAR NO WHATSAPP →
+      </a>
+      <div class="wave" aria-hidden="true">
+        <i style="height:30%"></i><i style="height:80%"></i><i style="height:45%"></i>
+        <i style="height:95%"></i><i style="height:55%"></i><i style="height:70%"></i>
+        <i style="height:25%"></i><i style="height:60%"></i><i style="height:40%"></i>
+        <i style="height:85%"></i><i style="height:50%"></i><i style="height:65%"></i>
+        <i style="height:35%"></i><i style="height:75%"></i><i style="height:45%"></i>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>PRA VOCÊ DUBLAR BEM · MARCO ANTONIO ABREU</span>
+      <span>WHATSAPP (11) 93378-1303</span>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5511933781303" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.6c-4.9 0-8.88 3.99-8.88 8.9 0 1.57.41 3.1 1.19 4.44L3.2 21l4.16-1.09a8.83 8.83 0 0 0 4.69 1.35h.01c4.9 0 8.88-3.99 8.88-8.9a8.86 8.86 0 0 0-2.34-6.04ZM12.06 19.6h-.01a7.34 7.34 0 0 1-3.74-1.03l-.27-.16-2.78.73.74-2.71-.18-.28a7.3 7.3 0 0 1-1.12-3.9c0-4.04 3.3-7.34 7.36-7.34 1.96 0 3.8.76 5.19 2.15a7.27 7.27 0 0 1 2.15 5.19c0 4.04-3.3 7.35-7.34 7.35Zm4.03-5.5c-.22-.11-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.16-.48.05-.22-.11-.94-.34-1.79-1.1-.66-.59-1.1-1.31-1.23-1.53-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.41-.06-.11-.5-1.2-.69-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.28-.21.22-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.11.15 1.55 2.36 3.76 3.21 2.21.85 2.21.57 2.61.53.4-.04 1.3-.53 1.48-1.04.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.42-.26Z"/></svg>
+  </a>
+
+</body>
+</html>
