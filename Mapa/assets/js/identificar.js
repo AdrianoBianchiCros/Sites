@@ -86,6 +86,9 @@
     document.getElementById("cc-cep").required = true;
     document.getElementById("cc-submit-btn").textContent = "Criar conta";
     document.getElementById("cc-sucesso").hidden = true;
+    if(seletorLojaPreferencial && window.MapaLoja){
+      seletorLojaPreferencial.value = window.MapaLoja.getLojaAtual().id;
+    }
     atualizarTipoCadastro();
   }
 
@@ -131,6 +134,9 @@
     document.getElementById("cc-bairro").value = usuario.bairro || "";
     document.getElementById("cc-cidade").value = usuario.cidade || "";
     document.getElementById("cc-estado").value = usuario.estado || "";
+    if(seletorLojaPreferencial){
+      seletorLojaPreferencial.value = usuario.lojaPreferencial || (window.MapaLoja ? window.MapaLoja.getLojaAtual().id : "");
+    }
 
     for(var i = 0; i < radiosTipo.length; i++){
       radiosTipo[i].checked = (radiosTipo[i].value === (usuario.tipo || "fisica"));
@@ -340,6 +346,16 @@
     });
   }
 
+  var seletorLojaPreferencial = document.getElementById("cc-loja-preferencial");
+  if(seletorLojaPreferencial && window.MapaLoja){
+    window.MapaLoja.LOJAS.forEach(function(loja){
+      var opt = document.createElement("option");
+      opt.value = loja.id;
+      opt.textContent = loja.nome;
+      seletorLojaPreferencial.appendChild(opt);
+    });
+  }
+
   function atualizarTipoCadastro(){
     var juridica = false;
     for(var i = 0; i < radiosTipo.length; i++){
@@ -409,7 +425,8 @@
         referencia: valor("cc-referencia"),
         bairro: valor("cc-bairro"),
         cidade: valor("cc-cidade"),
-        estado: valor("cc-estado")
+        estado: valor("cc-estado"),
+        lojaPreferencial: valor("cc-loja-preferencial")
       };
 
       if(modoEdicaoConta){
