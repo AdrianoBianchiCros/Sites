@@ -11,6 +11,7 @@
     {
       id: "braganca-paulista",
       nome: "Bragança Paulista (Matriz)",
+      cidade: "Bragança Paulista",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -26,6 +27,7 @@
     {
       id: "pinhalzinho",
       nome: "Pinhalzinho",
+      cidade: "Pinhalzinho",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -41,6 +43,7 @@
     {
       id: "atibaia-1",
       nome: "Atibaia — Unidade 1",
+      cidade: "Atibaia — Unidade 1",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -56,6 +59,7 @@
     {
       id: "atibaia-2",
       nome: "Atibaia — Unidade 2",
+      cidade: "Atibaia — Unidade 2",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -71,6 +75,7 @@
     {
       id: "jaguariuna",
       nome: "Jaguariúna",
+      cidade: "Jaguariúna",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -86,6 +91,7 @@
     {
       id: "unidade-6",
       nome: "Nova unidade (ajustar nome e cidade)",
+      cidade: "cidade da 6ª unidade",
       whatsapp: "5511954953570",
       telefoneFixo: "+551140339449",
       telefoneDisplay: "(11) 4033-9449",
@@ -109,11 +115,13 @@
     "assoalho": "Olá! Quero instalar ASSOALHO. Pode me passar a lista de material e o orçamento?",
     "cerca": "Olá! Preciso de material para CERCA/PERGOLADO com euclipto tratado. Pode me orçar?",
     "falar-vendedor": "Olá! Quero falar com um vendedor.",
+    "atendimento": "Olá! Preciso de atendimento.",
     "confirmar-horario": "Olá! Quero passar na loja. Qual o endereço e o horário?",
     "identificacao": "Olá! Quero me identificar/cadastrar para fazer pedidos."
   };
 
   var CAMPOS_TEXTO = {
+    "cidade": function(l){ return l.cidade; },
     "endereco": function(l){ return l.endereco; },
     "horario-texto": function(l){ return l.horario.texto; },
     "telefone-display": function(l){ return l.telefoneDisplay; },
