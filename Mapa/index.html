@@ -245,6 +245,7 @@
   .identificar-cep-input{flex:0 0 150px}
   .identificar-campo-cep .identificar-link{margin-top:0;margin-bottom:11px;white-space:nowrap}
   .identificar-termos{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--casca);margin-bottom:18px;cursor:pointer}
+  .identificar-termos[hidden]{display:none}
   .identificar-termos input{accent-color:var(--wood);width:16px;height:16px;margin-top:2px;flex-shrink:0}
   .identificar-termos a{color:var(--wood);text-decoration:underline}
   .identificar-termos a:hover{color:var(--casca)}
@@ -304,6 +305,11 @@
   .btn-escuro:hover{background:#2A2015}
   .aviso-estoque-sucesso{font-size:13.5px;font-weight:600;color:var(--mata);margin-top:16px}
   .aviso-estoque-sucesso[hidden]{display:none}
+
+  /* confirmar remoção de item indisponível */
+  #confirmar-remover-overlay{z-index:173}
+  #confirmar-remover-modal{z-index:174}
+  .confirmar-remover-acoes{display:flex;gap:12px;justify-content:center;margin-top:8px}
   .piscar-destino{animation:piscar .5s step-start 6}
   .piscar-fundo{animation:piscar-fundo 1.2s ease-in-out 3}
   @keyframes piscar-fundo{
@@ -1843,6 +1849,18 @@
   <p class="aviso-estoque-sucesso" id="aviso-estoque-sucesso" hidden>Prontinho! Você será avisado assim que este produto voltar ao estoque.</p>
 </div>
 
+<!-- CONFIRMAR REMOÇÃO DE PRODUTO INDISPONÍVEL DA LISTA DE DESEJOS -->
+<div class="politica-overlay" id="confirmar-remover-overlay" hidden></div>
+<div class="aviso-estoque-modal" id="confirmar-remover-modal" role="dialog" aria-modal="true" aria-label="Remover produto indisponível" hidden>
+  <button type="button" id="fechar-confirmar-remover" class="aviso-estoque-fechar" aria-label="Fechar">×</button>
+  <h2>Remover item?</h2>
+  <p>Você adicionou este produto porque ele está indisponível. Quando voltar ao estoque, será possível adicioná-lo ao carrinho. Deseja mesmo excluir?</p>
+  <div class="confirmar-remover-acoes">
+    <button type="button" class="btn btn-linha" id="confirmar-remover-nao">Não</button>
+    <button type="button" class="btn btn-escuro" id="confirmar-remover-sim">Sim, excluir</button>
+  </div>
+</div>
+
 <script src="assets/js/lojas.js"></script>
 <script src="assets/js/status-loja.js"></script>
 <script src="assets/js/contas.js"></script>
@@ -2370,7 +2388,7 @@
         { sku:"4316", nome:"Chapa ondulada BR 5mm x 1,83 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738514/b5f9617f68dc4e6b95b720d2ee512a16-t7u7h100io.png", preco:{ valor:"R$ 785,63" } },
         { sku:"4317", nome:"Chapa ondulada BR 5mm x 1,53 x 1,10m — Fibrocimento Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400738496/cc13b49210a84d8e939fae0be57ab540-wz6meiw9zh.png", preco:{ valor:"R$ 31,71" } },
         { sku:"4318", nome:"Chapa fibrocimento 4mm x 2,44 x 0,50m — Brasilit", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400737626/160aaa3dc9a3422cbe86e6da20b80b17-1rp47f1jh5.png", preco:{ valor:"R$ 658,15" } },
-        { sku:"1964", nome:"Cumeeira colonial resinada Barrobello", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400732102/504b4ad16c844efdb8141140185245da-8jmup0tif3.jpg", preco:{ valor:"R$ 4,60", parcelas:"até 6x de R$ 0,76 sem juros" } },
+        { sku:"1964", nome:"Cumeeira colonial resinada Barrobello", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400732102/504b4ad16c844efdb8141140185245da-8jmup0tif3.jpg", preco:{ valor:"R$ 4,60", parcelas:"até 6x de R$ 0,76 sem juros" }, estoque:"indisponivel" },
         { sku:"4319", nome:"Telha Eurotop PET", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296550097/2edde67943bf40c5938d6ac5e198e032-39jalegtom.png", preco:{ valor:"R$ 302,26" } },
         { sku:"4320", nome:"Acabamento lateral concreto cinza — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549782/design-sem-nome-1-3s4ypvp5hm.jpg", preco:{ valor:"R$ 829,11" } },
         { sku:"4321", nome:"Acabamento lateral concreto colorida — Eurotop", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296549777/design-sem-nome-28i0eswdaw.jpg", preco:{ valor:"R$ 715,95" } },
@@ -2401,8 +2419,8 @@
       descricao:"Eucalipto autoclavado, do 4–6 cm ao 8–10 cm de diâmetro, de 1,50 m a 5,00 m. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
       termos:["4 a 6","6 a 8","8 a 10"],
       produtos:[
-        { sku:"4343", nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746278/be6e0f47e9e54ba4bb94deed1dcd5f45-dwceqvgbwj.png", preco:{ valor:"R$ 873,41" } },
-        { sku:"4344", nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746219/63755635ebf64e53850d2b4dfbce60d6-ki572gs99l.png", preco:{ valor:"R$ 481,82" } },
+        { sku:"4343", nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 5,00 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746278/be6e0f47e9e54ba4bb94deed1dcd5f45-dwceqvgbwj.png", preco:{ valor:"R$ 873,41" }, estoque:"indisponivel" },
+        { sku:"4344", nome:"ROLIÇO EUCALIPTO 08 A 10 TRATADO 4,50 MTS", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746219/63755635ebf64e53850d2b4dfbce60d6-ki572gs99l.png", preco:{ valor:"R$ 481,82" }, estoque:"indisponivel" },
         { sku:"4345", nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 3,00m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746209/6b3c445169d94206b5bf492457a7f1c9-cz5t9fdlq1.png", preco:{ valor:"R$ 836,52" } },
         { sku:"4346", nome:"ROLIÇO 8 A 10 EUCALIPTO TRATADO 4,00 M", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400746015/58986ba270e840ad9ea989ff02404842-t9vwf6almv.png", preco:{ valor:"R$ 111,41" } },
         { sku:"4347", nome:"Roliço Eucalipto Tratado 8 cm a 10 cm x 1,50 m", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/400745995/b194f6681a004dd9b67cb33f76452a37-64fttegute.png", preco:{ valor:"R$ 863,95" } },
@@ -2714,7 +2732,7 @@
       descricao:"Verniz, solvente e cupinicida. Pra madeira nova durar como madeira boa. Clique em um termo abaixo pra ir direto, ou use as setas pra navegar.",
       termos:["Polirex","Polideck","Polisten","Poliulack","Verniz","Thiner","Exterminador de cupim","Espuma"],
       produtos:[
-        { sku:"1016", nome:"Polirex Sayerlack Imbuia 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548759/37c34a19155ef62ffbcbf1bbd39b0601-ktstlnohuh.jpg", preco:{ valor:"R$ 172,85" } },
+        { sku:"1016", nome:"Polirex Sayerlack Imbuia 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548759/37c34a19155ef62ffbcbf1bbd39b0601-ktstlnohuh.jpg", preco:{ valor:"R$ 172,85" }, estoque:"indisponivel" },
         { sku:"1017", nome:"Polirex Sayerlack Imbuia 3,6 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/296548753/8134343d8f9d917ff1729b7f3e2464e5-cm3sm9mjc6.jpg", preco:{ valor:"R$ 200,34" } },
         { sku:"1045", nome:"Exterminador de cupim Sayerlack 0,9 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084839bc72814b8b.jpg", preco:{ valor:"R$ 436,04" } },
         { sku:"1046", nome:"Exterminador de cupim Sayerlack 5 L", imagem:"https://cdn.awsli.com.br/300x300/2550/2550639/produto/206084817cb3344dbe3.jpg", preco:{ valor:"R$ 647,61" } },
@@ -3031,7 +3049,8 @@
       desejos.push({
         id:id, nome:p.nome, sku:p.sku || null, imagem:p.imagem,
         precoTexto: p.preco ? p.preco.valor : null,
-        precoNum: p.preco ? parsePreco(p.preco.valor) : 0
+        precoNum: p.preco ? parsePreco(p.preco.valor) : 0,
+        estoque: p.estoque || "disponivel"
       });
     } else {
       desejos.splice(idx, 1);
@@ -3051,11 +3070,41 @@
       desejos.push({
         id:id, nome:p.nome, sku:p.sku || null, imagem:p.imagem,
         precoTexto: p.preco ? p.preco.valor : null,
-        precoNum: p.preco ? parsePreco(p.preco.valor) : 0
+        precoNum: p.preco ? parsePreco(p.preco.valor) : 0,
+        estoque: p.estoque || "disponivel"
       });
       salvarDesejos();
     }
   }
+
+  var idDesejoParaRemover = null;
+
+  function pedirRemocaoDesejo(id, item){
+    if(item.estoque === "indisponivel"){
+      idDesejoParaRemover = id;
+      document.getElementById("confirmar-remover-overlay").hidden = false;
+      document.getElementById("confirmar-remover-modal").hidden = false;
+    } else {
+      removerDesejo(id);
+    }
+  }
+
+  function fecharConfirmarRemover(){
+    document.getElementById("confirmar-remover-overlay").hidden = true;
+    document.getElementById("confirmar-remover-modal").hidden = true;
+    idDesejoParaRemover = null;
+  }
+
+  document.getElementById("fechar-confirmar-remover").addEventListener("click", fecharConfirmarRemover);
+  document.getElementById("confirmar-remover-overlay").addEventListener("click", fecharConfirmarRemover);
+  document.getElementById("confirmar-remover-nao").addEventListener("click", fecharConfirmarRemover);
+  document.getElementById("confirmar-remover-sim").addEventListener("click", function(){
+    if(idDesejoParaRemover) removerDesejo(idDesejoParaRemover);
+    fecharConfirmarRemover();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && !document.getElementById("confirmar-remover-modal").hidden) fecharConfirmarRemover();
+  });
 
   var produtoAvisoAtual = null;
 
@@ -3117,31 +3166,36 @@
 
       var info = el("div", "info");
       info.appendChild(el("span", "nome", item.nome));
-      info.appendChild(el("span", "preco-unit", item.precoTexto ? item.precoTexto : "Preço por quantidade"));
 
-      var acoes = el("div", "acoes-desejo");
-      if(item.precoTexto){
-        var btnCarrinho = document.createElement("button");
-        btnCarrinho.type = "button";
-        btnCarrinho.className = "btn btn-whats btn-sm";
-        btnCarrinho.textContent = "Adicionar ao carrinho";
-        btnCarrinho.addEventListener("click", function(){
-          adicionarAoCarrinho({ nome:item.nome, sku:item.sku, imagem:item.imagem, preco:{ valor:item.precoTexto } });
-        });
-        acoes.appendChild(btnCarrinho);
+      if(item.estoque === "indisponivel"){
+        info.appendChild(el("span", "estoque-label indisponivel", "Produto indisponível"));
       } else {
-        var linkPreco = document.createElement("a");
-        linkPreco.target = "_blank"; linkPreco.rel = "noopener";
-        linkPreco.className = "btn btn-wood btn-sm";
-        linkPreco.textContent = "Pedir preço";
-        linkPreco.href = linkPedirPreco(item.nome, item.sku);
-        acoes.appendChild(linkPreco);
+        info.appendChild(el("span", "preco-unit", item.precoTexto ? item.precoTexto : "Preço por quantidade"));
+
+        var acoes = el("div", "acoes-desejo");
+        if(item.precoTexto){
+          var btnCarrinho = document.createElement("button");
+          btnCarrinho.type = "button";
+          btnCarrinho.className = "btn btn-whats btn-sm";
+          btnCarrinho.textContent = "Adicionar ao carrinho";
+          btnCarrinho.addEventListener("click", function(){
+            adicionarAoCarrinho({ nome:item.nome, sku:item.sku, imagem:item.imagem, preco:{ valor:item.precoTexto } });
+          });
+          acoes.appendChild(btnCarrinho);
+        } else {
+          var linkPreco = document.createElement("a");
+          linkPreco.target = "_blank"; linkPreco.rel = "noopener";
+          linkPreco.className = "btn btn-wood btn-sm";
+          linkPreco.textContent = "Pedir preço";
+          linkPreco.href = linkPedirPreco(item.nome, item.sku);
+          acoes.appendChild(linkPreco);
+        }
+        info.appendChild(acoes);
       }
-      info.appendChild(acoes);
 
       var remover = document.createElement("button");
       remover.type = "button"; remover.className = "remover-item"; remover.textContent = "Remover";
-      remover.addEventListener("click", function(){ removerDesejo(item.id); });
+      remover.addEventListener("click", function(){ pedirRemocaoDesejo(item.id, item); });
       info.appendChild(remover);
 
       row.appendChild(info);

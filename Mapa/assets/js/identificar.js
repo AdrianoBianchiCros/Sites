@@ -81,13 +81,12 @@
     document.getElementById("cc-termos").checked = false;
     document.getElementById("cc-termos").required = true;
     document.getElementById("cc-nome").required = true;
-    document.getElementById("cc-cpf").required = true;
-    document.getElementById("cc-cnpj").required = true;
     document.getElementById("cc-numero").required = true;
     document.getElementById("cc-celular").required = true;
     document.getElementById("cc-cep").required = true;
     document.getElementById("cc-submit-btn").textContent = "Criar conta";
     document.getElementById("cc-sucesso").hidden = true;
+    atualizarTipoCadastro();
   }
 
   function abrirMeusDados(){
@@ -137,6 +136,10 @@
       radiosTipo[i].checked = (radiosTipo[i].value === (usuario.tipo || "fisica"));
     }
     atualizarTipoCadastro();
+    // atualizarTipoCadastro() liga o required do CPF/CNPJ de novo; em "Meus
+    // dados" os dois continuam opcionais (só mostram/escondem por tipo).
+    document.getElementById("cc-cpf").required = false;
+    document.getElementById("cc-cnpj").required = false;
 
     document.getElementById("cc-termos-linha").hidden = false;
     document.getElementById("cc-termos").checked = true;
@@ -344,6 +347,13 @@
     }
     for(i = 0; i < camposPF.length; i++){ camposPF[i].hidden = juridica; }
     for(i = 0; i < camposPJ.length; i++){ camposPJ[i].hidden = !juridica; }
+
+    // campos escondidos via CSS continuam sendo validados pelo navegador —
+    // "required" precisa ser desligado explicitamente, não só escondido.
+    var cpf = document.getElementById("cc-cpf");
+    var cnpj = document.getElementById("cc-cnpj");
+    if(cpf) cpf.required = !juridica;
+    if(cnpj) cnpj.required = juridica;
   }
 
   for(var i = 0; i < radiosTipo.length; i++){
